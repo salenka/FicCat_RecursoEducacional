@@ -1,0 +1,246 @@
+ TAMANHO DA card
+    /* com borda na página o tam da card sai errado
+    border: 2px solid #c01a1a;
+    box-sizing: border-box; /*A borda "entra" no tamanho da pagina entre 6 e 7 mm */
+    */
+
+
+LARGURA DO FORMULÁRIO
+Com div container logo abaixo de body o formulário fica bem mais largo. Mas vou deixar sem. 
+Estava com o div container até o commit 338d7364da4ef4a8b5fe051fc7fc26a8a4caf335 de mensagem
+"Tamanho da card corrigido no PDF A4".
+
+
+PODE SER ÚTIL FUTURAMENTE SE DER PROBLEMA PARA VISUALIZAR A card COM PAGINA DISPLAY:NONE:
+
+const paginaDiv = document.querySelector('.pagina');
+paginaDiv.style.display = 'block'; // Torna visível
+gerarPDF(); // Chama a função que cria o PDF
+paginaDiv.style.display = 'none'; // Retorna ao estado original
+
+INSTABILIDADE NA LICENÇA (AS VEZES APARECEM AS DUAS ULTIMAS ESCOLHIDAS
+Em que ponto colocar um listener para apagar a licenca do localStorage (se é que é pra fazer isso)?
+
+    setTimeout(function() {
+        document.getElementById("page".style.display = "none")
+     }, 2000)
+
+/* Estilos de impressão */
+@media print {
+    .card-box {
+        width: 125mm !important;
+        height: 75mm !important;
+
+        -webkit-print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */
+        print-color-adjust: exact; /* Garante que as cores sejam impressas corretamente */
+                
+        overflow: hidden;
+    }
+
+    #btnPDF {
+        display: none;
+    }
+}
+
+
+
+
+ 
+                 <!-- Inputs das licenças--> REMOVIDO DE INDEX.HTML
+
+                <div id="by">
+                    <img src="IMG/cc-by.jpg" alt="CC BY" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição (CC BY)</b>. Esta licença permite a distribuição, remixagem, adaptação e criação a partir desta obra, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-sa">
+                    <img src="IMG/cc-by-sa.jpg" alt="CC BY-SA" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-CompartilhaIgual (CC BY-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho, mesmo para fins comerciais, desde que o devido crédito seja atribuído ao autor e que as novas criações sejam licenciadas sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nd">
+                    <img src="IMG/cc-by-nd.jpg" alt="CC BY-ND" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-SemDerivações (CC BY-ND)</b>. Esta licença permite a redistribuição, comercial e não comercial, desde que o trabalho seja distribuído de forma inalterada e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc">
+                    <img src="IMG/cc-by-nc.jpg" alt="CC BY-NC" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial (CC BY-NC)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc-sa">
+                    <img src="IMG/cc-by-nc-sa.jpg" alt="CC BY-NC-SA" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA)</b>. Esta licença permite a remixagem, adaptação e criação a partir deste trabalho para fins não comerciais, desde que o devido crédito seja atribuído ao autor e que a nova criação seja licenciada sob termos idênticos. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+
+                <div id="by-nc-nd">
+                    <img src="IMG/cc-by-nc-nd.jpg" alt="CC BY-NC-ND" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Atribuição-NãoComercial-SemDerivações (CC BY-NC-ND)</b>. Esta licença permite a redistribuição deste trabalho sem fins comerciais, desde que ele não seja alterado de nenhuma forma e o crédito seja atribuído ao autor. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+            
+                <div id="cc-0">
+                    <img src="IMG/cc-0.jpg" alt="CC BY" width="150" height="55">
+                    <p class="licenceText">Esta obra é licenciada sob uma licença <b>Creative Commons Domínio Público (CC-0)</b>.Esta licença renuncia a todos os direitos colocando o trabalho em domínio público. Os termos da licença são detalhados em <a href="https://br.creativecommons.net/licencas">https://br.creativecommons.net/licencas</a>.</p>
+                </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+            alert("Evento disparado para:", this.id);
+
+            // Abra uma nova aba
+ const novaAba = window.open("", "-blank");
+
+ // Configure o conteúdo da nova aba
+ novaAba.document.write(`
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>card Bibliográfica</title>
+         <style>
+             body {
+                 font-family: Arial, sans-serif;
+                 line-height: 1.6;
+                 margin: 20px;
+             }
+         </style>
+     </head>
+     <body>
+         <h1>card Bibliográfica</h1>
+         <p>${card}</p>
+     </body>
+     </html>
+ `);
+ 
+ // Fecha o fluxo de escrita e exibe o conteúdo
+ novaAba.document.close();
+
+ --------------------------------------
+
+
+    // tipo de responsável selecionado
+    function radioSelected(inputName) {
+    localStorage.setItem('selected', document.querySelector(`input[name="${inputName}"]:checked`));
+    
+    if(radioSelected) {
+        valueSelected = radioSelected.value; 
+    } else {
+        alert('Seleção de radio ${inputName} não encontrado')
+    }
+}
+
+-------------------------------------------
+
+//FUNÇÕES DESCARTADAS
+
+
+/*export function radioIsChecked(inputName){
+
+    const radios = document.querySelectorAll(`input[name="${inputName}"]`);
+    let algumSelecionado = false;
+
+    radios.forEach((radio) => {
+      if (radio.checked) {
+        algumSelecionado = true;
+      }
+    });
+
+        if (!algumSelecionado) {
+
+            const myevent = new Event('event');
+        myevent.preventDefault(); // Impede o envio do formulário
+                
+        // Crie um novo elemento de erro
+                const mensagemErro = document.createElement("span");
+                mensagemErro.id = "mensagemErro";
+                mensagemErro.style.color = "red";
+                mensagemErro.textContent = "Por favor, selecione ao menos uma opção.";
+
+                // Insira a mensagem de erro na div de opções
+                const divPai = radios[0].closest("div");
+                divPai.appendChild(mensagemErro);
+        }
+}*/
+
+
+/*
+
+No functions.js:
+
+// Função para salvar automaticamente os dados no localStorage
+export function saveData(event) {
+    const campo = event.target; // Campo que disparou o evento
+    const valor = campo.value; // Valor do campo
+    const nome = campo.name; // Nome do campo (usado como chave no localStorage)
+
+    // Salva no localStorage
+    localStorage.setItem(nome, valor); 
+}
+
+no script.js
+     // SALVA DADOS - adicionando o evento 'input' para todos os campos do formulário
+ document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('#card-form input[type="text"]').forEach(campo => {
+       campo.addEventListener("input", saveData);
+       });
+   
+    })
+
+*/
+
+
+export function geracard(callback) {
+    
+	alert("botão Gera card acionado");
+
+
+    const script = document.createElement("script");
+    script.src = "./card.mjs"; // Caminho do script
+    script.type = "text/javascript"; // Tipo do script (opcional)
+    script.async = true; // Carregar de forma assíncrona (opcional)
+
+    // Evento de sucesso no carregamento
+    script.onload = () => {
+        console.log("Script carregado com sucesso!");
+        // here você pode usar funções do script carregado
+    };
+
+    // Evento de erro no carregamento
+    script.onerror = () => {
+        console.error("Erro ao carregar o script.");
+    };
+
+    callback();
+
+    // Adiciona o elemento <script> ao <head> ou <body>
+    document.head.appendChild(script);
+
+    
+
+}
+
+
+
+
+--------------------------------------------
+
+//apaga input do usuário quando ele muda de opção
+//use na div-mãe
+
+export function eraseChildText(motherDivId) {
+    const divMae = document.getElementById(motherDivId); 
+    const inputsText = divMae.querySelectorAll('input[type="text"]');
+
+    inputsText.forEach(inputText => {
+        inputText.value = '';
+    })
+}
+
+
+
+
