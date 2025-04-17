@@ -1,57 +1,55 @@
 import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
-import { getBibliotecario, getServico } from './cardScript.js'
+import { getServico } from './cardScript.js'
 
-// suporte
+// arquivo
 
-document.querySelectorAll('input[name="suporte"]').forEach(radio => {
+document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        if (document.getElementById('fisico').checked) {
+        document.getElementById('extensao-section').style.display = 'block';
+        eraseAllChildTextOf('extensao-section')
+        removeRequiredFromAllChildTextOf('extensao-section');
 
-            document.getElementById('formato-fisico-section').style.display = 'block';
-            setRequiredRadioFor('formato');
+        if (document.getElementById('texto').checked) {
+            
+            document.getElementById('paginacao').style.display  = 'block';
+            document.getElementById('paginas').setAttribute('required', 'required')  
 
-            document.getElementById('material-adicional-section').style.display = 'block';
-            setRequiredRadioFor('material-adicional-sn');
+            document.getElementById('tamanho').style.display = 'block';
+            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
 
-            document.getElementById('suporte-digital').style.display = 'none';
-            eraseAllChildTextOf('suporte-digital');
-            removeRequiredFromAllChildTextOf('suporte-digital');
+            document.getElementById('duracao').style.display = 'none';
+            document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
 
+        } else if (document.getElementById('video').checked) {
 
-        } else if (document.getElementById('digital').checked) {
+            document.getElementById('tamanho').style.display = 'block';
+            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
 
-            document.getElementById('suporte-digital').style.display = 'block';
-            document.getElementById('extensao').setAttribute('required', 'required');
+            document.getElementById('duracao').style.display = 'block';
+            document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
 
-            uncheckOption('formato');
-            removeRequiredRadioFrom('formato');
+            document.getElementById('paginacao').style.display  = 'none';
+            document.getElementById('paginas').removeAttribute('required', 'required')
 
-            document.getElementById('formato-fisico-section').style.display = 'none';
-            eraseAllChildTextOf('formato-fisico-section');
-            removeRequiredFromAllChildTextOf('formato-tradicional');
-            removeRequiredFromAllChildTextOf('formato-nao-tradicional');
+        } else if (document.getElementById('audio').checked) {
 
-            uncheckOption('material-adicional-sn');
-            removeRequiredRadioFrom('material-adicional-sn');
+            document.getElementById('tamanho').style.display = 'block';
+            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
 
-            document.getElementById('material-adicional-section').style.display = 'none';
-            eraseAllChildTextOf('material-adicional-section');
-            removeRequiredRadioFrom('material-adicional-section');
+            document.getElementById('duracao').style.display = 'block';
+            document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
 
-            //eraseAllChildTextOf('material-adicional');
-
-
-        } else {
-            document.getElementById('formato-fisico-section').style.display = 'none';
-
-            document.getElementById('suporte-digital').style.display = 'none';
-            document.getElementById('extensao').removeAttribute('required', 'required');
+            document.getElementById('paginacao').style.display  = 'none';
+            document.getElementById('paginas').removeAttribute('required', 'required')
 
         }
+
     })
 })
 
+
+/*
 // Códigos de catalogação
 document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
@@ -100,6 +98,7 @@ document.querySelectorAll('input[name="codigos-ckbox"]').forEach(checkbox => {
         }
     })
 })
+    */
 
 // RESPONSABILIDADE INTELECTUAL
 
@@ -108,21 +107,21 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 
         uncheckOption('pessoa-tipo');
         uncheckOption('pessoa-qtd');
-        eraseAllChildTextOf('pessoa-section');
+        eraseAllChildTextOf('autor-section');
         eraseAllChildTextOf('entidade-section');
         eraseAllChildTextOf('evento-section');
         removeRequiredFromAllChildTextOf('resp-int-section');
         removeRequiredRadioFrom('pessoa-tipo')
 
         if (document.getElementById('pessoa').checked) {
-            document.getElementById('pessoa-section').style.display = 'block';
+            document.getElementById('autor-section').style.display = 'block';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
 
             setRequiredRadioFor('pessoa-tipo');
 
         } else if (document.getElementById('entidade').checked) {
-            document.getElementById('pessoa-section').style.display = 'none';
+            document.getElementById('autor-section').style.display = 'none';
             document.getElementById('entidade-section').style.display = 'block';
             document.getElementById('evento-section').style.display = 'none';
 
@@ -130,7 +129,7 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
 
 
         } else if (document.getElementById('evento').checked) {
-            document.getElementById('pessoa-section').style.display = 'none';
+            document.getElementById('autor-section').style.display = 'none';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'block';
 
@@ -139,7 +138,7 @@ document.querySelectorAll('input[name="resp-int"]').forEach(radio => {
             document.getElementById('evento-local').setAttribute('required', 'required');
 
         } else {
-            document.getElementById('pessoa-section').style.display = 'none';
+            document.getElementById('autor-section').style.display = 'none';
             document.getElementById('entidade-section').style.display = 'none';
             document.getElementById('evento-section').style.display = 'none';
         }
@@ -156,8 +155,8 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         removeRequiredRadioFrom('pessoa-qtd');
         uncheckOption('pessoa-sn');
         removeRequiredRadioFrom('pessoa-sn');
-        eraseAllChildTextOf('pessoa-section');
-        removeRequiredFromAllChildTextOf('pessoa-section');
+        eraseAllChildTextOf('autor-section');
+        removeRequiredFromAllChildTextOf('autor-section');
         eraseAllChildTextOf('pessoa-outro');
         removeRequiredFromAllChildTextOf('pessoa-outro');
 
@@ -165,7 +164,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
         
 
         if (document.getElementById('autor').checked) {
-            document.getElementById('autor-section').style.display = 'block';
+            document.getElementById('autor').style.display = 'block';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
@@ -178,7 +177,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('organizador').checked) {
-            document.getElementById('autor-section').style.display = 'none';
+            document.getElementById('autor').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'block';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
@@ -197,7 +196,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             removeRequiredRadioFrom('organizador-qtd');
 
         } else if (document.getElementById('coordenador').checked) {
-            document.getElementById('autor-section').style.display = 'none';
+            document.getElementById('autor').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'block';
             document.getElementById('compilador-section').style.display = 'none';
@@ -208,7 +207,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('compilador').checked) {
-            document.getElementById('autor-section').style.display = 'none';
+            document.getElementById('autor').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'block';
@@ -219,7 +218,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             setRequiredRadioFor('pessoa-sn')
 
         } else if (document.getElementById('editor').checked) {
-            document.getElementById('autor-section').style.display = 'none';
+            document.getElementById('autor').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
@@ -230,7 +229,7 @@ document.querySelectorAll('input[name="pessoa-tipo"]').forEach(radio => {
             setRequiredRadioFor('pessoa-sn')
 
         } else {
-            document.getElementById('autor-section').style.display = 'none';
+            document.getElementById('autor').style.display = 'none';
             document.getElementById('organizador-section').style.display = 'none';
             document.getElementById('coordenador-section').style.display = 'none';
             document.getElementById('compilador-section').style.display = 'none';
@@ -309,7 +308,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 });
 
 // CONTRIBUIDORES - APRESENTADOR
-
+/* *********************************************************************************
 document.getElementById("apresentador-checkbox").addEventListener('change', function () {
 
     eraseAllChildTextOf('apresentador-primeiro');
@@ -401,102 +400,117 @@ document.querySelectorAll('input[name="apresentador-qtd"]').forEach(radio => {
         }
     });
 });
-
+ ********************************************************************************* */
 
 // CONTRIBUIDORES - ILUSTRADOR
+  /*
 
-document.getElementById("ilustrador-checkbox").addEventListener('change', function () {
+document.getElementById("orientador-checkbox").addEventListener('change', function () {
 
-    eraseAllChildTextOf('ilustrador-primeiro');
-    removeRequiredFromAllChildTextOf('ilustrador-primeiro');
-    eraseAllChildTextOf('ilustrador-outro');
-    removeRequiredFromAllChildTextOf('ilustrador-outro');
+    eraseAllChildTextOf('orientador');
+    removeRequiredFromAllChildTextOf('orientador');
+    eraseAllChildTextOf('coorientador');
+    removeRequiredFromAllChildTextOf('coorientador');
 
-    uncheckOption('ilustrador-sn');
-    removeRequiredRadioFrom('ilustrador-sn');
-    uncheckOption('ilustrador-qtd');
-    removeRequiredRadioFrom('ilustrador-qtd');
+    //uncheckOption('orientador-sn');
+    //removeRequiredRadioFrom('orientador-sn');
+    uncheckOption('coorientador-qtd');
+    removeRequiredRadioFrom('coorientado-qtd');
 
-    if (document.getElementById('ilustrador-checkbox').checked) {
-        document.getElementById('ilustrador-primeiro').style.display = 'block';
-        document.getElementById('ilustrador-sn').style.display = 'block';
+  
+    if (document.getElementById('orientador-checkbox').checked) {
+        document.getElementById('orientador').style.display = 'block';
+        document.getElementById('orientador-sn').style.display = 'block';
 
-        document.getElementById('ilustrador-nome').setAttribute('required', 'required');
-        setRequiredRadioFor('ilustrador-sn')
+        document.getElementById('orientador-nome').setAttribute('required', 'required');
+        setRequiredRadioFor('orientador-sn')
 
     } else {
-        document.getElementById('ilustrador-primeiro').style.display = 'none';
-        document.getElementById('ilustrador-sn').style.display = 'none';
+        document.getElementById('orientador').style.display = 'none';
+        document.getElementById('orientador-sn').style.display = 'none';
         document.getElementById('ilustrador-qtd').style.display = 'none';
-        document.getElementById('ilustrador-outro').style.display = 'none';
+        document.getElementById('coorientador').style.display = 'none';
 
-        document.getElementById('ilustrador-nome').removeAttribute('required');
-        removeRequiredRadioFrom('ilustrador-sn')
+        document.getElementById('orientador-nome').removeAttribute('required');
+        removeRequiredRadioFrom('orientador-sn')
     }
+        */
+
+
+//coorientador-sn
+
+document.querySelectorAll('input[name="coorientador-sn"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        document.getElementById('coorientador').style.display = 'none';
+        uncheckOption('coorientador-qtd');
+        removeRequiredRadioFrom('coorientador-qtd');
+        eraseAllChildTextOf('coorientador');
+        removeRequiredFromAllChildTextOf('coorientador');
+
+        if (document.getElementById('coorientador-sim').checked) {
+            document.getElementById('coorientador-qtd').style.display = 'block';
+            setRequiredRadioFor('coorientador-qtd')
+        } else {
+            document.getElementById('coorientador-qtd').style.display = 'none';
+            //removeRequiredRadioFrom('coorientador-qtd')
+        }
+    });
+});
+
+//outro-coorientador
+
+document.querySelectorAll('input[name="coorientador-qtd"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+
+        document.getElementById('coorientadores').style.display = 'block';
+        eraseAllChildTextOf('coorientadores');
+        removeRequiredFromAllChildTextOf('coorientadores');
+
+        if (document.getElementById('coorientador-qtd-1').checked) {
+            document.getElementById('coorientador').style.display = 'block';
+            document.getElementById('coorientador-1').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-segundo').style.display = 'none';
+            document.getElementById('coorientador-terceiro').style.display = 'none';
+            document.getElementById('coorientador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('coorientador-qtd-2').checked) {
+            document.getElementById('coorientador').style.display = 'block';
+            document.getElementById('coorientador-1').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-segundo').style.display = 'block';
+            document.getElementById('coorientador-2').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-terceiro').style.display = 'none';
+            document.getElementById('coorientador-quarto').style.display = 'none';    
+
+        } else if (document.getElementById('coorientador-qtd-3').checked) {
+            document.getElementById('coorientador').style.display = 'block';
+            document.getElementById('coorientador-1').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-segundo').style.display = 'block';
+            document.getElementById('coorientador-2').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-terceiro').style.display = 'block';
+            document.getElementById('coorientador-3').setAttribute('required', 'required');
+
+            document.getElementById('coorientador-quarto').style.display = 'none';
+
+        } else if (document.getElementById('coorientador-qtd-4').checked) {         
+            document.getElementById('coorientador-segundo').style.display = 'none';
+            document.getElementById('coorientador-terceiro').style.display = 'none';
+
+            document.getElementById('coorientador-quarto').style.display = 'block';
+            document.getElementById('coorientador').style.display = 'block';
+            document.getElementById('coorientador-1').setAttribute('required', 'required');
+
+        }
+
+    })
 })
 
-//ilustrador-sn
-
-document.querySelectorAll('input[name="ilustrador-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        document.getElementById('ilustrador-outro').style.display = 'none';
-        uncheckOption('ilustrador-qtd');
-        removeRequiredRadioFrom('ilustrador-qtd');
-        eraseAllChildTextOf('ilustrador-outro');
-        removeRequiredFromAllChildTextOf('ilustrador-outro');
-
-        if (document.getElementById('ilustrador-sim').checked) {
-            document.getElementById('ilustrador-qtd').style.display = 'block';
-            setRequiredRadioFor('ilustrador-qtd')
-        } else {
-            document.getElementById('ilustrador-qtd').style.display = 'none';
-            removeRequiredRadioFrom('ilustrador-qtd')
-        }
-    });
-});
-
-//outro-ilustrador
-
-document.querySelectorAll('input[name="ilustrador-qtd"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        eraseAllChildTextOf('ilustrador-outro');
-        removeRequiredFromAllChildTextOf('ilustrador-outro');
-
-        if (document.getElementById('ilustrador-qtd-2').checked) {
-            document.getElementById('ilustrador-outro').style.display = 'block';
-
-            document.getElementById('ilustrador-segundo').style.display = 'block';
-            document.getElementById('ilustrador-2').setAttribute('required', 'required');
-
-            document.getElementById('ilustrador-terceiro').style.display = 'none';
-            document.getElementById('ilustrador-quarto').style.display = 'none';
-
-
-        } else if (document.getElementById('ilustrador-qtd-3').checked) {
-            document.getElementById('ilustrador-outro').style.display = 'block';
-
-            document.getElementById('ilustrador-segundo').style.display = 'block';
-            document.getElementById('ilustrador-2').setAttribute('required', 'required');
-
-            document.getElementById('ilustrador-terceiro').style.display = 'block';
-            document.getElementById('ilustrador-3').setAttribute('required', 'required');
-
-            document.getElementById('ilustrador-quarto').style.display = 'none';
-
-        } else if (document.getElementById('ilustrador-qtd-4').checked) {
-            document.getElementById('ilustrador-outro').style.display = 'block'
-            document.getElementById('ilustrador-segundo').style.display = 'none';
-            document.getElementById('ilustrador-terceiro').style.display = 'none';
-            document.getElementById('ilustrador-quarto').style.display = 'block';
-
-        } else {
-            document.getElementById('ilustrador-outro').style.display = 'none';
-
-        }
-    });
-});
+    /*
 
 // CONTRIBUIDORES - ORGANIZADOR
 
@@ -784,6 +798,8 @@ document.querySelectorAll('input[name="tradutor-qtd"]').forEach(radio => {
     });
 });
 
+*/
+
 // PUBLICADORES
 
 //publicador-sn
@@ -807,6 +823,8 @@ document.querySelectorAll('input[name="publicador-sn"]').forEach(radio => {
 });
 
 //PAGINAÇÃO
+
+/*
 
 // Paginacao numerada ou não 
 document.querySelectorAll('input[name="paginacao"]').forEach(radio => {
@@ -919,8 +937,10 @@ document.querySelectorAll('input[name="pag-ou-folha"]').forEach(radio => {
     });
 });
 
+*/
+
 //IMAGENS  
-/*
+
 document.querySelectorAll('input[name="imagem"]').forEach(radio => {
     radio.addEventListener('change', function () {
         if (document.getElementById('imagem-sim').checked) {
@@ -933,7 +953,7 @@ document.querySelectorAll('input[name="imagem"]').forEach(radio => {
         }
     });
 });
-*/
+
 
 //Checkbox ILUSTRAÇÕES
 document.getElementById('img-ilustracoes').addEventListener('change', function () {
@@ -969,7 +989,7 @@ document.getElementById('img-fotos').addEventListener('change', function () {
     }
 })
 
-/*
+
 //Checkbox MAPAS
 document.getElementById('img-mapas').addEventListener('change', function () {
 
@@ -979,15 +999,17 @@ document.getElementById('img-mapas').addEventListener('change', function () {
         document.getElementById('mapas-coloracao').style.display = 'none';
     }
 })
-*/
+
 
 //FORMATO
+
+/*
 
 // FORMATO-FÍSICO
 document.querySelectorAll('input[name="formato"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        eraseAllChildTextOf('formato-fisico-section');
+        eraseAllChildTextOf('extensao-section');
 
         if (document.getElementById('formato-trad').checked) {
 
@@ -1081,6 +1103,8 @@ document.querySelectorAll('input[name="subserie-sn"]').forEach(radio => {
         }
     });
 });
+
+*/
 
 //ÁREA DE NOTAS
 
@@ -1214,6 +1238,8 @@ document.getElementById("creditos").addEventListener("change", function () {
     }
 
 })
+
+/*
 // Bibliotecario-genero - seleção
 document.getElementById('bibliotecario-nome').addEventListener("change", function () {
 
@@ -1230,7 +1256,7 @@ document.getElementById('bibliotecario-nome').addEventListener("change", functio
         })
     };
 });
-
+*/
 
 // JavaScript para limitar a quantidade máxima de linhas em #creditos (acho que não funciona mais com Quilljs
 document.getElementById('creditos').addEventListener('input', function () {

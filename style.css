@@ -292,7 +292,7 @@ body > legend {
     display: none
 }
 
-/* CÓDIGOS OPCIONAIS */
+/* CÓDIGOS OPCIONAIS 
 #codigo-cdd {
     display: none
 }
@@ -309,32 +309,68 @@ body > legend {
     display: none
 }
 
+*/
+
 /* PESSOA */
 
 
-#pessoa-sn {
-    display: none;
-}
-
-#pessoa-section {
-    display: none;
+#autor-section {
+    display: block;
 }
 
 #detalhes-pessoa {
     display: none;
 }
 
-#entidade-section {
+#coorientador-sn {
+    display: block;
+}
+
+#coorientador {
     display: none;
 }
+
+#coorientador-qtd {
+    display: none;
+}
+
+#coorientadores {
+    display: none;
+}
+
+#coorientador-primeiro {
+    display: none;
+}
+
+#coorientador-segundo {
+    display: none;
+}
+
+#coorientador-terceiro {
+    display: none;
+}
+
+#coorientador-quarto {
+    display: none;
+}
+
+#autor {
+    display: block;
+}
+
+/*
+
+#pessoa-sn {
+    display: none;
+}
+
+#entidade-section { display: none;}
 
 #evento-section {
     display: none;
 }
 
-#autor-section {
-    display: none;
-}
+
 
 #compilador-section {
     display: none;
@@ -356,7 +392,7 @@ body > legend {
     display: none
 }
 
-#ilustrador-primeiro {
+#orientador {
     display: none;
 }
 
@@ -385,18 +421,6 @@ body > legend {
 }
 
 #pessoa-quarto {
-    display: none;
-}
-
-#ilustrador-sn {
-    display: none;
-}
-
-#ilustrador-qtd {
-    display: none;
-}
-
-#ilustrador-outro {
     display: none;
 }
 
@@ -452,10 +476,6 @@ body > legend {
     display: none;
 }
 
-#paginacao-numerada {
-    display: none;
-}
-
 #paginacao-romana {
     display: none;
 }
@@ -476,6 +496,19 @@ body > legend {
     display: none;
 }
 
+*/
+
+#paginacao {
+    display: none;
+}
+
+#tamanho {
+    display: none;
+}
+
+#duracao {
+    display: none;
+}
 
 #il-coloracao {
     display: none;
@@ -493,19 +526,17 @@ body > legend {
     display: none;
 }
 
-#formato-fisico-section {
-    display: none;
+#extensao-section {
+    display: block;
 }
+
+/*
 
 #formato-tradicional {
     display: none;
 }
 
 #formato-nao-tradicional {
-    display: none;
-}
-
-#suporte-digital {
     display: none;
 }
 
@@ -528,6 +559,8 @@ body > legend {
 #subserie {
     display: none;
 }
+
+*/
 
 #isbn {
     display: none;

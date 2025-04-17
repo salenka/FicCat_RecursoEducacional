@@ -93,15 +93,15 @@ export function geraFicha() {
 
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
-    const codigos = JSON.parse(cs.getCodigos().codigos);
+    //const codigos = JSON.parse(cs.getCodigos().codigos);
     const servico = cs.getServico().servico;
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
+    //const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
-    document.getElementById("codigos-aqui").textContent = codigos;
+    //document.getElementById("codigos-aqui").textContent = codigos;
     document.getElementById("servico-aqui").textContent = servico;
-    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+    //document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Renderização dos elementos HTML
 
@@ -128,17 +128,17 @@ export function geraPNG() {
 
     // Renderização da ficha
     const ficha = JSON.parse(cs.getFicha().ficha);
-    const codigos = JSON.parse(cs.getCodigos().codigos);
+    //const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
     const servico = cs.getServico().servico;
-    const bibliotecario = cs.getBibliotecario().bibliotecario;
+    //const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
     document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
-    document.getElementById("codigos-aqui-pdf").textContent = codigos;
-    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    //document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    //document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
     document.getElementById("servico-aqui").textContent = servico;
     document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 

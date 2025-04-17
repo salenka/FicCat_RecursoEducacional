@@ -11,14 +11,17 @@ subtitulo = subtitulo ? ': ' + subtitulo : "";
 
 let areaTitulo = `${titulo}${subtitulo}`;
 
-if (document.getElementById("digital").checked) {
-    areaTitulo = areaTitulo + " [recurso eletrônico]"
-} 
-
 return { areaTitulo }
 }
 
-// ÁREA DE EDIÇÃO
+/*
+if (document.getElementById("digital").checked) {
+    areaTitulo = areaTitulo + " [recurso eletrônico]"
+} */
+
+
+
+/*/ ÁREA DE EDIÇÃO
 
 function getEdicao() {
 
@@ -32,13 +35,16 @@ if (edicao) {
 return { areaEdicao }
 }
 
+*/
+
 //ÁREA DE RESPONSABILIDADE INTELECTUAL
 
 // Tipo de responsável
 
 function getRespInt() {
 
-let entidade = document.getElementById("entidade-nome").value.trim();
+/*
+    let entidade = document.getElementById("entidade-nome").value.trim();
 entidade = entidade ? entidade : "";
 
 let evento = document.getElementById("evento-nome").value.trim();
@@ -57,7 +63,7 @@ if (respInt === "pessoa") {
     const local = document.getElementById("evento-local").value.trim() || "";
     evento = evento ? evento + " (" + num + ". : " + ano + " : " + local + ")" : "";
 }
-
+    
 
 // Tipo de pessoa
 let autor = "";
@@ -69,12 +75,16 @@ let editor = "";
 
 const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
 if (tipoPessoa === "autor") {
+
+*/
     let nome = document.getElementById("nome").value.trim();
     nome = nome? nome : "";
     let sobrenome = document.getElementById("sobrenome").value.trim();
     sobrenome = sobrenome? sobrenome : "";
-    autorEntrada = sobrenome + ", " + nome;
-    autor = nome + " " + sobrenome;
+    let autorEntrada = sobrenome + ", " + nome;
+    let autor = nome + " " + sobrenome;
+
+    /*
 
 } else if (tipoPessoa === "organizador") {
     const org = document.getElementById("organizador-nome").value.trim();
@@ -113,6 +123,7 @@ if (maisPessoa === "sim") {
         pessoa2 = " ... [et al.]";
     }
 }
+    
 
 //Contribuidores - Apresentador  
 let apresentador = "";
@@ -138,34 +149,37 @@ if (maisApresentador === "sim") {
     } else {
         apresentador2 = " ... [et al.]";
     }
-}
+}*/
 
 //Contribuidores - Ilustrador
-let ilustrador = "";
-if (document.getElementById("ilustrador-checkbox").checked) {
-    const nIlustrador = document.getElementById("ilustrador-nome").value.trim();
-    ilustrador = ' ; ilustrado por ' + nIlustrador;
-}
 
-const maisIlustrador = document.querySelector('input[name="ilustrador-sn"]:checked')?.value;
-const qtdIlustrador = document.querySelector('input[name="ilustrador-qtd"]:checked')?.value;
-let ilustrador2 = "";
-let ilustrador3 = "";
+/*
+let orientador = "";
+if (document.getElementById("orientador-checkbox").checked) {
+    const nOrientador = document.getElementById("orientador-nome").value.trim();
+    orientador = ' ; ilustrado por ' + nOrientador;
+}*/
 
-if (maisIlustrador === "sim") {
-    if (qtdIlustrador === "2") {
-        ilustrador2 = document.getElementById("ilustrador-2").value.trim();
-        ilustrador2 = ' e ' + ilustrador2;
-    } else if (qtdIlustrador === "3") {
-        ilustrador2 = document.getElementById("ilustrador-2").value.trim();
-        ilustrador3 = document.getElementById("ilustrador-3").value.trim();
-        ilustrador2 = ', ' + ilustrador2;
-        ilustrador3 = ' e ' + ilustrador3;
+const maisCoorientador = document.querySelector('input[name="coorientador-sn"]:checked')?.value;
+const qtdCoorientador = document.querySelector('input[name="ilustrador-qtd"]:checked')?.value;
+let coorientador2 = "";
+let coorientador3 = "";
+
+if (maisCoorientador === "sim") {
+    if (qtdCoorientador === "2") {
+        coorientador2 = document.getElementById("coorientador-segundo2").value.trim();
+        coorientador2 = ' e ' + coorientador2;
+    } else if (qtdCoorientador === "3") {
+        coorientador2 = document.getElementById("coorientador-segundo2").value.trim();
+        coorientador3 = document.getElementById("ilustrador-3").value.trim();
+        coorientador2 = ', ' + coorientador2;
+        coorientador3 = ' e ' + coorientador3;
     } else {
-        ilustrador2 = " ... [et al.]";
+        coorientador2 = " ... [et al.]";
     }
 }
 
+/*
 //Contribuidores - Organizador
 let organizador1 = "";
 if (document.getElementById("organizador-checkbox").checked) {
@@ -243,14 +257,16 @@ if (maisTradutor === "sim") {
         tradutor2 = " ... [et al.]";
     }
 }
+    */
 
 //Saída da função getRespInt
 
-let entradaPrincipal = `\n${autorEntrada}${entidade}${evento}`; 
+let entradaPrincipal = `\n${autorEntrada}`; 
 entradaPrincipal = entradaPrincipal ? entradaPrincipal : ""; //vazio se pessoa != autor 
 
-/*
 let areaResponsabilidade = " / ";
+
+/*
 
 const pessoaTipo = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
 const responsavel = document.querySelector('input[name="resp-int"]:checked')?.value;
@@ -265,7 +281,7 @@ if (pessoaTipo === "anonima" &&  isAnyContribuidorChecked() || responsavel === "
 }
     */
 
-let areaResponsabilidade = ` / ${entidade}${autor}${organizador}${coordenador}${compilador}${editor}${pessoa2}${pessoa3}${organizador1}${organizador2}${organizador3}${ilustrador}${ilustrador2}${ilustrador3}${tradutor}${tradutor2}${tradutor3}${apresentador}${apresentador2}${apresentador3}${prefaciador}${prefaciador2}${prefaciador3}`;
+areaResponsabilidade = ` / ${autor}${orientador}${coorientador2}${coorientador3}`;
 
 return { entradaPrincipal, areaResponsabilidade }
 }
@@ -285,6 +301,7 @@ ano = ano ? ', ' + ano + '.' : ', [s.d.].';
 
 //Mais publicador
 
+/*
 const maisPublicador = document.querySelector('input[name="publicador-sn"]:checked')?.value;
 
 let publicador2 = document.getElementById("publicador-2").value.trim();
@@ -297,9 +314,10 @@ if (maisPublicador === "sim") {
     if (loc2 === loc) {
         local2 = "";
     }
-}
+} 
+    */
 
-const areaPublicacao = `${local}${publicador}${local2}${publicador2}${ano}`;
+const areaPublicacao = `${local}${publicador}${ano}`;
 
 return { areaPublicacao }
 
@@ -311,19 +329,19 @@ return { areaPublicacao }
 
 function getDescricaoFisica() {
 
-const paginacao_radio = document.querySelector('input[name="paginacao"]:checked')?.value;
-const pagRomana_cbox = document.getElementById("pag-romana").checked;
-const paginaOuFolha_radio = document.querySelector('input[name="pag-ou-folha"]:checked')?.value;
-const pagLamina_cbox = document.getElementById("pag-lamina").checked;
-const radioCerteza = document.querySelector('input[name="pag-certeza"]:checked')?.value;
+//const paginacao_radio = document.querySelector('input[name="paginacao"]:checked')?.value;
+//const pagRomana_cbox = document.getElementById("pag-romana").checked;
+//const paginaOuFolha_radio = document.querySelector('input[name="pag-ou-folha"]:checked')?.value;
+//const pagLamina_cbox = document.getElementById("pag-lamina").checked;
+//const radioCerteza = document.querySelector('input[name="pag-certeza"]:checked')?.value;
 
-let pagNum = document.getElementById("pag-num-qtd")?.value;
-let pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
-let pagRomana = document.getElementById("pag-romana-qtd")?.value;
-let pagLamina = document.getElementById("pag-lamina-qtd")?.value;
-let folhaLamina = document.getElementById("folha-lamina-qtd")?.value;
+let pagNum = document.getElementById("pag")?.value;
+//let pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
+//let pagRomana = document.getElementById("pag-romana-qtd")?.value;
+//let pagLamina = document.getElementById("pag-lamina-qtd")?.value;
+//let folhaLamina = document.getElementById("folha-lamina-qtd")?.value;
 
-
+/*
 if (paginacao_radio === "pag-num") {
     pagNum = pagNum ? `${pagNum} p.` : '';
 } else if (paginacao_radio === "pag-sem-num") {
@@ -347,9 +365,9 @@ if (pagLamina_cbox) {
         folhaLamina = folhaLamina ? `, [${folhaLamina}] f. de lâminas` : ''; 
     }
 }
+*/
 
-
-const paginacao = `${pagRomana}${pagNum}${pagLamina}${folhaLamina}${pagNaoNum}`;
+const paginacao = `${pagNum}`;
 
 
 //Material gráfico (Imagens)
@@ -414,14 +432,17 @@ if (imagensPresentes.length > 1) {
 
 imagens = imagens? imagens : '';
 
-// Dimensões
+// Formato
 
 //formato digital
 
-let ext = document.getElementById("extensao").value.trim();
-const extensao = ext ? ` ; ${ext}` : "";
+let ext = document.getElementById("formato_")?.value.trim();
+const formato_ = ext ? ` ; ${ext}` : "";
 
-//formato físico
+let dur = document.getElementById("duracao")?.value.trim();
+const duracao = dur ? ` ; ${dur}` : "";
+
+/*/formato físico
 
 const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
 
@@ -437,24 +458,27 @@ if (formatoFisico === "tradicional") {
     altura = alt ? ` ; ${alt} cm` : "";
     largura = larg ? ` x ${larg} cm` : "";
 }
+    */
 
-const dimensoes = `${altura}${largura}${extensao}`;
+const formato = `${formato_}${duracao}`;
 
 
-// Material adicional
+/*/ Material adicional
 
 let matAdic = document.getElementById("material-adicional-tipo").value.trim();
 let qtdMatAdic = document.getElementById("material-adicional-qtd").value.trim();
 
 const materialAdicional = matAdic ? ` + ${qtdMatAdic} ${matAdic}` : "";
 
+*/
+
 // Saída da área de descrição física------------------
 
-return { paginacao, imagens, dimensoes, materialAdicional }
+return { paginacao, imagens, formato}
 
 }
 
-// ÁREA DE SÉRIE
+/*/ ÁREA DE SÉRIE
 
 function getSerie() {
 // Elementos antessessores sem ponto final
@@ -491,7 +515,7 @@ if (serieSN === "sim") {
 }
 
 return { areaSerie };
-}
+}*/
 
 // ÁREA DE NOTAS
 
@@ -568,15 +592,15 @@ export function getFicha() {
 
     //chamada de funções de cada área (para obter o valor preenchido após carregamento)
     const areaTitulo = getTitulo().areaTitulo;
-    const areaEdicao = getEdicao().areaEdicao;
+    //const areaEdicao = getEdicao().areaEdicao;
     const entradaPrincipal = getRespInt().entradaPrincipal;
     const areaResponsabilidade = getRespInt().areaResponsabilidade;
     const areaPublicacao = getPublicacao().areaPublicacao;
     const paginacao = getDescricaoFisica().paginacao;
     const imagens = getDescricaoFisica().imagens;
-    const dimensoes = getDescricaoFisica().dimensoes;
-    const materialAdicional = getDescricaoFisica().materialAdicional;
-    const areaSerie = getSerie().areaSerie;
+    const formato = getDescricaoFisica().formato;
+    //const materialAdicional = getDescricaoFisica().materialAdicional;
+    //const areaSerie = getSerie().areaSerie;
     const isbn = getISBN().isbn;
     const nota1 = getNota().nota1;
     const nota2 = getNota().nota2;
@@ -584,8 +608,8 @@ export function getFicha() {
 
     //Configuração da ficha catalográfica
     let ficha = `${entradaPrincipal}
-    ${areaTitulo}${areaEdicao}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}${dimensoes}${materialAdicional}${areaSerie}
+    ${areaTitulo}${areaResponsabilidade}${areaPublicacao}
+    ${paginacao}${imagens}${formato}
     ${nota1}${nota2}${isbn}
     
     ${assuntos}
@@ -605,7 +629,7 @@ export function getFicha() {
     return { ficha }
 }
 
-// CÓDIGOS
+/*/ CÓDIGOS
 
 export function getCodigos() {
 
@@ -629,6 +653,7 @@ export function getCodigos() {
 
     return { codigos }
 }
+    */
 
 // IDENTIFICAÇÃO
 
@@ -642,7 +667,7 @@ export function getServico() {
     return { servico }
 }
 
-
+/*
 export function getBibliotecario() {
 
     const genero = document.querySelector('input[name="bibliotecario-genero"]:checked')?.value;
@@ -667,7 +692,7 @@ export function getBibliotecario() {
     localStorage.setItem("bibliotecario", bibliotecario); 
 
     return { bibliotecario }
-}
+} */
 
 // CRÉDITOS
 
