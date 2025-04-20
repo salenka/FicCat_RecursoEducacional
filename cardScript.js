@@ -4,14 +4,14 @@
 
 function getTitulo() {
 
-let titulo = document.getElementById("titulo").value.trim();
+    let titulo = document.getElementById("titulo").value.trim();
 
-let subtitulo = document.getElementById("subtitulo").value.trim();
-subtitulo = subtitulo ? ': ' + subtitulo : "";
+    let subtitulo = document.getElementById("subtitulo").value.trim();
+    subtitulo = subtitulo ? ': ' + subtitulo : "";
 
-let areaTitulo = `${titulo}${subtitulo}`;
+    let areaTitulo = `${titulo} [recurso eletrônico] ${subtitulo}`;
 
-return { areaTitulo }
+    return { areaTitulo }
 }
 
 /*
@@ -43,44 +43,44 @@ return { areaEdicao }
 
 function getRespInt() {
 
-/*
-    let entidade = document.getElementById("entidade-nome").value.trim();
-entidade = entidade ? entidade : "";
-
-let evento = document.getElementById("evento-nome").value.trim();
-evento = evento ? evento : "";
-
-const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
-
-if (respInt === "pessoa") {
-    console.log("radio pessoa selecionado");
-} else if (respInt === "entidade") {
-    console.log("radio entidade selecionado");
-} else if (respInt === "evento") {
-    console.log("radio evento selecionado");
-    const num = document.getElementById("evento-numero").value.trim() || "";
-    const ano = document.getElementById("evento-ano").value.trim() || "";
-    const local = document.getElementById("evento-local").value.trim() || "";
-    evento = evento ? evento + " (" + num + ". : " + ano + " : " + local + ")" : "";
-}
+    /*
+        let entidade = document.getElementById("entidade-nome").value.trim();
+    entidade = entidade ? entidade : "";
     
-
-// Tipo de pessoa
-let autor = "";
-let autorEntrada = "";
-let organizador = "";
-let coordenador = "";
-let compilador = "";
-let editor = "";
-
-const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
-if (tipoPessoa === "autor") {
-
-*/
+    let evento = document.getElementById("evento-nome").value.trim();
+    evento = evento ? evento : "";
+    
+    const respInt = document.querySelector('input[name="resp-int"]:checked')?.value;
+    
+    if (respInt === "pessoa") {
+        console.log("radio pessoa selecionado");
+    } else if (respInt === "entidade") {
+        console.log("radio entidade selecionado");
+    } else if (respInt === "evento") {
+        console.log("radio evento selecionado");
+        const num = document.getElementById("evento-numero").value.trim() || "";
+        const ano = document.getElementById("evento-ano").value.trim() || "";
+        const local = document.getElementById("evento-local").value.trim() || "";
+        evento = evento ? evento + " (" + num + ". : " + ano + " : " + local + ")" : "";
+    }
+        
+    
+    // Tipo de pessoa
+    let autor = "";
+    let autorEntrada = "";
+    let organizador = "";
+    let coordenador = "";
+    let compilador = "";
+    let editor = "";
+    
+    const tipoPessoa = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
+    if (tipoPessoa === "autor") {
+    
+    */
     let nome = document.getElementById("nome").value.trim();
-    nome = nome? nome : "";
+    nome = nome ? nome : "";
     let sobrenome = document.getElementById("sobrenome").value.trim();
-    sobrenome = sobrenome? sobrenome : "";
+    sobrenome = sobrenome ? sobrenome : "";
     let autorEntrada = sobrenome + ", " + nome;
     let autor = nome + " " + sobrenome;
 
@@ -151,175 +151,165 @@ if (maisApresentador === "sim") {
     }
 }*/
 
-//Contribuidores - Ilustrador
+    //Contribuidores - Ilustrador
 
-/*
-let orientador = "";
-if (document.getElementById("orientador-checkbox").checked) {
-    const nOrientador = document.getElementById("orientador-nome").value.trim();
-    orientador = ' ; ilustrado por ' + nOrientador;
-}*/
+    let orientador = document.getElementById("orientador-nome").value.trim();
+    orientador = orientador ? ' ; orientado por ' + orientador : "";
+    
+    const coorientador = document.querySelector('input[name="coorientador-sn"]:checked')?.value;
+    const qtdCoorientador = document.querySelector('input[name="coorientador-qtd"]:checked')?.value;
+    
+    let coorientador1 = document.getElementById("coorientador-1").value.trim();
+    coorientador1 = coorientador1 ? coorientador1 : "";
 
-const maisCoorientador = document.querySelector('input[name="coorientador-sn"]:checked')?.value;
-const qtdCoorientador = document.querySelector('input[name="ilustrador-qtd"]:checked')?.value;
-let coorientador2 = "";
-let coorientador3 = "";
+    let coorientador2 = document.getElementById("coorientador-2").value.trim();
+    coorientador2 = coorientador2 ? coorientador2 : "";
+    
+    let coorientador3 = document.getElementById("coorientador-3").value.trim();
+    coorientador3 = coorientador3 ?  coorientador3 : "";
 
-if (maisCoorientador === "sim") {
-    if (qtdCoorientador === "2") {
-        coorientador2 = document.getElementById("coorientador-segundo2").value.trim();
-        coorientador2 = ' e ' + coorientador2;
-    } else if (qtdCoorientador === "3") {
-        coorientador2 = document.getElementById("coorientador-segundo2").value.trim();
-        coorientador3 = document.getElementById("ilustrador-3").value.trim();
-        coorientador2 = ', ' + coorientador2;
-        coorientador3 = ' e ' + coorientador3;
-    } else {
-        coorientador2 = " ... [et al.]";
+    if (coorientador === "sim") {
+        if (qtdCoorientador === "1") {
+            coorientador1 = ' ; coorientado por ' + coorientador1;
+        } else if (qtdCoorientador === "2") {
+            coorientador1 = ' ; coorientado por ' + coorientador1;
+            coorientador2 = ' e ' + coorientador2;
+        } else if (qtdCoorientador === "3") {
+            coorientador1 = ' ; coorientado por ' + coorientador1;          
+            coorientador2 = ', ' + coorientador2;
+            coorientador3 = ' e ' + coorientador3;
+        } else {
+            coorientador1 = ' ; coorientado por ' + coorientador1;
+            coorientador2 = " ... [et al.]";
+        }
     }
-}
 
-/*
-//Contribuidores - Organizador
-let organizador1 = "";
-if (document.getElementById("organizador-checkbox").checked) {
-    const nOrganizador = document.getElementById("organizador-1").value.trim();
-    organizador1 = ' ; organizado por ' + nOrganizador;
-}
+    const coorientadores = coorientador1 + coorientador2 + coorientador3;
 
-const maisOrganizador = document.querySelector('input[name="organizador-sn"]:checked')?.value;
-const qtdOrganizador = document.querySelector('input[name="organizador-qtd"]:checked')?.value;
-let organizador2 = "";
-let organizador3 = "";
-
-if (maisOrganizador === "sim") {
-    if (qtdOrganizador === "2") {
-        organizador2 = document.getElementById("organizador-2").value.trim();
-        organizador2 = ' e ' + organizador2;
-    } else if (qtdOrganizador === "3") {
-        organizador2 = document.getElementById("organizador-2").value.trim();
-        organizador3 = document.getElementById("organizador-3").value.trim();
-        organizador2 = ', ' + organizador2;
-        organizador3 = ' e ' + organizador3;
-    } else {
-        organizador2 = " ... [et al.]";
+    /*
+    //Contribuidores - Organizador
+    let organizador1 = "";
+    if (document.getElementById("organizador-checkbox").checked) {
+        const nOrganizador = document.getElementById("organizador-1").value.trim();
+        organizador1 = ' ; organizado por ' + nOrganizador;
     }
-}
-
-//Contribuidores - Prefaciador  
-let prefaciador = "";
-if (document.getElementById("prefaciador-checkbox").checked) {
-    const nPrefaciador = document.getElementById("prefaciador-1").value.trim();
-    prefaciador = ' ; prefaciado por ' + nPrefaciador;
-}
-
-const maisPrefaciador = document.querySelector('input[name="prefaciador-sn"]:checked')?.value;
-const qtdPrefaciador = document.querySelector('input[name="prefaciador-qtd"]:checked')?.value;
-let prefaciador2 = "";
-let prefaciador3 = "";
-
-if (maisPrefaciador === "sim") {
-    if (qtdPrefaciador === "2") {
-        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
-        prefaciador2 = ' e ' + prefaciador2;
-    } else if (qtdPrefaciador === "3") {
-        prefaciador2 = document.getElementById("prefaciador-2").value.trim();
-        prefaciador3 = document.getElementById("prefaciador-3").value.trim();
-        prefaciador2 = ', ' + prefaciador2;
-        prefaciador3 = ' e ' + prefaciador3;
-    } else {
-        prefaciador2 = " ... [et al.]";
+    
+    const maisOrganizador = document.querySelector('input[name="organizador-sn"]:checked')?.value;
+    const qtdOrganizador = document.querySelector('input[name="organizador-qtd"]:checked')?.value;
+    let organizador2 = "";
+    let organizador3 = "";
+    
+    if (maisOrganizador === "sim") {
+        if (qtdOrganizador === "2") {
+            organizador2 = document.getElementById("organizador-2").value.trim();
+            organizador2 = ' e ' + organizador2;
+        } else if (qtdOrganizador === "3") {
+            organizador2 = document.getElementById("organizador-2").value.trim();
+            organizador3 = document.getElementById("organizador-3").value.trim();
+            organizador2 = ', ' + organizador2;
+            organizador3 = ' e ' + organizador3;
+        } else {
+            organizador2 = " ... [et al.]";
+        }
     }
-}
-
-//Contribuidores - Tradutor  
-let tradutor = "";
-if (document.getElementById("tradutor-checkbox").checked) {
-    const nTradutor = document.getElementById("tradutor-1").value.trim();
-    tradutor = ' ; traduzido por ' + nTradutor;
-}
-
-const maisTradutor = document.querySelector('input[name="tradutor-sn"]:checked')?.value;
-const qtdTradutor = document.querySelector('input[name="tradutor-qtd"]:checked')?.value;
-let tradutor2 = "";
-let tradutor3 = "";
-
-if (maisTradutor === "sim") {
-    if (qtdTradutor === "2") {
-        tradutor2 = document.getElementById("tradutor-2").value.trim();
-        tradutor2 = ' e ' + tradutor2;
-    } else if (qtdTradutor === "3") {
-        tradutor2 = document.getElementById("tradutor-2").value.trim();
-        tradutor3 = document.getElementById("tradutor-3").value.trim();
-        tradutor2 = ', ' + tradutor2;
-        tradutor3 = ' e ' + tradutor3;
-    } else {
-        tradutor2 = " ... [et al.]";
+    
+    //Contribuidores - Prefaciador  
+    let prefaciador = "";
+    if (document.getElementById("prefaciador-checkbox").checked) {
+        const nPrefaciador = document.getElementById("prefaciador-1").value.trim();
+        prefaciador = ' ; prefaciado por ' + nPrefaciador;
     }
-}
-    */
+    
+    const maisPrefaciador = document.querySelector('input[name="prefaciador-sn"]:checked')?.value;
+    const qtdPrefaciador = document.querySelector('input[name="prefaciador-qtd"]:checked')?.value;
+    let prefaciador2 = "";
+    let prefaciador3 = "";
+    
+    if (maisPrefaciador === "sim") {
+        if (qtdPrefaciador === "2") {
+            prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+            prefaciador2 = ' e ' + prefaciador2;
+        } else if (qtdPrefaciador === "3") {
+            prefaciador2 = document.getElementById("prefaciador-2").value.trim();
+            prefaciador3 = document.getElementById("prefaciador-3").value.trim();
+            prefaciador2 = ', ' + prefaciador2;
+            prefaciador3 = ' e ' + prefaciador3;
+        } else {
+            prefaciador2 = " ... [et al.]";
+        }
+    }
+    
+    //Contribuidores - Tradutor  
+    let tradutor = "";
+    if (document.getElementById("tradutor-checkbox").checked) {
+        const nTradutor = document.getElementById("tradutor-1").value.trim();
+        tradutor = ' ; traduzido por ' + nTradutor;
+    }
+    
+    const maisTradutor = document.querySelector('input[name="tradutor-sn"]:checked')?.value;
+    const qtdTradutor = document.querySelector('input[name="tradutor-qtd"]:checked')?.value;
+    let tradutor2 = "";
+    let tradutor3 = "";
+    
+    if (maisTradutor === "sim") {
+        if (qtdTradutor === "2") {
+            tradutor2 = document.getElementById("tradutor-2").value.trim();
+            tradutor2 = ' e ' + tradutor2;
+        } else if (qtdTradutor === "3") {
+            tradutor2 = document.getElementById("tradutor-2").value.trim();
+            tradutor3 = document.getElementById("tradutor-3").value.trim();
+            tradutor2 = ', ' + tradutor2;
+            tradutor3 = ' e ' + tradutor3;
+        } else {
+            tradutor2 = " ... [et al.]";
+        }
+    }
+        */
 
-//Saída da função getRespInt
+    //Saída da função getRespInt
 
-let entradaPrincipal = `\n${autorEntrada}`; 
-entradaPrincipal = entradaPrincipal ? entradaPrincipal : ""; //vazio se pessoa != autor 
+    let entradaPrincipal = `\n${autorEntrada}`;
+    entradaPrincipal = entradaPrincipal ? entradaPrincipal : ""; //vazio se pessoa != autor 
 
-let areaResponsabilidade = " / ";
+    let areaResponsabilidade = ` / ${autor}${orientador}${coorientadores}`;
 
-/*
-
-const pessoaTipo = document.querySelector('input[name="pessoa-tipo"]:checked')?.value;
-const responsavel = document.querySelector('input[name="resp-int"]:checked')?.value;
-
-const contribuidores = document.querySelectorAll('input[name="contribuidor-tipo"]');
-function isAnyContribuidorChecked() {
-    return Array.from(contribuidores).some(checkbox => checkbox.checked);
-}
-
-if (pessoaTipo === "anonima" &&  isAnyContribuidorChecked() || responsavel === "evento" && isAnyContribuidorChecked()) {
-    areaResponsabilidade = ""
-}
-    */
-
-areaResponsabilidade = ` / ${autor}${orientador}${coorientador2}${coorientador3}`;
-
-return { entradaPrincipal, areaResponsabilidade }
+    return { entradaPrincipal, areaResponsabilidade }
 }
 
 // ÁREA DE PUBLICAÇÃO
 
 function getPublicacao() {
 
-let publicador = document.getElementById("publicador").value.trim();
-publicador = publicador ? ' : ' + publicador : ' : [s.n.]';
+    let publicador = document.getElementById("publicador").value.trim();
+    publicador = publicador ? ' : ' + publicador : ' : [s.n.]';
 
-let loc = document.getElementById("local").value.trim();
-const local = loc ? '. — ' + loc : ". — [S.l.]";
+    let loc = document.getElementById("local").value.trim();
+    const local = loc ? '. — ' + loc : ". — [S.l.]";
 
-let ano = document.getElementById("ano").value.trim();
-ano = ano ? ', ' + ano + '.' : ', [s.d.].';
+    let ano = document.getElementById("ano").value.trim();
+    ano = ano ? ', ' + ano + '.' : ', [s.d.].';
 
-//Mais publicador
+    //Mais publicador
 
-/*
-const maisPublicador = document.querySelector('input[name="publicador-sn"]:checked')?.value;
+    /*
+    const maisPublicador = document.querySelector('input[name="publicador-sn"]:checked')?.value;
+    
+    let publicador2 = document.getElementById("publicador-2").value.trim();
+    publicador2 = publicador2 ? ' : ' + publicador2 : "";
+    
+    let loc2 = document.getElementById("local-2").value.trim();
+    let local2 = loc2 ? ' ; ' + loc2 : "";
+    
+    if (maisPublicador === "sim") {
+        if (loc2 === loc) {
+            local2 = "";
+        }
+    } 
+        */
 
-let publicador2 = document.getElementById("publicador-2").value.trim();
-publicador2 = publicador2 ? ' : ' + publicador2 : "";
+    const areaPublicacao = `${local}${publicador}${ano}`;
 
-let loc2 = document.getElementById("local-2").value.trim();
-let local2 = loc2 ? ' ; ' + loc2 : "";
-
-if (maisPublicador === "sim") {
-    if (loc2 === loc) {
-        local2 = "";
-    }
-} 
-    */
-
-const areaPublicacao = `${local}${publicador}${ano}`;
-
-return { areaPublicacao }
+    return { areaPublicacao }
 
 }
 
@@ -329,259 +319,146 @@ return { areaPublicacao }
 
 function getDescricaoFisica() {
 
-//const paginacao_radio = document.querySelector('input[name="paginacao"]:checked')?.value;
-//const pagRomana_cbox = document.getElementById("pag-romana").checked;
-//const paginaOuFolha_radio = document.querySelector('input[name="pag-ou-folha"]:checked')?.value;
-//const pagLamina_cbox = document.getElementById("pag-lamina").checked;
-//const radioCerteza = document.querySelector('input[name="pag-certeza"]:checked')?.value;
+    const texto = document.getElementById('texto').checked;
 
-let pagNum = document.getElementById("pag")?.value;
-//let pagNaoNum = document.getElementById("pag-nao-num-qtd")?.value;
-//let pagRomana = document.getElementById("pag-romana-qtd")?.value;
-//let pagLamina = document.getElementById("pag-lamina-qtd")?.value;
-//let folhaLamina = document.getElementById("folha-lamina-qtd")?.value;
+    const software = document.getElementById('software').checked;
 
-/*
-if (paginacao_radio === "pag-num") {
-    pagNum = pagNum ? `${pagNum} p.` : '';
-} else if (paginacao_radio === "pag-sem-num") {
-    if (radioCerteza === "presumida") {
-        pagNaoNum = pagNaoNum ? `[${pagNaoNum}] p.` : ''; 
+    let formato = document.getElementById("formato").value.trim();
+    
+    let pag = document.getElementById("paginas")?.value.trim();
+    const paginacao = pag ? `${pag} p.` : "";
+
+    let dur = document.getElementById("duracao-do-arquivo")?.value.trim();
+    const duracao = dur ? ` ; ${dur}` : "";
+
+    let tam = document.getElementById("tamanho-do-arquivo")?.value.trim();
+    const tamanho = tam ? ` ; ${tam}` : "";
+
+    if (texto) {
+        formato = formato ? ` ; ${formato}` : "";
     } else {
-        pagNaoNum = pagNaoNum ? `${pagNaoNum} p.` : ''; 
+        formato = formato ? formato : "";
     }
-}
 
-if (pagRomana_cbox) {
-    pagRomana = pagRomana ? `${pagRomana}, ` : '';
-}
+    //Material gráfico (Imagens)
 
-if (pagLamina_cbox) {
-    if (paginaOuFolha_radio === "pagina") {
-        pagLamina = pagLamina ? `, [${pagLamina}] p. de lâminas` : '';
-        
-        //não vai precisar quando o preenchimento for obrigatório
-    } else if (paginaOuFolha_radio === "folha") {
-        folhaLamina = folhaLamina ? `, [${folhaLamina}] f. de lâminas` : ''; 
-    }
-}
-*/
+    const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
+    const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
+    const mapasChecked = document.querySelector('#img-mapas:checked');
+    const formulasChecked = document.querySelector('#img-formulas:checked');
 
-const paginacao = `${pagNum}`;
+    let ilustracoes = "";
+    let fotos = "";
+    let mapas = "";
+    let formulas = "";
 
-
-//Material gráfico (Imagens)
-
-const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
-const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
-const mapasChecked = document.querySelector('#img-mapas:checked');
-const formulasChecked = document.querySelector('#img-formulas:checked');
-
-let ilustracoes = "";
-let fotos = "";
-let mapas = "";
-let formulas = "";
-
-if (coloracaoIl === "il-cores") {
-    ilustracoes = "il. color."
-} else if (coloracaoIl === "il-pb") {
-    ilustracoes = "il. p&b"
-} else if (coloracaoIl === "il") {
-    ilustracoes = "il."
-} else {
-    ilustracoes = "";
-}
-
-if (coloracaoFotos === "foto-cores") {
-    fotos = "fotos color."
-} else if (coloracaoFotos === "foto-pb") {
-    fotos = "fotos p&b"
-} else if (coloracaoFotos === "foto") {
-    fotos = "fotos"
-} else {
-    fotos = "";
-}
-
-if (mapasChecked) {
-    mapas = "mapas"
-}
-
-if (formulasChecked) {
-    formulas = "formulas"
-} 
-
-// Cria uma lista com as imagens possíveis:
-const listaImagens = [ilustracoes, fotos, mapas, formulas];
-
-// Filtra lista de imagens para remover as que não estão presentes no livro:
-const imagensPresentes = listaImagens.filter(imagem => imagem);
-
-// Cria uma string formatada para o resultado final:
-let imagens = "";
-
-if (imagensPresentes.length > 0) {
-    imagens = " : " + imagensPresentes[0];
-}
-
-if (imagensPresentes.length > 1) {
-    // Adiciona as próximas imagens intermediárias precedidas com ", ":
-    for (let i = 1; i < imagensPresentes.length; i++) {
-        imagens += ", " + imagensPresentes[i];
-    }
-}
-
-imagens = imagens? imagens : '';
-
-// Formato
-
-//formato digital
-
-let ext = document.getElementById("formato_")?.value.trim();
-const formato_ = ext ? ` ; ${ext}` : "";
-
-let dur = document.getElementById("duracao")?.value.trim();
-const duracao = dur ? ` ; ${dur}` : "";
-
-/*/formato físico
-
-const formatoFisico = document.querySelector('input[name="formato"]:checked')?.value; //tradicional ou nao
-
-let altura = "";
-let alt = document.getElementById("altura").value.trim();
-let larg = document.getElementById("largura").value.trim();
-
-let largura = "";
-
-if (formatoFisico === "tradicional") {
-    altura = alt ? ` ; ${alt} cm` : "";
-} else if (formatoFisico === "nao-tradicional") {
-    altura = alt ? ` ; ${alt} cm` : "";
-    largura = larg ? ` x ${larg} cm` : "";
-}
-    */
-
-const formato = `${formato_}${duracao}`;
-
-
-/*/ Material adicional
-
-let matAdic = document.getElementById("material-adicional-tipo").value.trim();
-let qtdMatAdic = document.getElementById("material-adicional-qtd").value.trim();
-
-const materialAdicional = matAdic ? ` + ${qtdMatAdic} ${matAdic}` : "";
-
-*/
-
-// Saída da área de descrição física------------------
-
-return { paginacao, imagens, formato}
-
-}
-
-/*/ ÁREA DE SÉRIE
-
-function getSerie() {
-// Elementos antessessores sem ponto final
-// const pagRomana = document.getElementById("pag-romana").checked ; // xv (na vdd esse nunca vai ser o caso)
-const digital = document.getElementById("digital").checked; // PDF
-const formatoTrad = document.getElementById("formato-trad").checked; // cm
-const formatoNaoTrad = document.getElementById("formato-nao-trad").checked; // cm
-const imagemTipo = document.querySelector('#imagem-tipo input[type="checkbox"]:checked');
-
-const elementosAntecessoresSemPontoFinal = imagemTipo || digital || formatoTrad || formatoNaoTrad;
-
-
-const serieSN = document.querySelector('input[name="serie-sn"]:checked')?.value;
-let areaSerie = ".";
-
-
-let serieNome = document.getElementById("serie-nome").value.trim();
-let serieVolume = document.getElementById("serie-volume").value.trim();
-serieVolume = serieVolume ? " ; " + serieVolume : "";
-
-
-let subserieNome = document.getElementById("subserie-nome").value.trim();
-let subserieVolume = document.getElementById("subserie-volume").value.trim();
-subserieVolume = subserieVolume ? " ; " + subserieVolume : "";
-
-// Construção da área da série
-if (serieSN === "sim") {
-    areaSerie = `. — (${serieNome}${serieVolume}`;
-    if (subserieNome) {
-        areaSerie += ` : ${subserieNome}${subserieVolume})`;
+    if (coloracaoIl === "il-cores") {
+        ilustracoes = "il. color."
+    } else if (coloracaoIl === "il-pb") {
+        ilustracoes = "il. p&b"
+    } else if (coloracaoIl === "il") {
+        ilustracoes = "il."
     } else {
-        areaSerie += `)`;
+        ilustracoes = "";
     }
-}
 
-return { areaSerie };
-}*/
+    if (coloracaoFotos === "foto-cores") {
+        fotos = "fotos color."
+    } else if (coloracaoFotos === "foto-pb") {
+        fotos = "fotos p&b"
+    } else if (coloracaoFotos === "foto") {
+        fotos = "fotos"
+    } else {
+        fotos = "";
+    }
+
+    if (mapasChecked) {
+        mapas = "mapas"
+    }
+
+    if (formulasChecked) {
+        formulas = "formulas"
+    }
+
+    // Cria uma lista com as imagens possíveis:
+    const listaImagens = [ilustracoes, fotos, mapas, formulas];
+
+    // Filtra lista de imagens para remover as que não estão presentes no livro:
+    const imagensPresentes = listaImagens.filter(imagem => imagem);
+
+    // Cria uma string formatada para o resultado final:
+    let imagens = "";
+
+    if (imagensPresentes.length > 0) {
+        imagens = " : " + imagensPresentes[0];
+    }
+
+    if (imagensPresentes.length > 1) {
+        // Adiciona as próximas imagens intermediárias precedidas com ", ":
+        for (let i = 1; i < imagensPresentes.length; i++) {
+            imagens += ", " + imagensPresentes[i];
+        }
+    }
+
+    imagens = imagens ? imagens : '';
+
+
+    return { formato, paginacao, imagens, tamanho, duracao }
+
+}
 
 // ÁREA DE NOTAS
 
 // Notas descritivas
 function getNota() {
 
-const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
-let areaNotaISBN = "";
+    //const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+    let areaNotaISBN = "";
 
 
-let nota1 = document.getElementById("nota-1").value.trim();
-nota1 = nota1 ? `\n    ${nota1}` : "";
+    let nota1 = document.getElementById("nota-1").value.trim();
+    nota1 = nota1 ? `\n    ${nota1}` : "";
 
 
-let nota2 = document.getElementById("nota-2").value.trim();
-nota2 = nota2 ? `\n    ${nota2}` : "";
+    let nota2 = document.getElementById("nota-2").value.trim();
+    nota2 = nota2 ? `\n    ${nota2}` : "";
 
 
-return { nota1, nota2 };
+    return { nota1, nota2 };
 }
 // ISBN
-function getISBN() {
-
-// const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
-//let areaNotaISBN = "";
+function getIdentificador() {
 
 
-let isbn1 = document.getElementById("isbn-1").value.trim();
-isbn1 = isbn1 ? `\n    ISBN ${isbn1}` : "";
-let qualificador1 = document.getElementById("qualificador-1").value.trim();
-qualificador1 = qualificador1 ? ` (${qualificador1})` : "";
+    let isbn = document.getElementById("isbn").value.trim();
+    isbn = isbn ? `\n    ISBN ${isbn}` : "";
 
-isbn1 = `${isbn1}${qualificador1}`;
+    let doi = document.getElementById("doi").value.trim();
+    doi = doi ? `\n    DOI ${doi}` : "";
 
-let isbn2 = document.getElementById("isbn-2").value.trim();
-isbn2 = isbn2 ? `. — ISBN ${isbn2}` : "";
-let qualificador2 = document.getElementById("qualificador-2").value.trim();
-qualificador2 = qualificador2 ? ` (${qualificador2})` : "";
-
-isbn2 = `${isbn2}${qualificador2}`;
-
-let isbn = isbn1 + isbn2;
-
-return { isbn };
+    return { isbn, doi };
 }
 
 // ASSUNTOS             
 function getAssunto() {
-let assunto1 = document.getElementById("assunto-1").value.trim();
-assunto1 = assunto1 ? `1. ${assunto1}` : "";
+    let assunto1 = document.getElementById("assunto-1").value.trim();
+    assunto1 = assunto1 ? `1. ${assunto1}` : "";
 
-let assunto2 = document.getElementById("assunto-2").value.trim();
-assunto2 = assunto2 ? `2. ${assunto2}` : "";
+    let assunto2 = document.getElementById("assunto-2").value.trim();
+    assunto2 = assunto2 ? `2. ${assunto2}` : "";
 
-let assunto3 = document.getElementById("assunto-3").value.trim();
-assunto3 = assunto3 ? `3. ${assunto3}` : "";
+    let assunto3 = document.getElementById("assunto-3").value.trim();
+    assunto3 = assunto3 ? `3. ${assunto3}` : "";
 
-let assunto4 = document.getElementById("assunto-4").value.trim();
-assunto4 = assunto4 ? `4. ${assunto4}` : "";
+    let assunto4 = document.getElementById("assunto-4").value.trim();
+    assunto4 = assunto4 ? `4. ${assunto4}` : "";
 
-let assunto5 = document.getElementById("assunto-5").value.trim();
-assunto5 = assunto5 ? `5. ${assunto5}` : "";
+    let assunto5 = document.getElementById("assunto-5").value.trim();
+    assunto5 = assunto5 ? `5. ${assunto5}` : "";
 
-const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;
+    const assuntos = `${assunto1} ${assunto2} ${assunto3} ${assunto4} ${assunto5}`;
 
-return { assuntos };
+    return { assuntos };
 }
 
 /*  .......................................................... FUNÇÕES EXPORTADAS  */
@@ -596,12 +473,15 @@ export function getFicha() {
     const entradaPrincipal = getRespInt().entradaPrincipal;
     const areaResponsabilidade = getRespInt().areaResponsabilidade;
     const areaPublicacao = getPublicacao().areaPublicacao;
-    const paginacao = getDescricaoFisica().paginacao;
-    const imagens = getDescricaoFisica().imagens;
     const formato = getDescricaoFisica().formato;
+    const paginacao = getDescricaoFisica().paginacao;
+    const tamanho = getDescricaoFisica().tamanho;
+    const duracao = getDescricaoFisica().duracao;
+    const imagens = getDescricaoFisica().imagens;
     //const materialAdicional = getDescricaoFisica().materialAdicional;
     //const areaSerie = getSerie().areaSerie;
-    const isbn = getISBN().isbn;
+    const isbn = getIdentificador().isbn;
+    const doi = getIdentificador().doi;
     const nota1 = getNota().nota1;
     const nota2 = getNota().nota2;
     const assuntos = getAssunto().assuntos;
@@ -609,8 +489,8 @@ export function getFicha() {
     //Configuração da ficha catalográfica
     let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaResponsabilidade}${areaPublicacao}
-    ${paginacao}${imagens}${formato}
-    ${nota1}${nota2}${isbn}
+    ${paginacao}${formato}${duracao}${tamanho}${imagens}
+    ${nota1}${nota2}${isbn}${doi}
     
     ${assuntos}
     `
@@ -621,7 +501,7 @@ export function getFicha() {
     ficha = ficha.replace('color..', 'color.') // Elimina de ponto final da área de série após abreviação color.
     ficha = ficha.replace('/  ; ', '/ ');
     ficha = ficha.replace('/ .', '.');
- 
+
     ficha = JSON.stringify(ficha);
 
     localStorage.setItem('ficha', ficha);
@@ -661,7 +541,7 @@ export function getServico() {
 
     const servicoNome = document.getElementById("servico-nome").value.trim();
     const servico = servicoNome ? `${servicoNome}` : "";
-    
+
     localStorage.setItem("servico", servico);
 
     return { servico }
@@ -698,9 +578,9 @@ export function getBibliotecario() {
 
 export function getCreditos() {
     let creditos = document.getElementById("creditos").value.trim();
-    creditos = creditos? creditos : "";
+    creditos = creditos ? creditos : "";
 
-    creditos = JSON.stringify(creditos);    
+    creditos = JSON.stringify(creditos);
 
     localStorage.setItem("creditos", creditos);
 
