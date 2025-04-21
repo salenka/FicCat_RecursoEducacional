@@ -7,16 +7,17 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         document.getElementById('extensao-section').style.display = 'block';
+        document.getElementById('imagem-section').style.display = 'none';
         eraseAllChildTextOf('extensao-section')
         removeRequiredFromAllChildTextOf('extensao-section');
 
         if (document.getElementById('texto').checked) {
             
             document.getElementById('paginacao').style.display  = 'block';
-            document.getElementById('paginas').setAttribute('required', 'required')  
-
+            document.getElementById('paginas').setAttribute('required', 'required')
+            
             document.getElementById('tamanho').style.display = 'block';
-            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
 
             document.getElementById('duracao').style.display = 'none';
             document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
@@ -24,7 +25,7 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
         } else if (document.getElementById('video').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
-            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
 
             document.getElementById('duracao').style.display = 'block';
             document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
@@ -35,10 +36,21 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
         } else if (document.getElementById('audio').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
-            //document.getElementById('tamanho-do-arquivo').setAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
 
             document.getElementById('duracao').style.display = 'block';
             document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
+
+            document.getElementById('paginacao').style.display  = 'none';
+            document.getElementById('paginas').removeAttribute('required', 'required')
+
+        } else if (document.getElementById('software').checked) {
+
+            document.getElementById('tamanho').style.display = 'block';
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
+
+            document.getElementById('duracao').style.display = 'none';
+            document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
 
             document.getElementById('paginacao').style.display  = 'none';
             document.getElementById('paginas').removeAttribute('required', 'required')
@@ -989,7 +1001,7 @@ document.getElementById('img-fotos').addEventListener('change', function () {
     }
 })
 
-
+/*
 //Checkbox MAPAS
 document.getElementById('img-mapas').addEventListener('change', function () {
 
@@ -999,7 +1011,7 @@ document.getElementById('img-mapas').addEventListener('change', function () {
         document.getElementById('mapas-coloracao').style.display = 'none';
     }
 })
-
+*/
 
 //FORMATO
 
@@ -1366,6 +1378,8 @@ document.getElementById("btn-png").addEventListener("click", function (event) {
 
     let formIsValid = true;
 
+    /*
+
     // Validação específica para os rádios bibliotecario-genero
     const bibGenero = document.querySelectorAll('input[name="bibliotecario-genero"][required]');
 
@@ -1382,11 +1396,12 @@ document.getElementById("btn-png").addEventListener("click", function (event) {
         event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
         alert('Por favor, preencha todos os campos obrigatórios.');
 
-    } else {
+    } else { */
 
         geraPNG();
-    }
+    
 });
+
 
 
 // Botão Abrir HTML A4
@@ -1395,7 +1410,7 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
 
     // Salva as variáveis processadas em cardScript
 
-    localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
+    //localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
     localStorage.setItem('servico', getServico().servico);
 
     // Salva conteúdo formatado do campo Créditos
