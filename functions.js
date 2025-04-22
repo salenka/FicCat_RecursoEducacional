@@ -100,17 +100,17 @@ export function geraFicha() {
     // Renderização da ficha
     document.getElementById("ficha-aqui").textContent = ficha;
     //document.getElementById("codigos-aqui").textContent = codigos;
-    document.getElementById("servico-aqui").textContent = servico;
+    //document.getElementById("servico-aqui").textContent = servico;
     //document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Renderização dos elementos HTML
 
     document.getElementById("ficha-catalografica-section").style.display = "block";
-    document.getElementById("btn-png-wrapper").style.display = "block";
-    document.getElementById("opcionais-pdf").style.display = "block";
-    document.getElementById("btn-pdf-wrapper").style.display = "block";
-    document.getElementById("btn-card-legend-top").style.display = "block";
-    document.getElementById("btn-card-legend-bottom").style.display = "block";
+    document.getElementById("btn-png-section").style.display = "block";
+    document.getElementById("campos-pdf").style.display = "block";
+    //document.getElementById("btn-pdf-wrapper").style.display = "block";
+    //document.getElementById("btn-card-legend-top").style.display = "block";
+    //document.getElementById("btn-card-legend-bottom").style.display = "block";
 
     //a remoção dos itens abaixo é para que os últimos salvos não apareçam caso o usuário não acrescente nenhum elemento opcional do pdf
 
@@ -140,7 +140,7 @@ export function geraPNG() {
     //document.getElementById("codigos-aqui-pdf").textContent = codigos;
     //document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
     document.getElementById("servico-aqui").textContent = servico;
-    document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
+    //document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Seleciona a div que você quer capturar
     const content = document.getElementById('ficha-catalografica');
@@ -168,7 +168,7 @@ export function geraPDF() {
     // Ocultação de divs
     document.getElementById('card-form').style.display = "none";
     document.getElementById('ficha-catalografica-section').style.display = "none";
-    document.getElementById('opcionais-pdf').style.display = "none";
+    document.getElementById('campos-pdf').style.display = "none";
     document.getElementById('pagina-pdf').style.display = "block";
 
     // Renderização da licença
@@ -245,7 +245,7 @@ export function geraPDF() {
         //document.getElementById("pagina-pdf").style.display = "none";
         document.getElementById("card-form").style.display = "block";
         document.getElementById('ficha-catalografica-section').style.display = "block";
-        document.getElementById("opcionais-pdf").style.display = "block";
+        document.getElementById("campos-pdf").style.display = "block";
     }, 2500);
 }
  ************************************************************************************* */

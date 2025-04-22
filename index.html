@@ -16,7 +16,6 @@
 
 <body>
     <!-- FORMULÁRIO -->
-
     <form id="card-form">
 
         <h2>Gerador de Ficha Catalográfica para Recursos Educacionais</h2>
@@ -31,12 +30,13 @@
             <label for="video">Vídeo</label>
             <input type="radio" id="audio" name="arquivo" value="audio" required>
             <label for="audio">Áudio</label>
-
+            <input type="radio" id="software" name="arquivo" value="software" required>
+            <label for="software">Software</label>
 
             <div id="arquivo-digital">
-                <label for="formato_">Informe a extensão do arquivo digital *</label><br>
-                <input type="text" class="form-control" id="formato_" name="formato_">
-                <legend>Por exemplo, PDF, MPEG, WAV, OGG, etc.</legend>
+                <label for="formato">Informe a extensão do arquivo digital *</label><br>
+                <input type="text" class="form-control" id="formato" name="formato">
+                <legend>Por exemplo, pdf, mpeg, wav, ogg, py etc.</legend>
             </div>
 
         </fieldset> <!-- fim do fieldset arquivo-section -->
@@ -319,14 +319,14 @@
             <!-- coorientador-sn -->
 
             <div id="coorientador-sn">
-
+<br>
                 <p>Existe um coorientador?</p>
 
                 <input type="radio" id="coorientador-sim" name="coorientador-sn" value="sim">
-                <label for="sim">Sim</label>
+                <label for="coorientador-sim">Sim</label>
 
                 <input type="radio" id="coorientador-nao" name="coorientador-sn" value="nao">
-                <label for="nao">Não</label><br><br />
+                <label for="coorientador-nao">Não</label><br><br />
             </div>
 
 
@@ -742,7 +742,7 @@
                     <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
                     <label for="foto-pb">Preto-e-branco</label><br>
                     <input type="radio" id="foto" name="fotos-coloracao" value="foto">
-                    <label for="fotos">Não existe uma coloração predominante ou essa informação não é
+                    <label for="foto">Não existe uma coloração predominante ou essa informação não é
                         relevante</label>
                 </div>
 
@@ -824,45 +824,23 @@
         <!-- ÁREA DE NOTAS -->
 
         <!-- Existe ISBN? -->
-        <fieldset id="isbn-section" class="form-group form-group-bordered">
-            <div id="isbn-sn">
-                <p>O livro possui ISBN? *</p>
-                <input type="radio" id="isbn-sim" name="isbn-sn" value="sim" required>
-                <label for="sim">Sim</label>
 
-                <input type="radio" id="isbn-nao" name="isbn-sn" value="nao" required>
-                <label for="nao">Não</label>
+        <fieldset id="identificadores-section" class="form-group form-group-bordered">
+
+            <div id="identificador-isbn">
+                <label for="isbn">ISBN</label><br>
+                <input type="text" class="form-control" id="isbn" name="isbn">
+                <legend>Inclua a pontuação</legend>
             </div>
 
-            <div id="isbn">
-
-                <label for="isbn-1">ISBN *</label><br>
-                <input type="text" class="form-control" id="isbn-1" name="isbn-1">
+            <div id="identificador-doi">
+                <label for="doi">DOI</label><br>
+                <input type="text" class="form-control" id="doi" name="doi">
+                <legend>Inclua a pontuação</legend>
             </div>
 
-            <!-- Existe outro ISBN -->
-            <div id="isbn-2-sn">
-                <br>
-                <p>Existe outro ISBN? *</p>
-                <input type="radio" id="isbn-2-sim" name="isbn-2-sn" value="sim">
-                <label for="sim">Sim</label>
+        </fieldset><!-- fim de identificadores-section -->
 
-                <input type="radio" id="isbn-2-nao" name="isbn-2-sn" value="nao">
-                <label for="nao">Não</label>
-            </div>
-
-            <!-- Outro ISBN -->
-            <div id="isbn-outro">
-
-                <label for="qualificador-1 *">Qualificador do primeiro ISBN</label><br>
-                <input type="text" class="form-control" id="qualificador-1" name="qualificador-1"><br>
-                <br>
-                <label for="isbn-2">Segundo ISBN *</label><br>
-                <input type="text" class="form-control" id="isbn-2" name="isbn-2"><br>
-                <label for="qualificador-2">Qualificador do segundo ISBN *</label><br>
-                <input type="text" class="form-control" id="qualificador-2" name="qualificador-2"><br>
-            </div>
-        </fieldset> <!-- fim de isbn-section-->
 
         <!-- Notas -->
 
@@ -871,10 +849,10 @@
             <div id="nota-sn">
                 <p>É preciso acrescentar uma nota?</p>
                 <input type="radio" id="nota-sim" name="nota-sn" value="sim">
-                <label for="sim">Sim</label>
+                <label for="nota-sim">Sim</label>
 
                 <input type="radio" id="nota-nao" name="nota-sn" value="nao">
-                <label for="nao">Não</label>
+                <label for="nota-nao">Não</label>
             </div>
 
             <div id="nota">
@@ -886,10 +864,10 @@
             <div id="nota-2-sn">
                 <p>É preciso acrescentar outra nota?</p>
                 <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
-                <label for="sim">Sim</label>
+                <label for="nota-2-sim">Sim</label>
 
                 <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
-                <label for="nao">Não</label>
+                <label for="nota-2-nao">Não</label>
             </div>
 
             <!-- Outra nota -->
@@ -1005,7 +983,6 @@
     </div>
 
     <!-- FICHA CATALOGRÁFICA -->
-
     <div id="ficha-catalografica-section">
         <h2>Ficha Catalográfica</h2>
 
@@ -1048,18 +1025,13 @@
 
     </div> <!-- fim de ficha-catalografica-section -->
     <br>
-    <br>
-    <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica</legend>
-    <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
-        <!-- BOTÃO GERAR PNG-->
-        <button type=" button" id="btn-png" class="button">Baixar imagem</button>
-    </div>
-    <legend id="btn-card-legend-bottom">ou prossiga para gerar uma página PDF</legend>
 
-    <!-- OPCIONAIS DO PDF -->
 
-    <fieldset id="opcionais-pdf">
-        <h5>Campos opcionais para PDF</h5>
+    <!-- CAMPOS DO PDF -->
+    <fieldset id="campos-pdf" class="form-group form-group-bordered">
+
+
+        <h5>Campos para PDF</h5>
 
         <!-- Licença -->
         <fieldset id="licenca-section">
@@ -1084,20 +1056,45 @@
         </fieldset> <!-- Fim de licenca-section-->
 
         <!-- Referência bibliográfica -->
-        <br>
-        <p>Referência do trabalho acadêmico relacionado</p>
-        <div id="creditos-section">
-            <!--<label for="creditos">Créditos da publicação</label><br>-->
-            <!--<textarea id="creditos" name="creditos" wrap="hard"></textarea>-->
-            <div id="creditos" style="height: 300px;"></div>
+        <fieldset id="referencia-section">
+
+            <p>Referência do trabalho acadêmico relacionado</p>
+            <div id="referencia">
+                <!--<label for="creditos">Créditos da publicação</label><br>-->
+                <!--<textarea id="creditos" name="creditos" wrap="hard"></textarea>-->
+                <div id="creditos" style="height: 300px;"></div>
+            </div>
+
+        </fieldset> <!-- Fim de referencia-section -->
+
+        <!-- Botão mostrar PDF -->
+
+        <div id="btn-pdf-wrapper" class="button-wrapper">
+            <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
+            <button type="button" id="btn-A4" class="button">Mostrar PDF</button>
         </div>
 
-    </fieldset> <!-- fim de opcionais-pdf -->
+            <!-- BOTÃO PNG -->
 
-    <div id="btn-pdf-wrapper" class="button-wrapper">
-        <!--<button type="button" id="btn-pdf" class="button">Gerar PDF</button>-->
-        <button type="button" id="btn-A4" class="button">Mostrar página</button>
-    </div>
+    <fieldset id="btn-png-section">
+        
+        <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
+            <!-- BOTÃO GERAR PNG-->
+            <button type=" button" id="btn-png" class="button">Baixar imagem</button>
+            <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica para inserir nas telas iniciais ou
+                finais do vídeo ou software</legend>
+        </div>
+        
+    </fieldset>
+
+    <br>
+
+    </fieldset> <!-- fim de campos-pdf -->
+
+
+    <br>
+
+
 
     <!-- PÁGINA PDF -->
 
@@ -1188,9 +1185,9 @@
 
         </div> <!-- fim de licenca-section-pdf -->
 
-        <div id="creditos-section-pdf">
+        <div id="referencia-pdf">
             <p id="creditos-pdf"></p>
-        </div> <!-- fim de creditos-section-pdf -->
+        </div> <!-- fim de referencia-pdf -->
 
 
         <div id="ficha-catalografica-pdf">

@@ -49,6 +49,42 @@ body > legend {
     display: none;
 }
 
+#card-form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80vw;
+    padding: 0px;
+    margin: 0px;
+
+    gap: 15px
+}
+
+#card-form > * {    
+    width: 100%;
+    padding: 15px;
+    margin: 0px;  
+}
+
+#campos-pdf  {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    width: 80vw;
+    padding: 0px;
+    margin: 0px;
+
+    gap: 15px
+}
+
+#campos-pdf > * {    
+    width: 100%;
+    padding: 15px;
+    margin: 0px;  
+}
+
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;
@@ -66,10 +102,6 @@ body > legend {
     align-self: center;
     padding: 4px;
     margin:1px;
-}
-
-#opcionais-pdf p {
-    font-weight: 500;
 }
 
 /* div bordaA4 foi removida de index.html */
@@ -97,6 +129,10 @@ body > legend {
     flex-direction: column;
     margin: 0;
     padding: 0;
+}
+
+#campos-pdf p {
+    font-weight: 500;
 }
 
 #licenca-section-pdf {
@@ -249,13 +285,13 @@ body > legend {
     /* Garante que o texto dentro de cada parágrafo não quebre em várias linhas */
 }
 
-#creditos-section-pdf {
+#referencia-pdf {
     width: 100%;
 }
 
 #creditos-pdf {
     white-space: pre-wrap;
-    text-align: justify;
+    text-align: left;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -510,6 +546,10 @@ body > legend {
     display: none;
 }
 
+#imagem-section {
+    display: none;
+}
+
 #il-coloracao {
     display: none;
 }
@@ -527,7 +567,7 @@ body > legend {
 }
 
 #extensao-section {
-    display: block;
+    display: none;
 }
 
 /*
@@ -562,17 +602,6 @@ body > legend {
 
 */
 
-#isbn {
-    display: none;
-}
-
-#isbn-2-sn {
-    display: none;
-}
-
-#isbn-outro {
-    display: none;
-}
 
 #nota {
     display: none;
@@ -590,14 +619,13 @@ body > legend {
     display: none;
 }
 
-#btn-png-wrapper {
+#opcionais-ficha {
     display: none;
 }
-
-#opcionais-pdf {
-    display: none;
+#campos-pdf {
+    display: block;
 }
 
-#btn-pdf-wrapper {
-    display: none;
+#btn-png-section {
+    display: block
 }
