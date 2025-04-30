@@ -22,6 +22,8 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
             document.getElementById('duracao').style.display = 'none';
             document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
 
+            document.getElementById('imagem-section').style.display = 'block';
+
         } else if (document.getElementById('video').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
