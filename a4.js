@@ -6,9 +6,9 @@ import * as cs from './cardScript.js';
 window.onload = function () {
 
     const ficha = JSON.parse(localStorage.getItem('ficha'));
-    const codigos = JSON.parse(localStorage.getItem('codigos'));
+    //const codigos = JSON.parse(localStorage.getItem('codigos'));
     const servico = localStorage.getItem('servico');
-    const bibliotecario = localStorage.getItem('bibliotecario');
+    //const bibliotecario = localStorage.getItem('bibliotecario');
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
 
@@ -52,7 +52,7 @@ window.onload = function () {
     // Carregar o conteúdo salvo no localStorage
     const deltaString = localStorage.getItem('quillContent');
     if (deltaString) {
-        // Converta a string JSON de volta para Delta
+        // Converte a string JSON de volta para Delta
         const delta = JSON.parse(deltaString);
         // Defina o conteúdo no Quill
         quill.setContents(delta);
@@ -66,10 +66,10 @@ window.onload = function () {
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
     document.getElementById("ficha-aqui-pdf").style.fontFamily = fontSelect;
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
-    document.getElementById("codigos-aqui-pdf").textContent = codigos;
-    document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
+    //document.getElementById("codigos-aqui-pdf").textContent = codigos;
+    //document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
     document.getElementById("servico-aqui-pdf").textContent = servico
-    document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
+    //document.getElementById("bibliotecario-aqui-pdf").textContent = bibliotecario;
 
 };
 
@@ -89,7 +89,7 @@ btnGerarPDF.addEventListener("click", function () {
             format: [298, 210],
             content: {
                 align: "left",
-                valign: "middle",
+                valign: "top",
             }
         },
         margin: 0, //[5, 0, 0, 0], // [topo, direita, base, esquerda] no form

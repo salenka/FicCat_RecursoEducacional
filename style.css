@@ -166,12 +166,13 @@ body > legend {
     /* Segura o card-box no fim da página */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left; /*se 'center' centraliza do texto da referência (o que não acontece com o texto de creditos no ficcat de livros)*/
     height: 297mm;
     width: 210mm;
     margin: 0;
     padding: 0;
 }
+
 
 #ficha-catalografica {
     display: flex;
@@ -292,6 +293,7 @@ body > legend {
 #creditos-pdf {
     white-space: pre-wrap;
     text-align: left;
+    width: auto;
     margin-left: 10%;
     margin-right: 10%;
 }
