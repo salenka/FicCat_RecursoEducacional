@@ -345,8 +345,16 @@ if (maisApresentador === "sim") {
 
 function getPublicacao() {
 
-    let local = document.getElementById("unidade-select").value.trim();
-    //const local = loc ? '. — ' + loc : ". — [S.l.]";
+
+    // Obtém o índice selecionado no <select>
+    const selectedIndex = document.getElementById("unidade-select").value;
+
+    // Obtém o objeto correspondente na lista de unidades
+    const selectedItem = unidades[selectedIndex];
+
+    // Extrai as propriedades local e unidade
+    const local = selectedItem.local;
+
 
     let ano = document.getElementById("ano").value.trim();
     ano = ano ? ano : '[s.d.]';
