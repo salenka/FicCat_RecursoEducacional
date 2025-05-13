@@ -280,34 +280,13 @@ if (maisApresentador === "sim") {
 
 function getPublicacao() {
 
-    let publicador = document.getElementById("publicador").value.trim();
-    publicador = publicador ? ' : ' + publicador : ' : [s.n.]';
-
-    let loc = document.getElementById("local").value.trim();
-    const local = loc ? '. — ' + loc : ". — [S.l.]";
+    let local = document.getElementById("local-select").value.trim();
+    //const local = loc ? '. — ' + loc : ". — [S.l.]";
 
     let ano = document.getElementById("ano").value.trim();
-    ano = ano ? ', ' + ano + '.' : ', [s.d.].';
+    ano = ano ? ano : '[s.d.]';
 
-    //Mais publicador
-
-    /*
-    const maisPublicador = document.querySelector('input[name="publicador-sn"]:checked')?.value;
-    
-    let publicador2 = document.getElementById("publicador-2").value.trim();
-    publicador2 = publicador2 ? ' : ' + publicador2 : "";
-    
-    let loc2 = document.getElementById("local-2").value.trim();
-    let local2 = loc2 ? ' ; ' + loc2 : "";
-    
-    if (maisPublicador === "sim") {
-        if (loc2 === loc) {
-            local2 = "";
-        }
-    } 
-        */
-
-    const areaPublicacao = `${local}${publicador}${ano}`;
+    const areaPublicacao = `. — ${local} : UNESP, ${ano}.`;
 
     return { areaPublicacao }
 
@@ -509,32 +488,6 @@ export function getFicha() {
     return { ficha }
 }
 
-/*/ CÓDIGOS
-
-export function getCodigos() {
-
-    let cdd = document.getElementById('cdd').value.trim();
-    cdd = cdd ? `CDD ${cdd}` : "";
-
-    let cdu = document.getElementById('cdu').value.trim();
-    cdu = cdu ? `CDU ${cdu}` : "";
-
-    let cutter = document.getElementById('cutter').value.trim();
-    cutter = cutter ? `Cutter ${cutter}` : "";
-
-    let pha = document.getElementById('pha').value.trim();
-    pha = pha ? `PHA ${pha}` : "";
-
-    let codigos = `${cdd} ${cdu} ${cutter} ${pha}`
-
-    codigos = JSON.stringify(codigos);
-
-    localStorage.setItem('codigos', codigos);
-
-    return { codigos }
-}
-    */
-
 // IDENTIFICAÇÃO
 
 export function getServico() {
@@ -546,33 +499,6 @@ export function getServico() {
 
     return { servico }
 }
-
-/*
-export function getBibliotecario() {
-
-    const genero = document.querySelector('input[name="bibliotecario-genero"]:checked')?.value;
-    let bibGenero = "";
-
-    if (genero === "feminino") {
-        bibGenero = "bibliotecária";
-    } else if (genero === "masculino") {        
-        bibGenero = "bibliotecário";
-    } else {        
-        console.log("Gênero do bibliotecário não selecionado");
-    }
-
-    let bibliotecarioNome = document.getElementById("bibliotecario-nome").value.trim();
-    bibliotecarioNome = bibliotecarioNome ? `${bibliotecarioNome} (${bibGenero} responsável)` : "";
-
-    let crb = document.getElementById("crb").value.trim();
-    crb = crb ? ` - CRB ${crb}` : "";
-
-    let bibliotecario = `${bibliotecarioNome}${crb}` 
-  
-    localStorage.setItem("bibliotecario", bibliotecario); 
-
-    return { bibliotecario }
-} */
 
 // CRÉDITOS
 

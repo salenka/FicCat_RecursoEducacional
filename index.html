@@ -52,7 +52,7 @@
             <input type="text" class="form-control" id="subtitulo" name="subtitulo">
         </fieldset> <!-- fim do fielset titulo-section -->
 
-    
+
         <!-- PESSOA -->
 
         <fieldset id="autor-section" class="form-group form-group-bordered">
@@ -64,7 +64,7 @@
                 <label for="sobrenome">Sobrenome do autor *</label><br>
                 <input type="text" class="form-control" id="sobrenome" name="sobrenome"><br>
             </div>
-            
+
         </fieldset> <!-- fim do fielset autor-section>
 
        <!-- ORIENTAÇÃO -->
@@ -79,7 +79,7 @@
             <!-- coorientador-sn -->
 
             <div id="coorientador-sn">
-<br>
+                <br>
                 <p>Existe um coorientador?</p>
 
                 <input type="radio" id="coorientador-sim" name="coorientador-sn" value="sim">
@@ -130,16 +130,43 @@
 
         </fieldset> <!-- fim do fielsed coorientacao-section -->
 
-        
+
         <!-- ÁREA DE PUBLICAÇÃO -->
 
         <fieldset id="publicacao-section" class="form-group form-group-bordered">
-            <legend>Informe dados da editora ou outra instituição responsável pela publicação da obra</legend>
 
-            <label for="publicador">Publicador</label><br>
-            <input type="text" class="form-control" id="publicador" name="publicador"><br>
-            <label for="local">Local do publicador</label><br>
-            <input type="text" class="form-control" id="local" name="local"><br>
+            <label for="local-select" >Local</label>
+            <select id="local-select" class="form-control">
+
+            <option value="remove">Selecione a cidade do campus</option>
+            <option value="Araraquara">Araraquara</option>
+            <option value="Araçatuba">Araçatuba</option>
+            <option value="Assis">Assis</option>
+            <option value="Bauru">Bauru</option>
+            <option value="Botucatu">Botucatu</option>
+            <option value="Dracena">Dracena</option>
+            <option value="Franca">Franca</option>
+            <option value="Guaratinguetá">Guaratinguetá</option>
+            <option value="Ilha Solteira">Ilha Solteira</option>
+            <option value="Itapeva">Itapeva</option>
+            <option value="Jaboticabal">Jaboticabal</option>
+            <option value="Marília">Marília</option>
+            <option value="Ourinhos">Ourinhos</option>
+            <option value="Presidente Prudente">Presidente Prudente</option>
+            <option value="Registro">Registro</option>
+            <option value="Rio Claro">Rio Claro</option>
+            <option value="Rosana">Rosana</option>
+            <option value="Sorocaba">Sorocaba</option>
+            <option value="São José do Rio Preto">São José do Rio Preto</option>
+            <option value="São José dos Campos">São José dos Campos</option>
+            <option value="São João da Boa Vista">São João da Boa Vista</option>
+            <option value="São Paulo">São Paulo</option>
+            <option value="São Vicente">São Vicente</option>
+            <option value="Tupã">Tupã</option>
+
+            </select>
+            
+            <br>
             <label for="ano">Ano</label><br>
             <input type="text" class="form-control" id="ano" name="ano"><br>
 
@@ -211,7 +238,7 @@
             </div>
 
         </fieldset> <!-- fim de imagem-section -->
-        
+
         <!-- ÁREA DE NOTAS -->
 
         <!-- Existe ISBN? -->
@@ -291,8 +318,8 @@
     <fieldset id="opcionais-ficha">
         <h5>Campos opcionais para Ficha Catalográfica</h5>
 
-    
-            <!-- Serviço de Catalogação -->
+
+        <!-- Serviço de Catalogação -->
         <br>
         <p><b>Identificação do serviço de catalogação</b></p>
         <div id="servico" class="form-group form-group-bordered">
@@ -399,20 +426,21 @@
             <button type="button" id="btn-A4" class="button">Mostrar PDF</button>
         </div>
 
-            <!-- BOTÃO PNG -->
+        <!-- BOTÃO PNG -->
 
-    <fieldset id="btn-png-section">
-        
-        <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
-            <!-- BOTÃO GERAR PNG-->
-            <button type=" button" id="btn-png" class="button">Baixar imagem</button>
-            <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica para inserir nas telas iniciais ou
-                finais do vídeo ou software</legend>
-        </div>
-        
-    </fieldset>
+        <fieldset id="btn-png-section">
 
-    <br>
+            <div id="btn-png-wrapper" class="button-wrapper" style="margin-top: 20px; margin-bottom: 20px">
+                <!-- BOTÃO GERAR PNG-->
+                <button type=" button" id="btn-png" class="button">Baixar imagem</button>
+                <legend id="btn-card-legend-top">Obtenha uma imagem da ficha catalográfica para inserir nas telas
+                    iniciais ou
+                    finais do vídeo ou software</legend>
+            </div>
+
+        </fieldset>
+
+        <br>
 
     </fieldset> <!-- fim de campos-pdf -->
 
