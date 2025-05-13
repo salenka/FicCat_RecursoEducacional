@@ -94,7 +94,7 @@ export function geraFicha() {
     // Captura das variáveis de cardScript.js
     const ficha = JSON.parse(cs.getFicha().ficha);
     //const codigos = JSON.parse(cs.getCodigos().codigos);
-    const servico = cs.getServico().servico;
+    //const servico = cs.getServico().servico;
     //const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     // Renderização da ficha

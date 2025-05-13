@@ -1,5 +1,97 @@
-import { uncheckOption, updateTipoPessoa, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
-import { getServico } from './cardScript.js'
+import { uncheckOption, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
+//import { getServico } from './cardScript.js'
+import { unidades } from './cardScript.js';
+
+//UNIDADES
+
+/*
+const unidades = [
+    { local: 'Araraquara', sigla: 'CCA', unidade: 'Centro de Ciências' },
+    { local: 'Araraquara', sigla: 'CENPE', unidade: 'Centro de Pesquisas da Infância e da Adolescência' },
+    { local: 'Araraquara', sigla: 'FCF', unidade: 'Faculdade de Ciências Farmacêuticas' },
+    { local: 'Araraquara', sigla: 'FCLAR', unidade: 'Faculdade de Ciências e Letras' },
+    { local: 'Araraquara', sigla: 'FOAR', unidade: 'Faculdade de Odontologia' },
+    { local: 'Araraquara', sigla: 'IQAR', unidade: 'Instituto de Química' },
+    { local: 'Araçatuba', sigla: 'CAOE', unidade: 'Centro de Assistência Odontológica a Excepcionais' },
+    { local: 'Araçatuba', sigla: 'COB', unidade: 'Centro de Oncologia Bucal' },
+    { local: 'Araçatuba', sigla: 'FMVA', unidade: 'Faculdade de Medicina Veterinária' },
+    { local: 'Araçatuba', sigla: 'FOA', unidade: 'Faculdade de Odontologia' },
+    { local: 'Assis', sigla: 'CEDAP', unidade: 'Centro de Documentação e Apoio à Pesquisa' },
+    { local: 'Assis', sigla: 'CPPA', unidade: 'Centro de Pesquisa e Psicologia Aplicada' },
+    { local: 'Assis', sigla: 'FCLAS', unidade: 'Faculdade de Ciências e Letras' },
+    { local: 'Bauru', sigla: 'CENEPP', unidade: 'Centro de Estudos e Práticas Pedagógicas da Unesp' },
+    { local: 'Bauru', sigla: 'CPA', unidade: 'Centro de Psicologia Aplicada' },
+    { local: 'Bauru', sigla: 'FAAC', unidade: 'Faculdade de Arquitetura, Artes, Comunicação e Design' },
+    { local: 'Bauru', sigla: 'FC', unidade: 'Faculdade de Ciências' },
+    { local: 'Bauru', sigla: 'FEB', unidade: 'Faculdade de Engenharia' },
+    { local: 'Bauru', sigla: 'IPMET', unidade: 'Instituto de Pesquisas Meteorológicas' },
+    { local: 'Botucatu', sigla: 'CEATOX', unidade: 'Centro de Assistência Toxicológica' },
+    { local: 'Botucatu', sigla: 'CERAT', unidade: 'Centro de Raízes e Amidos Tropicais' },
+    { local: 'Botucatu', sigla: 'CEVAP', unidade: 'Centro de Estudos de Venenos e Animais Peçonhentos' },
+    { local: 'Botucatu', sigla: 'CIE', unidade: 'Centro de Isótopos Estáveis' },
+    { local: 'Botucatu', sigla: 'CME', unidade: 'Centro de Microscopia Eletrônica' },
+    { local: 'Botucatu', sigla: 'CSE', unidade: 'Centro de Saúde Escola' },
+    { local: 'Botucatu', sigla: 'FCA', unidade: 'Faculdade de Ciências Agronômicas' },
+    { local: 'Botucatu', sigla: 'FMB', unidade: 'Faculdade de Medicina' },
+    { local: 'Botucatu', sigla: 'FMVZ', unidade: 'Faculdade de Medicina e Zootecnia' },
+    { local: 'Botucatu', sigla: 'IBB', unidade: 'Instituto de Biociências' },
+    { local: 'Botucatu', sigla: 'IBTEC', unidade: 'Instituto de Biotecnologia' },
+    { local: 'Dracena', sigla: 'FCAT', unidade: 'Faculdade de Ciências Agrárias e Tecnológicas' },
+    { local: 'Franca', sigla: 'FCHS', unidade: 'Faculdade de Ciências Humanas e Sociais' },
+    { local: 'Guaratinguetá', sigla: 'FEG', unidade: 'Faculdade de Engenharia e Ciências' },
+    { local: 'Ilha Solteira', sigla: 'FEIS', unidade: 'Faculdade de Engenharia' },
+    { local: 'Itapeva', sigla: 'ICE', unidade: 'Instituto de Ciências e Engenharia' },
+    { local: 'Jaboticabal', sigla: 'CAUNESP', unidade: 'Centro de Aquicultura da Unesp' },
+    { local: 'Jaboticabal', sigla: 'FCAV', unidade: 'Faculdade de Ciências Agrárias e Veterinárias' },
+    { local: 'Marília', sigla: 'CEES', unidade: 'Centro de Estudos da Educação e da Saúde' },
+    { local: 'Marília', sigla: 'FFC', unidade: 'Faculdade de Filosofia e Ciências' },
+    { local: 'Ourinhos', sigla: 'FCTE', unidade: 'Faculdade de Ciências, Tecnologia e Educação' },
+    { local: 'Presidente Prudente', sigla: 'FCT', unidade: 'Faculdade de Ciências e Tecnologia' },
+    { local: 'Registro', sigla: 'FCAVR', unidade: 'Faculdade de Ciências Agrárias do Vale do Ribeira' },
+    { local: 'Rio Claro', sigla: 'CEA', unidade: 'Centro de Estudos Ambientais' },
+    { local: 'Rio Claro', sigla: 'CEAPLA', unidade: 'Centro de Análise e Planejamento Ambiental' },
+    { local: 'Rio Claro', sigla: 'CEIS', unidade: 'Centro de Estudos de Insetos Sociais' },
+    { local: 'Rio Claro', sigla: 'IB', unidade: 'Instituto de Biociências' },
+    { local: 'Rio Claro', sigla: 'IGCE', unidade: 'Instituto de Geociências e Ciências Exatas' },
+    { local: 'Rio Claro', sigla: 'IPBEN', unidade: 'Instituto de Pesquisa em Bioenergia' },
+    { local: 'Rosana', sigla: 'FEC', unidade: 'Faculdade de Engenharia e Ciências' },
+    { local: 'Sorocaba', sigla: 'ICTS', unidade: 'Instituto de Ciência e Tecnologia' },
+    { local: 'São José do Rio Preto', sigla: 'IBILCE', unidade: 'Instituto de Biociências, Letras e Ciências Exatas' },
+    { local: 'São José dos Campos', sigla: 'ICT', unidade: 'Instituto de Ciência e Tecnologia' },
+    { local: 'São João da Boa Vista', sigla: 'FESJBV', unidade: 'Faculdade de Engenharia, São João da Boa Vista' },
+    { local: 'São Paulo', sigla: 'IA', unidade: 'Instituto de Artes' },
+    { local: 'São Paulo', sigla: 'IFT', unidade: 'Instituto de Física Teórica' },
+    { local: 'São Paulo', sigla: 'IPPRI', unidade: 'Instituto de Políticas Públicas e Relações Internacionais' },
+    { local: 'São Vicente', sigla: 'IBCLP', unidade: 'Instituto de Biociências' },
+    { local: 'São Vicente', sigla: 'IEMAR', unidade: 'Instituto de Estudos Avançados do Mar' },
+    { local: 'Tupã', sigla: 'FCE', unidade: 'Faculdade de Ciências e Engenharia' },
+]
+*/
+
+// ÁREA DE PUBLICAÇÃO
+
+const unidadeSelecionada = document.getElementById('unidade-select');
+
+unidades.forEach((item, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `${item.local} - ${item.sigla} - ${item.unidade}`
+    unidadeSelecionada.appendChild(option);
+})
+
+// Definir variáveis com base na seleção
+unidadeSelecionada.addEventListener("change", function () {
+    const selectedIndex = this.value; // Obtém o índice selecionado
+    const selectedItem = unidades[selectedIndex]; // Obtém o objeto correspondente
+
+    // Define as variáveis
+    const local = selectedItem.local;
+    const unidade = selectedItem.unidade;
+
+    console.log("Local:", local);
+    console.log("Unidade:", unidade);
+});
+
 
 // arquivo
 
@@ -137,7 +229,6 @@ document.querySelectorAll('input[name="coorientador-qtd"]').forEach(radio => {
     })
 })
 
-// PUBLICADORES
 
 //IMAGENS  
 
@@ -443,7 +534,7 @@ document.getElementById("btn-A4").addEventListener("click", function (event) {
     // Salva as variáveis processadas em cardScript
 
     //localStorage.setItem('bibliotecario', getBibliotecario().bibliotecario);
-    localStorage.setItem('servico', getServico().servico);
+    //localStorage.setItem('servico', getServico().servico);
 
     // Salva conteúdo formatado do campo Créditos
 

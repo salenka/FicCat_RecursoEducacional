@@ -67,7 +67,7 @@
 
         </fieldset> <!-- fim do fielset autor-section>
 
-       <!-- ORIENTAÇÃO -->
+                    <!-- ORIENTAÇÃO -->
 
         <fieldset id="orientacao-section" class="form-group form-group-bordered">
 
@@ -135,37 +135,13 @@
 
         <fieldset id="publicacao-section" class="form-group form-group-bordered">
 
-            <label for="local-select" >Local</label>
-            <select id="local-select" class="form-control">
+            <label for="unidade-select">Unidade UNESP</label>
+            <select id="unidade-select" class="form-control">
 
-            <option value="remove">Selecione a cidade do campus</option>
-            <option value="Araraquara">Araraquara</option>
-            <option value="Araçatuba">Araçatuba</option>
-            <option value="Assis">Assis</option>
-            <option value="Bauru">Bauru</option>
-            <option value="Botucatu">Botucatu</option>
-            <option value="Dracena">Dracena</option>
-            <option value="Franca">Franca</option>
-            <option value="Guaratinguetá">Guaratinguetá</option>
-            <option value="Ilha Solteira">Ilha Solteira</option>
-            <option value="Itapeva">Itapeva</option>
-            <option value="Jaboticabal">Jaboticabal</option>
-            <option value="Marília">Marília</option>
-            <option value="Ourinhos">Ourinhos</option>
-            <option value="Presidente Prudente">Presidente Prudente</option>
-            <option value="Registro">Registro</option>
-            <option value="Rio Claro">Rio Claro</option>
-            <option value="Rosana">Rosana</option>
-            <option value="Sorocaba">Sorocaba</option>
-            <option value="São José do Rio Preto">São José do Rio Preto</option>
-            <option value="São José dos Campos">São José dos Campos</option>
-            <option value="São João da Boa Vista">São João da Boa Vista</option>
-            <option value="São Paulo">São Paulo</option>
-            <option value="São Vicente">São Vicente</option>
-            <option value="Tupã">Tupã</option>
+
 
             </select>
-            
+
             <br>
             <label for="ano">Ano</label><br>
             <input type="text" class="form-control" id="ano" name="ano"><br>
@@ -241,58 +217,57 @@
 
         <!-- ÁREA DE NOTAS -->
 
-        <!-- Existe ISBN? -->
-
-        <fieldset id="identificadores-section" class="form-group form-group-bordered">
-
-            <div id="identificador-isbn">
-                <label for="isbn">ISBN</label><br>
-                <input type="text" class="form-control" id="isbn" name="isbn">
-                <legend>Inclua a pontuação</legend>
-            </div>
-
-            <div id="identificador-doi">
-                <label for="doi">DOI</label><br>
-                <input type="text" class="form-control" id="doi" name="doi">
-                <legend>Inclua a pontuação</legend>
-            </div>
-
-        </fieldset><!-- fim de identificadores-section -->
-
         <!-- Notas -->
 
         <fieldset id="notas-section" class="form-group form-group-bordered">
 
-            <div id="nota-sn">
-                <p>É preciso acrescentar uma nota?</p>
-                <input type="radio" id="nota-sim" name="nota-sn" value="sim">
-                <label for="nota-sim">Sim</label>
 
-                <input type="radio" id="nota-nao" name="nota-sn" value="nao">
-                <label for="nota-nao">Não</label>
+            <!--
+            <div id="trabalho-academico-sn">
+                <p>Existe um trabalho acadêmico vinculado ao objeto educacional?</p>
+
+                <input type="radio" id="trabalho-academico-sim" name="trabalho-academico-sn" value="sim">
+                <label for="trabalho-academico-sim">Sim</label>
+
+                <input type="radio" id="trabalho-academico-nao" name="trabalho-academico-sn" value="nao">
+                <label for="trabalho-academico-nao">Não</label><br><br />
+            </div>
+            -->
+
+            <div id="curso-nome">
+                <label for="curso">Nome do curso</label><br>
+                <input type="text" class="form-control" id="curso" name="curso">
+                <legend></legend>
             </div>
 
-            <div id="nota">
-                <label for="nota-1">Redija uma nota sucinta *</label><br>
-                <input type="text" class="form-control" id="nota-1" name="nota-1">
+            <div id="trabalho-tipo">
+
+                <!-- RADIOS
+            <p>Tipo do trabalho acadêmico vinculado *</p>
+            <input type="radio" id="dissertacao-mp" name="dissertacao-mp" value="dissertacao-mp" required>
+            <label for="dissertacao-mp">Dissertação (mestrado profissional)</label>
+            <input type="radio" id="dissertacao" name="dissertacao" value="dissertacao" required>
+            <label for="dissertacao">Dissertação</label>
+            <input type="radio" id="tese" name="tese" value="tese" required>
+            <label for="video">Tese</label>
+            <input type="radio" id="tcc" name="tcc" value="tcc" required>
+            <label for="audio">Trabalho de conclusão de curso (TCC)</label>
+            -->
+
+                <label for="tipo">Tipo do trabalho acadêmico vinculado</label><br>
+                <select id="tipo" name="tipo" class="form-control">
+                    <option value="remove-tipo">Selecione um tipo de trabalho</option>
+                    <option value="dissertacao-mp">Dissertação (mestrado profissional)</option>
+                    <option value="dissertacao">Dissertação</option>
+                    <option value="tese">Tese</option>
+                    <option value="tcc">Trabalho de conclusão de curso (TCC)</option>
+                </select>
             </div>
 
-            <!-- Outra nota - sim ou não -->
-            <div id="nota-2-sn">
-                <p>É preciso acrescentar outra nota?</p>
-                <input type="radio" id="nota-2-sim" name="nota-2-sn" value="sim">
-                <label for="nota-2-sim">Sim</label>
-
-                <input type="radio" id="nota-2-nao" name="nota-2-sn" value="nao">
-                <label for="nota-2-nao">Não</label>
-            </div>
-
-            <!-- Outra nota -->
-            <div id="nota-outro">
-                <label for="nota-2">Redija outra nota sucinta</label><br>
-                <input type="text" class="form-control" id="nota-2" name="nota-2">
-            </div>
         </fieldset> <!-- fim de notas-section-->
+
+        <br>
+
         <!-- ASSUNTO -->
 
         <fieldset id="assuntos-section" class="form-group form-group-bordered">
@@ -566,9 +541,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.min.js"></script>
     <!-- <footer><a href="mailto:salenka@gmail.com">
-                <img src="IMG/mailto.png" alt="mailto" width="80" height="80" style="padding:10px">
-            </a></mailto>
-        </footer> -->
+                                <img src="IMG/mailto.png" alt="mailto" width="80" height="80" style="padding:10px">
+                            </a></mailto>
+                        </footer> -->
 </body>
 
 </html>

@@ -1,5 +1,70 @@
 /*  ...................................... TRATAMENTO DE DADOS DO FORMULÁRIO */
 
+//UNIDADES
+
+export const unidades = [
+    { local: 'Araraquara', sigla: 'CCA', unidade: 'Centro de Ciências' },
+    { local: 'Araraquara', sigla: 'CENPE', unidade: 'Centro de Pesquisas da Infância e da Adolescência' },
+    { local: 'Araraquara', sigla: 'FCF', unidade: 'Faculdade de Ciências Farmacêuticas' },
+    { local: 'Araraquara', sigla: 'FCLAR', unidade: 'Faculdade de Ciências e Letras' },
+    { local: 'Araraquara', sigla: 'FOAR', unidade: 'Faculdade de Odontologia' },
+    { local: 'Araraquara', sigla: 'IQAR', unidade: 'Instituto de Química' },
+    { local: 'Araçatuba', sigla: 'CAOE', unidade: 'Centro de Assistência Odontológica a Excepcionais' },
+    { local: 'Araçatuba', sigla: 'COB', unidade: 'Centro de Oncologia Bucal' },
+    { local: 'Araçatuba', sigla: 'FMVA', unidade: 'Faculdade de Medicina Veterinária' },
+    { local: 'Araçatuba', sigla: 'FOA', unidade: 'Faculdade de Odontologia' },
+    { local: 'Assis', sigla: 'CEDAP', unidade: 'Centro de Documentação e Apoio à Pesquisa' },
+    { local: 'Assis', sigla: 'CPPA', unidade: 'Centro de Pesquisa e Psicologia Aplicada' },
+    { local: 'Assis', sigla: 'FCLAS', unidade: 'Faculdade de Ciências e Letras' },
+    { local: 'Bauru', sigla: 'CENEPP', unidade: 'Centro de Estudos e Práticas Pedagógicas da Unesp' },
+    { local: 'Bauru', sigla: 'CPA', unidade: 'Centro de Psicologia Aplicada' },
+    { local: 'Bauru', sigla: 'FAAC', unidade: 'Faculdade de Arquitetura, Artes, Comunicação e Design' },
+    { local: 'Bauru', sigla: 'FC', unidade: 'Faculdade de Ciências' },
+    { local: 'Bauru', sigla: 'FEB', unidade: 'Faculdade de Engenharia' },
+    { local: 'Bauru', sigla: 'IPMET', unidade: 'Instituto de Pesquisas Meteorológicas' },
+    { local: 'Botucatu', sigla: 'CEATOX', unidade: 'Centro de Assistência Toxicológica' },
+    { local: 'Botucatu', sigla: 'CERAT', unidade: 'Centro de Raízes e Amidos Tropicais' },
+    { local: 'Botucatu', sigla: 'CEVAP', unidade: 'Centro de Estudos de Venenos e Animais Peçonhentos' },
+    { local: 'Botucatu', sigla: 'CIE', unidade: 'Centro de Isótopos Estáveis' },
+    { local: 'Botucatu', sigla: 'CME', unidade: 'Centro de Microscopia Eletrônica' },
+    { local: 'Botucatu', sigla: 'CSE', unidade: 'Centro de Saúde Escola' },
+    { local: 'Botucatu', sigla: 'FCA', unidade: 'Faculdade de Ciências Agronômicas' },
+    { local: 'Botucatu', sigla: 'FMB', unidade: 'Faculdade de Medicina' },
+    { local: 'Botucatu', sigla: 'FMVZ', unidade: 'Faculdade de Medicina e Zootecnia' },
+    { local: 'Botucatu', sigla: 'IBB', unidade: 'Instituto de Biociências' },
+    { local: 'Botucatu', sigla: 'IBTEC', unidade: 'Instituto de Biotecnologia' },
+    { local: 'Dracena', sigla: 'FCAT', unidade: 'Faculdade de Ciências Agrárias e Tecnológicas' },
+    { local: 'Franca', sigla: 'FCHS', unidade: 'Faculdade de Ciências Humanas e Sociais' },
+    { local: 'Guaratinguetá', sigla: 'FEG', unidade: 'Faculdade de Engenharia e Ciências' },
+    { local: 'Ilha Solteira', sigla: 'FEIS', unidade: 'Faculdade de Engenharia' },
+    { local: 'Itapeva', sigla: 'ICE', unidade: 'Instituto de Ciências e Engenharia' },
+    { local: 'Jaboticabal', sigla: 'CAUNESP', unidade: 'Centro de Aquicultura da Unesp' },
+    { local: 'Jaboticabal', sigla: 'FCAV', unidade: 'Faculdade de Ciências Agrárias e Veterinárias' },
+    { local: 'Marília', sigla: 'CEES', unidade: 'Centro de Estudos da Educação e da Saúde' },
+    { local: 'Marília', sigla: 'FFC', unidade: 'Faculdade de Filosofia e Ciências' },
+    { local: 'Ourinhos', sigla: 'FCTE', unidade: 'Faculdade de Ciências, Tecnologia e Educação' },
+    { local: 'Presidente Prudente', sigla: 'FCT', unidade: 'Faculdade de Ciências e Tecnologia' },
+    { local: 'Registro', sigla: 'FCAVR', unidade: 'Faculdade de Ciências Agrárias do Vale do Ribeira' },
+    { local: 'Rio Claro', sigla: 'CEA', unidade: 'Centro de Estudos Ambientais' },
+    { local: 'Rio Claro', sigla: 'CEAPLA', unidade: 'Centro de Análise e Planejamento Ambiental' },
+    { local: 'Rio Claro', sigla: 'CEIS', unidade: 'Centro de Estudos de Insetos Sociais' },
+    { local: 'Rio Claro', sigla: 'IB', unidade: 'Instituto de Biociências' },
+    { local: 'Rio Claro', sigla: 'IGCE', unidade: 'Instituto de Geociências e Ciências Exatas' },
+    { local: 'Rio Claro', sigla: 'IPBEN', unidade: 'Instituto de Pesquisa em Bioenergia' },
+    { local: 'Rosana', sigla: 'FEC', unidade: 'Faculdade de Engenharia e Ciências' },
+    { local: 'Sorocaba', sigla: 'ICTS', unidade: 'Instituto de Ciência e Tecnologia' },
+    { local: 'São José do Rio Preto', sigla: 'IBILCE', unidade: 'Instituto de Biociências, Letras e Ciências Exatas' },
+    { local: 'São José dos Campos', sigla: 'ICT', unidade: 'Instituto de Ciência e Tecnologia' },
+    { local: 'São João da Boa Vista', sigla: 'FESJBV', unidade: 'Faculdade de Engenharia, São João da Boa Vista' },
+    { local: 'São Paulo', sigla: 'IA', unidade: 'Instituto de Artes' },
+    { local: 'São Paulo', sigla: 'IFT', unidade: 'Instituto de Física Teórica' },
+    { local: 'São Paulo', sigla: 'IPPRI', unidade: 'Instituto de Políticas Públicas e Relações Internacionais' },
+    { local: 'São Vicente', sigla: 'IBCLP', unidade: 'Instituto de Biociências' },
+    { local: 'São Vicente', sigla: 'IEMAR', unidade: 'Instituto de Estudos Avançados do Mar' },
+    { local: 'Tupã', sigla: 'FCE', unidade: 'Faculdade de Ciências e Engenharia' },
+]
+
+
 // ÁREA DE TÍTULO
 
 function getTitulo() {
@@ -280,7 +345,7 @@ if (maisApresentador === "sim") {
 
 function getPublicacao() {
 
-    let local = document.getElementById("local-select").value.trim();
+    let local = document.getElementById("unidade-select").value.trim();
     //const local = loc ? '. — ' + loc : ". — [S.l.]";
 
     let ano = document.getElementById("ano").value.trim();
@@ -392,19 +457,49 @@ function getDescricaoFisica() {
 function getNota() {
 
     //const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
+    
+    /*
     let areaNotaISBN = "";
-
 
     let nota1 = document.getElementById("nota-1").value.trim();
     nota1 = nota1 ? `\n    ${nota1}` : "";
 
-
     let nota2 = document.getElementById("nota-2").value.trim();
     nota2 = nota2 ? `\n    ${nota2}` : "";
 
+    */
 
-    return { nota1, nota2 };
+    // Obtém o índice selecionado no <select>
+    const selectedIndex = document.getElementById("unidade-select").value;
+
+    // Obtém o objeto correspondente na lista de unidades
+    const selectedItem = unidades[selectedIndex];
+
+    // Extrai as propriedades local e unidade
+    const local = selectedItem.local;
+    const unidade = selectedItem.unidade;
+
+    const curso = document.getElementById("curso").value.trim();
+    let tipo = ""
+    let tipoSelecionado = document.getElementById("tipo").value.trim();
+
+        if (tipoSelecionado === "dissertacao-mp") {
+        tipo = "Dissertação (mestrado profissional)"
+    } else if (tipoSelecionado === "dissertacao") {
+        tipo = "Dissertação"
+    } else if (tipoSelecionado === "tese") {
+        tipo = "Tese"
+    } else {
+        tipo = "Trabalho de conclusão de curso";
+    }
+
+    const notaFixa = `Produto educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
+
+    return { notaFixa };
 }
+
+/*
+
 // ISBN
 function getIdentificador() {
 
@@ -417,6 +512,8 @@ function getIdentificador() {
 
     return { isbn, doi };
 }
+
+*/
 
 // ASSUNTOS             
 function getAssunto() {
@@ -459,17 +556,18 @@ export function getFicha() {
     const imagens = getDescricaoFisica().imagens;
     //const materialAdicional = getDescricaoFisica().materialAdicional;
     //const areaSerie = getSerie().areaSerie;
-    const isbn = getIdentificador().isbn;
-    const doi = getIdentificador().doi;
-    const nota1 = getNota().nota1;
-    const nota2 = getNota().nota2;
+    //const isbn = getIdentificador().isbn;
+    //const doi = getIdentificador().doi;
+    //const nota1 = getNota().nota1;
+    //const nota2 = getNota().nota2;
+    const notaFixa = getNota().notaFixa;
     const assuntos = getAssunto().assuntos;
 
     //Configuração da ficha catalográfica
     let ficha = `${entradaPrincipal}
     ${areaTitulo}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${formato}${duracao}${tamanho}${imagens}
-    ${nota1}${nota2}${isbn}${doi}
+    ${notaFixa}
     
     ${assuntos}
     `
@@ -489,8 +587,12 @@ export function getFicha() {
 }
 
 // IDENTIFICAÇÃO
-
+/*
 export function getServico() {
+
+    unidade = document.getElementById("local-select").value.trim();
+
+
 
     const servicoNome = document.getElementById("servico-nome").value.trim();
     const servico = servicoNome ? `${servicoNome}` : "";
@@ -499,7 +601,7 @@ export function getServico() {
 
     return { servico }
 }
-
+*/
 // CRÉDITOS
 
 export function getCreditos() {
