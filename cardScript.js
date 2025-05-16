@@ -168,6 +168,8 @@ function getRespInt() {
     editor = ed ? 'editado por ' + ed : '';
 }
 
+*/
+
 //Mais pessoas com a mesma função
 const maisPessoa = document.querySelector('input[name="pessoa-sn"]:checked')?.value;
 const qtdPessoa = document.querySelector('input[name="pessoa-qtd"]:checked')?.value;
@@ -188,7 +190,8 @@ if (maisPessoa === "sim") {
         pessoa2 = " ... [et al.]";
     }
 }
-    
+
+/*
 
 //Contribuidores - Apresentador  
 let apresentador = "";

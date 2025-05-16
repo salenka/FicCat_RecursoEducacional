@@ -374,7 +374,27 @@ body > legend {
     display: block;
 }
 
-#detalhes-pessoa {
+#autor {
+    display: block;
+}
+
+#pessoa-qtd {
+    display: none;
+}
+
+#pessoa-outro {
+    display: none;
+}
+
+#pessoa-segundo {
+    display: none;
+}
+
+#pessoa-terceiro {
+    display: none;
+}
+
+#pessoa-quarto {
     display: none;
 }
 
@@ -409,150 +429,6 @@ body > legend {
 #coorientador-quarto {
     display: none;
 }
-
-#autor {
-    display: block;
-}
-
-/*
-
-#pessoa-sn {
-    display: none;
-}
-
-#entidade-section { display: none;}
-
-#evento-section {
-    display: none;
-}
-
-
-
-#compilador-section {
-    display: none;
-}
-
-#coordenador-section {
-    display: none;
-}
-
-#editor-section {
-    display: none;
-}
-
-#pessoa-qtd {
-    display: none;
-}
-
-#pessoa-outro {
-    display: none
-}
-
-#orientador {
-    display: none;
-}
-
-#tradutor-primeiro {
-    display: none;
-}
-
-#apresentador-primeiro {
-    display: none;
-}
-
-#organizador-primeiro {
-    display: none;
-}
-
-#prefaciador-primeiro {
-    display: none;
-}
-
-#pessoa-segundo {
-    display: none;
-}
-
-#pessoa-terceiro {
-    display: none;
-}
-
-#pessoa-quarto {
-    display: none;
-}
-
-#tradutor-sn {
-    display: none;
-}
-
-#tradutor-qtd {
-    display: none;
-}
-
-#tradutor-outro {
-    display: none;
-}
-
-#apresentador-sn {
-    display: none;
-}
-
-#apresentador-qtd {
-    display: none;
-}
-
-#apresentador-outro {
-    display: none;
-}
-
-#organizador-sn {
-    display: none;
-}
-
-#organizador-qtd {
-    display: none;
-}
-
-#organizador-outro {
-    display: none;
-}
-
-#prefaciador-sn {
-    display: none;
-}
-
-#prefaciador-qtd {
-    display: none;
-}
-
-#prefaciador-outro {
-    display: none;
-}
-
-#publicador-segundo {
-    display: none;
-}
-
-#paginacao-romana {
-    display: none;
-}
-
-#paginacao-lamina {
-    display: none;
-}
-
-#pagina-lamina {
-    display: none;
-}
-
-#folha-lamina {
-    display: none;
-}
-
-#paginacao-nao-numerada {
-    display: none;
-}
-
-*/
 
 #paginacao {
     display: none;
@@ -589,39 +465,6 @@ body > legend {
 #extensao-section {
     display: none;
 }
-
-/*
-
-#formato-tradicional {
-    display: none;
-}
-
-#formato-nao-tradicional {
-    display: none;
-}
-
-#material-adicional {
-    display: none;
-}
-
-#material-adicional-section {
-    display: none;
-}
-
-#serie {
-    display: none;
-}
-
-#subserie-sn {
-    display: none;
-}
-
-#subserie {
-    display: none;
-}
-
-*/
-
 
 #nota {
     display: none;

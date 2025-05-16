@@ -131,7 +131,7 @@ export function geraPNG() {
     //const codigos = JSON.parse(cs.getCodigos().codigos);
     const fontSelect = localStorage.getItem("fontSelect");
     const fontSizeInput = localStorage.getItem("fontSizeInput");
-    const servico = cs.getServico().servico;
+    //const servico = cs.getServico().servico;
     //const bibliotecario = cs.getBibliotecario().bibliotecario;
 
     document.getElementById("ficha-aqui-pdf").textContent = ficha;
@@ -139,7 +139,7 @@ export function geraPNG() {
     document.getElementById("ficha-aqui-pdf").style.fontSize = fontSizeInput + 'px';
     //document.getElementById("codigos-aqui-pdf").textContent = codigos;
     //document.getElementById("codigos-aqui-pdf").style.fontSize = (fontSizeInput - 1) + 'px';
-    document.getElementById("servico-aqui").textContent = servico;
+    //document.getElementById("servico-aqui").textContent = servico;
     //document.getElementById("bibliotecario-aqui").textContent = bibliotecario;
 
     // Seleciona a div que você quer capturar
