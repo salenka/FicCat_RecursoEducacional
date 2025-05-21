@@ -116,7 +116,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 
         eraseAllChildTextOf('pessoa-outro');
         removeRequiredFromAllChildTextOf('pessoa-outro');
-        
+
 
 
         if (document.getElementById('pessoa-qtd-2').checked) {
@@ -167,18 +167,23 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 document.querySelectorAll('input[name="coorientador-sn"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        document.getElementById('coorientador').style.display = 'none';
+        document.getElementById('coorientadores').style.display = 'none';
         uncheckOption('coorientador-qtd');
         removeRequiredRadioFrom('coorientador-qtd');
-        eraseAllChildTextOf('coorientador');
-        removeRequiredFromAllChildTextOf('coorientador');
+        eraseAllChildTextOf('coorientadores');
+        removeRequiredFromAllChildTextOf('coorientadores');
 
         if (document.getElementById('coorientador-sim').checked) {
             document.getElementById('coorientador-qtd').style.display = 'block';
             setRequiredRadioFor('coorientador-qtd')
+        } else if (document.getElementById('coorientador-nao').checked) {
+            document.getElementById('coorientadores').style.display = 'none';
+            uncheckOption('coorientador-qtd');
+            removeRequiredRadioFrom('coorientador-qtd');
+            eraseAllChildTextOf('coorientadores');
+            removeRequiredFromAllChildTextOf('coorientadores');
         } else {
             document.getElementById('coorientador-qtd').style.display = 'none';
-            //removeRequiredRadioFrom('coorientador-qtd')
         }
     });
 });
