@@ -486,7 +486,7 @@ body > legend {
     display: none;
 }
 #campos-pdf {
-    display: block;
+    display: none;
 }
 
 #btn-png-section {
