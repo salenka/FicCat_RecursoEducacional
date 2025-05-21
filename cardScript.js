@@ -506,7 +506,7 @@ function getNota() {
         tipo = "Trabalho de conclusão de curso";
     }
 
-    const notaFixa = `Produto educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
+    const notaFixa = `Recurso educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
 
     return { notaFixa };
 }
