@@ -34,7 +34,7 @@
             <label for="software">Software</label>
 
             <div id="arquivo-digital">
-                <label for="formato">Informe a extensão do arquivo digital *</label><br>
+                <label for="formato">Informe a extensão do arquivo digital</label><br>
                 <input type="text" class="form-control" id="formato" name="formato">
                 <legend>Por exemplo, pdf, mpeg, wav, ogg, py etc.</legend>
             </div>
@@ -59,10 +59,10 @@
 
             <div id="autor">
                 <label for="nome">Prenomes do autor *</label><br>
-                <input type="text" class="form-control" id="nome" name="nome"><br>
+                <input type="text" class="form-control" id="nome" name="nome" required><br>
 
                 <label for="sobrenome">Sobrenome do autor *</label><br>
-                <input type="text" class="form-control" id="sobrenome" name="sobrenome"><br>
+                <input type="text" class="form-control" id="sobrenome" name="sobrenome" required><br>
 
                 <p>Existe mais de um autor?</p>
             </div>
@@ -143,7 +143,7 @@
 
             <div id="orientador">
                 <label for="orientador-nome">Nome do orientador *</label><br>
-                <input type="text" class="form-control" id="orientador-nome" name="orientador-nome">
+                <input type="text" class="form-control" id="orientador-nome" name="orientador-nome" required>
             </div>
 
             <!-- coorientador-sn -->
@@ -205,16 +205,16 @@
 
         <fieldset id="publicacao-section" class="form-group form-group-bordered">
 
-            <label for="unidade-select">Unidade UNESP</label>
-            <select id="unidade-select" class="form-control">
+            <label for="unidade-select">Unidade UNESP *</label>
+            <select id="unidade-select" class="form-control" required>
 
 
 
             </select>
 
             <br>
-            <label for="ano">Ano</label><br>
-            <input type="text" class="form-control" id="ano" name="ano"><br>
+            <label for="ano">Ano *</label><br>
+            <input type="text" class="form-control" id="ano" name="ano" required><br>
 
         </fieldset>
 
@@ -305,8 +305,8 @@
             -->
 
             <div id="curso-nome">
-                <label for="curso">Nome do curso</label><br>
-                <input type="text" class="form-control" id="curso" name="curso">
+                <label for="curso">Nome do curso *</label><br>
+                <input type="text" class="form-control" id="curso" name="curso" required>
                 <legend></legend>
             </div>
 
@@ -324,8 +324,8 @@
             <label for="audio">Trabalho de conclusão de curso (TCC)</label>
             -->
 
-                <label for="tipo">Tipo do trabalho acadêmico vinculado</label><br>
-                <select id="tipo" name="tipo" class="form-control">
+                <label for="tipo">Tipo do trabalho acadêmico vinculado *</label><br>
+                <select id="tipo" name="tipo" class="form-control" required>
                     <option value="remove-tipo">Selecione um tipo de trabalho</option>
                     <option value="dissertacao-mp">Dissertação (mestrado profissional)</option>
                     <option value="dissertacao">Dissertação</option>
@@ -388,7 +388,7 @@
             <div id="ficha-catalografica">
 
                 <div class="card-top">
-                    <p>Dados Internacionais de Catalogação na Publicação (CIP)</p>
+                    
                     <p id="servico-aqui"></p>
                 </div>
 
