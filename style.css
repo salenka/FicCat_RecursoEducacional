@@ -208,6 +208,7 @@ body > legend {
     margin: 0;
     padding: 0;
     white-space: nowrap;
+    font-size: small;
     /* Garante que o texto dentro de cada parágrafo não quebre em várias linhas */
 }
 
