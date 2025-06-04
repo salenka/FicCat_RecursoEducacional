@@ -38,8 +38,16 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
         removeRequiredFromAllChildTextOf('extensao-section');
         
         document.getElementById('imagem-section').style.display = 'none';
-        eraseAllChildTextOf('imagem-section');
-        removeRequiredFromAllChildTextOf('imagem-section');
+
+        uncheckOption('imagem-tipo');
+        
+        removeRequiredRadioFrom('il-coloracao');
+        uncheckOption('il-coloracao');
+        
+        removeRequiredRadioFrom('fotos-coloracao');
+        uncheckOption('fotos-coloracao');
+        uncheckOption()
+
 
         if (document.getElementById('texto').checked) {
 
