@@ -34,9 +34,12 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
         document.getElementById('extensao-section').style.display = 'block';
-        document.getElementById('imagem-section').style.display = 'none';
         eraseAllChildTextOf('extensao-section')
         removeRequiredFromAllChildTextOf('extensao-section');
+        
+        document.getElementById('imagem-section').style.display = 'none';
+        eraseAllChildTextOf('imagem-section');
+        removeRequiredFromAllChildTextOf('imagem-section');
 
         if (document.getElementById('texto').checked) {
 

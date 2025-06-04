@@ -238,7 +238,7 @@ if (maisApresentador === "sim") {
 
     if (coorientador === "sim") {
         if (qtdCoorientador === "1") {
-            coorientador1 = ' . Coorientado por ' + coorientador1;
+            coorientador1 = '. Coorientado por ' + coorientador1;
         } else if (qtdCoorientador === "2") {
             coorientador1 = ' . Coorientado por ' + coorientador1;
             coorientador2 = ' e ' + coorientador2;
@@ -434,7 +434,7 @@ function getDescricaoFisica() {
     }
 
     if (formulasChecked) {
-        formulas = "formulas"
+        formulas = "fórmulas"
     }
 
     // Cria uma lista com as imagens possíveis:
