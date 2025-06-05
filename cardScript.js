@@ -238,14 +238,14 @@ if (maisApresentador === "sim") {
 
     if (coorientador === "sim") {
         if (qtdCoorientador === "1") {
-            coorientador1 = ' Coorientado por ' + coorientador1;
+            coorientador1 = ' Coorientado por ' + coorientador1 + '.';
         } else if (qtdCoorientador === "2") {
             coorientador1 = ' Coorientado por ' + coorientador1;
-            coorientador2 = ' e ' + coorientador2;
+            coorientador2 = ' e ' + coorientador2 + '.';
         } else if (qtdCoorientador === "3") {
             coorientador1 = ' Coorientado por ' + coorientador1;          
             coorientador2 = ', ' + coorientador2;
-            coorientador3 = ' e ' + coorientador3;
+            coorientador3 = ' e ' + coorientador3 + '.';
         } else {
             coorientador1 = ' Coorientado por ' + coorientador1;
             coorientador2 = " ... [et al.]";
