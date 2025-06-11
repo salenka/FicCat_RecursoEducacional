@@ -339,7 +339,7 @@ if (maisApresentador === "sim") {
     let entradaPrincipal = `\n${autorEntrada}`;
     entradaPrincipal = entradaPrincipal ? entradaPrincipal : ""; //vazio se pessoa != autor 
 
-    let areaResponsabilidade = ` / ${autor}`;
+    let areaResponsabilidade = ` / ${autor}${pessoa2}${pessoa3}`;
 
     let orientacao = `${orientador}${coorientadores}`
 
