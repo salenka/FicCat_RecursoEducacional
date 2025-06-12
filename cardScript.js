@@ -497,13 +497,13 @@ function getNota() {
     let tipoSelecionado = document.getElementById("tipo").value.trim();
 
         if (tipoSelecionado === "dissertacao-mp") {
-        tipo = "Dissertação (mestrado profissional)"
+        tipo = "dissertação (mestrado profissional)"
     } else if (tipoSelecionado === "dissertacao") {
-        tipo = "Dissertação"
+        tipo = "dissertação"
     } else if (tipoSelecionado === "tese") {
-        tipo = "Tese"
+        tipo = "tese"
     } else {
-        tipo = "Trabalho de conclusão de curso";
+        tipo = "trabalho de conclusão de curso";
     }
 
     const notaFixa = `Recurso educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
