@@ -364,7 +364,7 @@ function getPublicacao() {
     let ano = document.getElementById("ano").value.trim();
     ano = ano ? ano : '[s.d.]';
 
-    const areaPublicacao = `. — ${local} : UNESP, ${ano}.`;
+    const areaPublicacao = `. — ${local}, ${ano}.`;
 
     return { areaPublicacao }
 
@@ -508,10 +508,9 @@ function getNota() {
 
     const notaFixa = `Recurso educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
 
+
     return { notaFixa };
 }
-
-/*
 
 // ISBN
 function getIdentificador() {
@@ -520,13 +519,15 @@ function getIdentificador() {
     let isbn = document.getElementById("isbn").value.trim();
     isbn = isbn ? `\n    ISBN ${isbn}` : "";
 
+    /*
     let doi = document.getElementById("doi").value.trim();
     doi = doi ? `\n    DOI ${doi}` : "";
+    */
 
-    return { isbn, doi };
+    return { isbn };
 }
 
-*/
+
 
 // ASSUNTOS             
 function getAssunto() {
@@ -569,7 +570,7 @@ export function getFicha() {
     const imagens = getDescricaoFisica().imagens;
     //const materialAdicional = getDescricaoFisica().materialAdicional;
     //const areaSerie = getSerie().areaSerie;
-    //const isbn = getIdentificador().isbn;
+    const isbn = getIdentificador().isbn;
     //const doi = getIdentificador().doi;
     //const nota1 = getNota().nota1;
     //const nota2 = getNota().nota2;
@@ -582,8 +583,7 @@ export function getFicha() {
     ${areaTitulo}${areaResponsabilidade}${areaPublicacao}
     ${paginacao}${formato}${duracao}${tamanho}${imagens}
     
-    ${notaFixa}
-    ${orientacao}
+    ${notaFixa}${orientacao}${isbn}
     
     ${assuntos}
     `
