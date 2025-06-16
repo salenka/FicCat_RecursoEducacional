@@ -16,12 +16,12 @@ export const unidades = [
     { local: 'Assis', sigla: 'CEDAP', unidade: 'Centro de Documentação e Apoio à Pesquisa' },
     { local: 'Assis', sigla: 'CPPA', unidade: 'Centro de Pesquisa e Psicologia Aplicada' },
     { local: 'Assis', sigla: 'FCLAS', unidade: 'Faculdade de Ciências e Letras' },
-    { local: 'Bauru', sigla: 'CENEPP', unidade: 'Centro de Estudos e Práticas Pedagógicas da Unesp' },
-    { local: 'Bauru', sigla: 'CPA', unidade: 'Centro de Psicologia Aplicada' },
+    /*{ local: 'Bauru', sigla: 'CENEPP', unidade: 'Centro de Estudos e Práticas Pedagógicas da Unesp' },
+    { local: 'Bauru', sigla: 'CPA', unidade: 'Centro de Psicologia Aplicada' }, */
     { local: 'Bauru', sigla: 'FAAC', unidade: 'Faculdade de Arquitetura, Artes, Comunicação e Design' },
     { local: 'Bauru', sigla: 'FC', unidade: 'Faculdade de Ciências' },
     { local: 'Bauru', sigla: 'FEB', unidade: 'Faculdade de Engenharia' },
-    { local: 'Bauru', sigla: 'IPMET', unidade: 'Instituto de Pesquisas Meteorológicas' },
+    /*{ local: 'Bauru', sigla: 'IPMET', unidade: 'Instituto de Pesquisas Meteorológicas' },*/
     { local: 'Botucatu', sigla: 'CEATOX', unidade: 'Centro de Assistência Toxicológica' },
     { local: 'Botucatu', sigla: 'CERAT', unidade: 'Centro de Raízes e Amidos Tropicais' },
     { local: 'Botucatu', sigla: 'CEVAP', unidade: 'Centro de Estudos de Venenos e Animais Peçonhentos' },
