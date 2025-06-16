@@ -137,6 +137,16 @@ body > legend {
     font-weight: 500;
 }
 
+#tesauro {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(0 147 221);
+    color: white;
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
+
+
 #licenca-section-pdf {
     display: flex;
     width: 100%;

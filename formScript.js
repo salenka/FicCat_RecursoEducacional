@@ -446,6 +446,11 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
     });
 });
 
+// PALAVRAS-CHAVE
+document.getElementById('tesauro').addEventListener('click', function() {
+    window.open('https://www.biblioteca.unesp.br/tesauro/vocab/index.php', '_blank');
+});
+
 // OPCIONAIS DO PDF
 
 
