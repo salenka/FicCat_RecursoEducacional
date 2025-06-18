@@ -497,7 +497,7 @@ function getNota() {
     let tipoSelecionado = document.getElementById("tipo").value.trim();
 
         if (tipoSelecionado === "dissertacao-mp") {
-        tipo = "dissertação (mestrado profissional)"
+        tipo = "dissertação de Mestrado Profissional"
     } else if (tipoSelecionado === "dissertacao") {
         tipo = "dissertação"
     } else if (tipoSelecionado === "tese") {
