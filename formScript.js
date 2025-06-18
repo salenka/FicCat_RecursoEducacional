@@ -494,30 +494,69 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
-// VALIDAÇÃO PARA EVITAR CAIXA ALTA EM TITULO E SUBTITULO
+// VALIDAÇÃO PARA IMPEDIR CAIXA ALTA EM TITULO E SUBTITULO
 function isAllUpper(str) {
     const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, '');
     return letters.length > 0 && letters === letters.toUpperCase();
 }
 
-function validarMaiusculas(e) {
-    const campo = e.target;
-    if (isAllUpper(campo.value.trim())) {
-        campo.classList.add('invalid-field');
-        campo.setCustomValidity('Não preencha todo o campo em maiúsculas.');
-        //alert("Não preencha todo o campo em maiúsculas.")
-        document.querySelector('#titulo-section legend').classList.add('legendRed')
+function validarMaiusculas() {
+    const titulo = document.getElementById('titulo');
+    const subtitulo = document.getElementById('subtitulo');
+    let tituloValido = !isAllUpper(titulo.value.trim());
+    let subtituloValido = !isAllUpper(subtitulo.value.trim());
+    const legend = document.querySelector('#titulo-section legend');
 
+    // Adiciona ou remove classe de erro individualmente
+    if (!tituloValido) {
+        titulo.classList.add('invalid-field');
+        legend.classList.add('legendRed');
     } else {
-        campo.classList.remove('invalid-field');
-        campo.setCustomValidity('');
-        document.querySelector('#titulo-section legend').classList.remove('legendRed')
+        titulo.classList.remove('invalid-field');
+    }
+
+    if (!subtituloValido) {
+        subtitulo.classList.add('invalid-field');
+        legend.classList.add('legendRed');
+    } else {
+        subtitulo.classList.remove('invalid-field');
+    }
+
+    // Só remove a classe legendRed se ambos estiverem válidos
+    
+    if (tituloValido && subtituloValido) {
+        legend.classList.remove('legendRed');
     }
 }
 
 document.getElementById('titulo').addEventListener('input', validarMaiusculas);
 document.getElementById('subtitulo').addEventListener('input', validarMaiusculas);
 
+// fim da validação de caixa alta
+
+/*
+
+// VALIDAÇÃO PARA ALERTAR SOBRE SUBTÍTULO INICIADO EM MAIÚSCULA
+
+    // Validação para que o subtítulo não se inicie em maiúscula
+    // [^a-zA-ZÀ-ÿ] Considera apenas letras, ignora números e símbolos 
+	
+	function inicialMaiuscula(str) {
+        
+	const inicial = str.trim().charAt(0);
+        inicial = inicial.replace(/[^a-zA-ZÀ-ÿ]/, '');
+        return inicial.length > 0 && inicial === inicial.toUpperCase();
+}
+
+    if (inicialMaiuscula(subtitulo)) {
+
+        alert('Atenção! O subtítulo deve começar com maiúscula apenas se a primeira palavra for nome próprio ou sigla. Por favor, verifique isso antes de prosseguir.');
+    } 
+
+    document.getElementById('subtitulo').addEventListener('input', inicialMaiuscula);
+
+// FIM DA VALIDAÇÃO DE SUBTÍTULO
+*/
 
 // BOTÕES
 
