@@ -36,14 +36,14 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
         document.getElementById('extensao-section').style.display = 'block';
         eraseAllChildTextOf('extensao-section')
         removeRequiredFromAllChildTextOf('extensao-section');
-        
+
         document.getElementById('imagem-section').style.display = 'none';
 
         uncheckOption('imagem-tipo');
-        
+
         removeRequiredRadioFrom('il-coloracao');
         uncheckOption('il-coloracao');
-        
+
         removeRequiredRadioFrom('fotos-coloracao');
         uncheckOption('fotos-coloracao');
         uncheckOption()
@@ -447,7 +447,7 @@ document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
 });
 
 // PALAVRAS-CHAVE
-document.getElementById('tesauro').addEventListener('click', function() {
+document.getElementById('tesauro').addEventListener('click', function () {
     window.open('https://www.biblioteca.unesp.br/tesauro/vocab/index.php', '_blank');
 });
 
@@ -522,8 +522,6 @@ function validarMaiusculas() {
         subtitulo.classList.remove('invalid-field');
     }
 
-    // Só remove a classe legendRed se ambos estiverem válidos
-    
     if (tituloValido && subtituloValido) {
         legend.classList.remove('legendRed');
     }
@@ -541,9 +539,9 @@ document.getElementById('subtitulo').addEventListener('input', validarMaiusculas
     // Validação para que o subtítulo não se inicie em maiúscula
     // [^a-zA-ZÀ-ÿ] Considera apenas letras, ignora números e símbolos 
 	
-	function inicialMaiuscula(str) {
+    function inicialMaiuscula(str) {
         
-	const inicial = str.trim().charAt(0);
+    const inicial = str.trim().charAt(0);
         inicial = inicial.replace(/[^a-zA-ZÀ-ÿ]/, '');
         return inicial.length > 0 && inicial === inicial.toUpperCase();
 }
@@ -570,10 +568,19 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
 
     const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {
-        if (!field.checkValidity()) {
+        // Validação personalizada para Título e Subtítulo
+        if (
+            (field.id === 'titulo' && isAllUpper(field.value.trim())) ||
+            (field.id === 'subtitulo' && isAllUpper(field.value.trim()))
+        ) {
+            field.classList.add('invalid-field');
+            formIsValid = false;
+        } else if (!field.checkValidity()) {
+            // Validação padrão HTML5
             field.classList.add('invalid-field');
             formIsValid = false;
         } else {
+            // Só remove a classe se passar por todas as validações
             field.classList.remove('invalid-field');
         }
     });
@@ -600,6 +607,18 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
             radios.forEach(radio => radio.classList.remove('invalid-radio'));
         }
     });
+
+    // Verifica se título ou subtítulo estão em caixa alta
+    const legend = document.querySelector('#titulo-section legend');
+    if (legend.classList.contains('legendRed')) {
+        console.log('legendRed está ativa');
+        formIsValid = false;
+    } else {
+        console.log('legendRed não está ativa');
+    }
+
+
+
 
     //daqui pra baixo vale pra inputs de texto e radio tb
 
