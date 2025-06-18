@@ -494,15 +494,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 
+// VALIDAÇÃO PARA EVITAR CAIXA ALTA EM TITULO E SUBTITULO
+function isAllUpper(str) {
+    const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, '');
+    return letters.length > 0 && letters === letters.toUpperCase();
+}
+
+function validarMaiusculas(e) {
+    const campo = e.target;
+    if (isAllUpper(campo.value.trim())) {
+        campo.classList.add('invalid-field');
+        campo.setCustomValidity('Não preencha todo o campo em maiúsculas.');
+        //alert("Não preencha todo o campo em maiúsculas.")
+        document.querySelector('#titulo-section legend').classList.add('legendRed')
+
+    } else {
+        campo.classList.remove('invalid-field');
+        campo.setCustomValidity('');
+        document.querySelector('#titulo-section legend').classList.remove('legendRed')
+    }
+}
+
+document.getElementById('titulo').addEventListener('input', validarMaiusculas);
+document.getElementById('subtitulo').addEventListener('input', validarMaiusculas);
+
 
 // BOTÕES
 
 // Botão Gera Ficha
 
-// valida inputs de texto
 document.getElementById("btn-card").addEventListener("click", function (event) {
 
     let formIsValid = true;
+
+    // valida inputs de texto   
 
     const requiredFields = document.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
     requiredFields.forEach(field => {

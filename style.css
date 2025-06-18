@@ -49,6 +49,12 @@ body > legend {
     display: none;
 }
 
+.legendRed {
+    font-weight: 600;
+    color:red
+    
+}
+
 .form-group-bordered {
     border: 1px solid #572222;
     padding: 15px;
