@@ -451,6 +451,9 @@ document.getElementById('tesauro').addEventListener('click', function () {
     window.open('https://www.biblioteca.unesp.br/tesauro/vocab/index.php', '_blank');
 });
 
+
+
+
 // OPCIONAIS DO PDF
 
 
