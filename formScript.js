@@ -631,6 +631,7 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
         alert('Por favor, preencha todos os campos obrigatórios.');
     } else {
         geraFicha();
+        document.getElementById('ficha-catalografica-section').scrollIntoView({ behavior: 'smooth' });
     }
 })
 
