@@ -496,7 +496,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // VALIDAÇÃO PARA IMPEDIR CAIXA ALTA EM TITULO E SUBTITULO
 function isAllUpper(str) {
-    const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, '');
+    const letters = str.replace(/[^a-zA-ZÀ-ÿ]/g, ''); //remove tudo o que não for letra
     return letters.length > 0 && letters === letters.toUpperCase();
 }
 
@@ -532,29 +532,33 @@ document.getElementById('subtitulo').addEventListener('input', validarMaiusculas
 
 // fim da validação de caixa alta
 
-/*
+
 
 // VALIDAÇÃO PARA ALERTAR SOBRE SUBTÍTULO INICIADO EM MAIÚSCULA
 
-    // Validação para que o subtítulo não se inicie em maiúscula
-    // [^a-zA-ZÀ-ÿ] Considera apenas letras, ignora números e símbolos 
-	
-    function inicialMaiuscula(str) {
-        
-    const inicial = str.trim().charAt(0);
-        inicial = inicial.replace(/[^a-zA-ZÀ-ÿ]/, '');
-        return inicial.length > 0 && inicial === inicial.toUpperCase();
+
+function inicialMaiuscula(str) {
+
+    const texto = str.trim();
+    // Regex: ^[A-ZÀ-Ý][a-zà-ÿ]
+    // ^           => início da string
+    // [A-ZÀ-Ý]    => primeira letra maiúscula (com acento)
+    // [a-zà-ÿ]    => segunda letra minúscula (com acento)
+    return /^[A-ZÀ-Ý][a-zà-ÿ]/.test(texto);
 }
 
+function validarSubtitulo() {
+    const subtitulo = document.getElementById('subtitulo').value.trim();
+
     if (inicialMaiuscula(subtitulo)) {
+        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio ou sigla. Por favor, verifique isso antes de prosseguir.');
+    }
+}
 
-        alert('Atenção! O subtítulo deve começar com maiúscula apenas se a primeira palavra for nome próprio ou sigla. Por favor, verifique isso antes de prosseguir.');
-    } 
-
-    document.getElementById('subtitulo').addEventListener('input', inicialMaiuscula);
+document.getElementById('subtitulo').addEventListener('input', validarSubtitulo);
 
 // FIM DA VALIDAÇÃO DE SUBTÍTULO
-*/
+
 
 // BOTÕES
 
