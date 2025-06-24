@@ -625,9 +625,7 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
     }
 
 
-
-
-    //daqui pra baixo vale pra inputs de texto e radio tb
+    //Se FORM inválidado por qualquer verificação acima, não enviar, do contrário, gerar ficha
 
     if (!formIsValid) {  //só executa se TRUE
         event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
