@@ -64,6 +64,40 @@ export const unidades = [
     { local: 'Tupã', sigla: 'FCE', unidade: 'Faculdade de Ciências e Engenharia' },
 ]
 
+export const cursosMp = [
+    { curso: 'Mídia e Tecnologia ', complemento: '', sigla: 'FAAC' },
+    { curso: 'Docência para Educação Básica ', complemento: 'PROFEI', sigla: 'FC' },
+    { curso: 'Educação Física ', complemento: 'PROEF', sigla: 'FC' },
+    { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FC' },
+    { curso: 'Administração ', complemento: '', sigla: 'FCAV' },
+    { curso: 'Engenharia de Biomateriais e Bioprocessos ', complemento: '', sigla: 'FCF' },
+    { curso: 'Planejamento e Análise de Políticas Públicas ', complemento: '', sigla: 'FCHS' },
+    { curso: 'Educação Sexual ', complemento: '', sigla: 'FCLAR' },
+    { curso: 'Letras ', complemento: '', sigla: 'FCLAR' },
+    { curso: 'Letras ', complemento: '', sigla: 'FCLAS' },
+    { curso: 'Educação Física ', complemento: '', sigla: 'FCT' },
+    { curso: 'Educação Inclusiva ', complemento: '', sigla: 'FCT' },
+    { curso: 'Ensino de Física ', complemento: '', sigla: 'FCT' },
+    { curso: 'Geografia ', complemento: '', sigla: 'FCT' },
+    { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FCT' },
+    { curso: 'Engenharia de Produção', complemento: '', sigla: 'FEB' },
+    { curso: 'Engenharia de Produção ', complemento: '', sigla: 'FEG' },
+    { curso: 'Gestão e Regulação de Recursos Hídricos', complemento: '', sigla: 'FEIS' },
+    { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FEIS' },
+    { curso: 'Sociologia em Rede Nacional ', complemento: '', sigla: 'FFC' },
+    { curso: 'Enfermagem', complemento: '', sigla: 'FMB' },
+    { curso: 'Medicina ', complemento: '', sigla: 'FMB' },
+    { curso: 'Pesquisa Clínica ', complemento: '', sigla: 'FMB' },
+    { curso: 'Pesquisa e Desenvolvimento (Biotecnologia Médica)', complemento: '', sigla: 'FMB' },
+    { curso: 'Saúde da Família', complemento: '', sigla: 'FMB' },
+    { curso: 'Artes ', complemento: '', sigla: 'IA' },
+    { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'IBILCE' },
+    { curso: 'Ciência e Tecnologia Aplicada à Odontologia ', complemento: '', sigla: 'ICT' },
+    { curso: 'Matemática ', complemento: '', sigla: 'IGCE' },
+    { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'IGCE' },
+    { curso: 'Quimica em Rede Nacional', complemento: '', sigla: 'IQAR' },
+
+]
 
 // ÁREA DE TÍTULO
 
@@ -170,72 +204,72 @@ function getRespInt() {
 
 */
 
-//Mais pessoas com a mesma função
-const maisPessoa = document.querySelector('input[name="pessoa-sn"]:checked')?.value;
-const qtdPessoa = document.querySelector('input[name="pessoa-qtd"]:checked')?.value;
-let pessoa2 = "";
-let pessoa3 = "";
-let pessoa4 = "";
+    //Mais pessoas com a mesma função
+    const maisPessoa = document.querySelector('input[name="pessoa-sn"]:checked')?.value;
+    const qtdPessoa = document.querySelector('input[name="pessoa-qtd"]:checked')?.value;
+    let pessoa2 = "";
+    let pessoa3 = "";
+    let pessoa4 = "";
 
-if (maisPessoa === "sim") {
-    if (qtdPessoa === "2") {
-        const p2 = document.getElementById("pessoa-2").value.trim();
-        pessoa2 = ' e ' + p2;
-    } else if (qtdPessoa === "3") {
-        const p2 = document.getElementById("pessoa-2").value.trim();
-        const p3 = document.getElementById("pessoa-3").value.trim();
-        pessoa2 = ', ' + p2;
-        pessoa3 = ' e ' + p3;
-    } else if (qtdPessoa === "4") {
-        pessoa2 = " ... [et al.]";
-        autorEntrada = "";
+    if (maisPessoa === "sim") {
+        if (qtdPessoa === "2") {
+            const p2 = document.getElementById("pessoa-2").value.trim();
+            pessoa2 = ' e ' + p2;
+        } else if (qtdPessoa === "3") {
+            const p2 = document.getElementById("pessoa-2").value.trim();
+            const p3 = document.getElementById("pessoa-3").value.trim();
+            pessoa2 = ', ' + p2;
+            pessoa3 = ' e ' + p3;
+        } else if (qtdPessoa === "4") {
+            pessoa2 = " ... [et al.]";
+            autorEntrada = "";
+        }
     }
-}
 
-/*
-
-//Contribuidores - Apresentador  
-let apresentador = "";
-if (document.getElementById("apresentador-checkbox").checked) {
-    const nApresentador = document.getElementById("apresentador-1").value.trim();
-    apresentador = ' ; apresentado por ' + nApresentador;
-}
-
-const maisApresentador = document.querySelector('input[name="apresentador-sn"]:checked')?.value;
-const qtdApresentador = document.querySelector('input[name="apresentador-qtd"]:checked')?.value;
-let apresentador2 = "";
-let apresentador3 = "";
-
-if (maisApresentador === "sim") {
-    if (qtdApresentador === "2") {
-        apresentador2 = document.getElementById("apresentador-2").value.trim();
-        apresentador2 = ' e ' + apresentador2;
-    } else if (qtdApresentador === "3") {
-        apresentador2 = document.getElementById("apresentador-2").value.trim();
-        apresentador3 = document.getElementById("apresentador-3").value.trim();
-        apresentador2 = ', ' + apresentador2;
-        apresentador3 = ' e ' + apresentador3;
-    } else {
-        apresentador2 = " ... [et al.]";
+    /*
+    
+    //Contribuidores - Apresentador  
+    let apresentador = "";
+    if (document.getElementById("apresentador-checkbox").checked) {
+        const nApresentador = document.getElementById("apresentador-1").value.trim();
+        apresentador = ' ; apresentado por ' + nApresentador;
     }
-}*/
+    
+    const maisApresentador = document.querySelector('input[name="apresentador-sn"]:checked')?.value;
+    const qtdApresentador = document.querySelector('input[name="apresentador-qtd"]:checked')?.value;
+    let apresentador2 = "";
+    let apresentador3 = "";
+    
+    if (maisApresentador === "sim") {
+        if (qtdApresentador === "2") {
+            apresentador2 = document.getElementById("apresentador-2").value.trim();
+            apresentador2 = ' e ' + apresentador2;
+        } else if (qtdApresentador === "3") {
+            apresentador2 = document.getElementById("apresentador-2").value.trim();
+            apresentador3 = document.getElementById("apresentador-3").value.trim();
+            apresentador2 = ', ' + apresentador2;
+            apresentador3 = ' e ' + apresentador3;
+        } else {
+            apresentador2 = " ... [et al.]";
+        }
+    }*/
 
     //Contribuidores - Ilustrador
 
     let orientador = document.getElementById("orientador-nome").value.trim();
-    orientador = orientador ? ` Orientado por ${orientador}.`: "";
-    
+    orientador = orientador ? ` Orientado por ${orientador}.` : "";
+
     const coorientador = document.querySelector('input[name="coorientador-sn"]:checked')?.value;
     const qtdCoorientador = document.querySelector('input[name="coorientador-qtd"]:checked')?.value;
-    
+
     let coorientador1 = document.getElementById("coorientador-1").value.trim();
     coorientador1 = coorientador1 ? coorientador1 : "";
 
     let coorientador2 = document.getElementById("coorientador-2").value.trim();
     coorientador2 = coorientador2 ? coorientador2 : "";
-    
+
     let coorientador3 = document.getElementById("coorientador-3").value.trim();
-    coorientador3 = coorientador3 ?  coorientador3 : "";
+    coorientador3 = coorientador3 ? coorientador3 : "";
 
     if (coorientador === "sim") {
         if (qtdCoorientador === "1") {
@@ -244,7 +278,7 @@ if (maisApresentador === "sim") {
             coorientador1 = ' Coorientado por ' + coorientador1;
             coorientador2 = ' e ' + coorientador2 + '.';
         } else if (qtdCoorientador === "3") {
-            coorientador1 = ' Coorientado por ' + coorientador1;          
+            coorientador1 = ' Coorientado por ' + coorientador1;
             coorientador2 = ', ' + coorientador2;
             coorientador3 = ' e ' + coorientador3 + '.';
         } else {
@@ -382,7 +416,7 @@ function getDescricaoFisica() {
     const software = document.getElementById('software').checked;
 
     let formato = document.getElementById("formato").value.trim();
-    
+
     let pag = document.getElementById("paginas")?.value.trim();
     const paginacao = pag ? `${pag} p.` : "";
 
@@ -470,19 +504,6 @@ function getDescricaoFisica() {
 // Notas descritivas
 function getNota() {
 
-    //const isbnSN = document.querySelector('input[name="isbn-sn"]:checked')?.value;
-    
-    /*
-    let areaNotaISBN = "";
-
-    let nota1 = document.getElementById("nota-1").value.trim();
-    nota1 = nota1 ? `\n    ${nota1}` : "";
-
-    let nota2 = document.getElementById("nota-2").value.trim();
-    nota2 = nota2 ? `\n    ${nota2}` : "";
-
-    */
-
     // Obtém o índice selecionado no <select>
     const selectedIndex = document.getElementById("unidade-select").value;
 
@@ -493,11 +514,18 @@ function getNota() {
     const local = selectedItem.local;
     const unidade = selectedItem.unidade;
 
-    const curso = document.getElementById("curso").value.trim();
+    // Obtém o nome do curso (escrito manualmente ou vindo de lista)
+
+    let cursoManual = document.getElementById("curso-manual").value.trim();
+    cursoManual = cursoManual? cursoManual : "";
+
+    let cursoMp = document.getElementById("curso-mp-select").value.trim();
+    cursoMp = cursoMp? cursoMp : "";
+
     let tipo = ""
     let tipoSelecionado = document.getElementById("tipo").value.trim();
 
-        if (tipoSelecionado === "dissertacao-mp") {
+    if (tipoSelecionado === "dissertacao-mp") {
         tipo = "dissertação de Mestrado Profissional"
     } else if (tipoSelecionado === "dissertacao") {
         tipo = "dissertação"
@@ -507,7 +535,7 @@ function getNota() {
         tipo = "trabalho de conclusão de curso";
     }
 
-    const notaFixa = `Recurso educacional derivado de ${tipo} em ${curso} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
+    const notaFixa = `Recurso educacional derivado de ${tipo} em ${cursoManual}${cursoMp} - Universidade Estadual Paulista (UNESP), ${unidade}, ${local}.`
 
 
     return { notaFixa };

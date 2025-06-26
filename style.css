@@ -483,15 +483,11 @@ body > legend {
     display: none;
 }
 
-#nota {
+#curso-nome {
     display: none;
 }
 
-#nota-2-sn {
-    display: none;
-}
-
-#nota-outro {
+#curso-nome-mp {
     display: none;
 }
 

@@ -1,12 +1,50 @@
 import { uncheckOption, eraseAllChildTextOf, saveData, geraFicha, removeRequiredFromAllChildTextOf, setRequiredRadioFor, removeRequiredRadioFrom, geraPNG } from './functions.js';
 //import { getServico } from './cardScript.js'
-import { unidades } from './cardScript.js';
+import { unidades, cursosMp } from './cardScript.js';
 
 
-// ÁREA DE PUBLICAÇÃO
+// ÁREA DE NOTA DE TRABALHO ACADÊMICO
+
+// Tipo de trabalho acadêmico
+
+document.getElementById("tipo").addEventListener("change", function () {
+    const tipoTrabalho = document.getElementById("tipo").value;
+
+    removeRequiredFromAllChildTextOf('curso-nome');
+    eraseAllChildTextOf('curso-nome');
+    removeRequiredFromAllChildTextOf('curso-nome-mp');
+    eraseAllChildTextOf('curso-nome-mp');
+
+    if (tipoTrabalho === 'dissertacao-mp') {
+        document.getElementById('curso-nome-mp').style.display = 'block';
+        document.getElementById('curso-nome-mp').setAttribute('required', 'required');
+        
+        document.getElementById('curso-nome').style.display = 'none';
+        document.getElementById('curso-nome').removeAttribute('required');
+    } else if (
+        tipoTrabalho === 'tese' ||
+        tipoTrabalho === 'dissertacao' ||
+        tipoTrabalho === 'tcc'
+    ) {        
+        document.getElementById('curso-nome-mp').style.display = 'none';
+        document.getElementById('curso-nome-mp').removeAttribute('required');
+
+        document.getElementById('curso-nome').style.display = 'block';
+        document.getElementById('curso-nome').setAttribute('required', 'required');    
+    } else {
+        document.getElementById('curso-nome-mp').style.display = 'none';
+        document.getElementById('curso-nome-mp').removeAttribute('required');
+
+        document.getElementById('curso-nome').style.display = 'none';
+        document.getElementById('curso-nome').removeAttribute('required');
+    };
+
+});
 
 const unidadeSelecionada = document.getElementById('unidade-select');
+const cursoMpSelect = document.getElementById('curso-mp-select');
 
+//Unidades - carregamento da lista no formulário
 unidades.forEach((item, index) => {
     const option = document.createElement("option");
     option.value = index;
@@ -14,18 +52,34 @@ unidades.forEach((item, index) => {
     unidadeSelecionada.appendChild(option);
 })
 
-// Definir variáveis com base na seleção
+// A cada mudança de opção na lista de unidades
 unidadeSelecionada.addEventListener("change", function () {
     const selectedIndex = this.value; // Obtém o índice selecionado
-    const selectedItem = unidades[selectedIndex]; // Obtém o objeto correspondente
+    const selectedItem = unidades[selectedIndex]; // Obtém o objeto pelo índice
+    const unidadeSigla = selectedItem.sigla;
 
-    // Define as variáveis
-    const local = selectedItem.local;
-    const unidade = selectedItem.unidade;
+    // Limpa as opções antigas da lista de cursos
+    
+    cursoMpSelect.innerHTML = '<option value="">Selecione o curso</option>';
 
-    console.log("Local:", local);
-    console.log("Unidade:", unidade);
+    // Filtra cursos pela sigla da unidade
+    const cursosFiltrados = cursosMp.filter(item => item.sigla === unidadeSigla);
+
+    // Cria lista de cursos de mestrado profissional que correspondam à unidade (via comparação de siglas)
+
+    if (!selectedIndex) return; //se nenhum índice estiver selecionado, não faça nada.
+    // Adiciona os cursos filtrados ao select
+    cursosFiltrados.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.curso.trim();
+        option.textContent = item.complemento
+            ? `${item.curso.trim()} (${item.complemento})`
+            : item.curso.trim();
+        cursoMpSelect.appendChild(option);
+    });
+
 });
+
 
 
 // arquivo
@@ -46,7 +100,6 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
 
         removeRequiredRadioFrom('fotos-coloracao');
         uncheckOption('fotos-coloracao');
-        uncheckOption()
 
 
         if (document.getElementById('texto').checked) {
@@ -55,45 +108,45 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
             document.getElementById('paginas').setAttribute('required', 'required')
 
             document.getElementById('tamanho').style.display = 'block';
-            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required');
 
             document.getElementById('duracao').style.display = 'none';
-            document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('duracao-do-arquivo').removeAttribute('required');
 
             document.getElementById('imagem-section').style.display = 'block';
 
         } else if (document.getElementById('video').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
-            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required');
 
             document.getElementById('duracao').style.display = 'block';
             document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
 
             document.getElementById('paginacao').style.display = 'none';
-            document.getElementById('paginas').removeAttribute('required', 'required')
+            document.getElementById('paginas').removeAttribute('required')
 
         } else if (document.getElementById('audio').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
-            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required');
 
             document.getElementById('duracao').style.display = 'block';
             document.getElementById('duracao-do-arquivo').setAttribute('required', 'required');
 
             document.getElementById('paginacao').style.display = 'none';
-            document.getElementById('paginas').removeAttribute('required', 'required')
+            document.getElementById('paginas').removeAttribute('required')
 
         } else if (document.getElementById('software').checked) {
 
             document.getElementById('tamanho').style.display = 'block';
-            document.getElementById('tamanho-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('tamanho-do-arquivo').removeAttribute('required');
 
             document.getElementById('duracao').style.display = 'none';
-            document.getElementById('duracao-do-arquivo').removeAttribute('required', 'required');
+            document.getElementById('duracao-do-arquivo').removeAttribute('required');
 
             document.getElementById('paginacao').style.display = 'none';
-            document.getElementById('paginas').removeAttribute('required', 'required')
+            document.getElementById('paginas').removeAttribute('required')
 
         }
 
@@ -193,13 +246,6 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
         }
     });
 });
-
-
-
-
-
-
-
 
 // ORIENTAÇÃO
 
@@ -337,121 +383,11 @@ document.getElementById('img-fotos').addEventListener('change', function () {
     }
 })
 
-//ÁREA DE NOTAS
-
-// ISBN - sim ou não
-
-document.querySelectorAll('input[name="isbn-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-
-        eraseAllChildTextOf('isbn-section');
-
-        if (document.getElementById('isbn-sim').checked) {
-
-            document.getElementById('isbn').style.display = 'block';
-            document.getElementById('isbn-1').setAttribute('required', 'required');
-
-            document.getElementById('isbn-2-sn').style.display = 'block';
-            setRequiredRadioFor('isbn-2-sn');
-
-        } else {
-
-            document.getElementById('isbn').style.display = 'none';
-            document.getElementById('isbn-1').removeAttribute('required', 'required');
-
-            document.getElementById('isbn-2-sn').style.display = 'none';
-            document.getElementById('isbn-outro').style.display = 'none';
-
-
-            uncheckOption('isbn-2-sn');
-            removeRequiredRadioFrom('isbn-2-sn');
-        }
-
-
-    });
-});
-
-// ISBN-2 - sim ou não
-
-document.querySelectorAll('input[name="isbn-2-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        eraseAllChildTextOf('isbn-outro');
-
-        if (document.getElementById('isbn-2-sim').checked) {
-
-            document.getElementById('isbn-outro').style.display = 'block';
-
-            document.getElementById('isbn-2').setAttribute('required', 'required');
-            document.getElementById('qualificador-2').setAttribute('required', 'required');
-
-
-        } else {
-
-            document.getElementById('isbn-outro').style.display = 'none';
-
-            document.getElementById('isbn-2').removeAttribute('required', 'required');
-            document.getElementById('qualificador-2').removeAttribute('required', 'required');
-        }
-    });
-});
-
-// Nota - sim ou não
-
-document.querySelectorAll('input[name="nota-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        removeRequiredFromAllChildTextOf, ('notas-section');
-        eraseAllChildTextOf('notas-section');
-        uncheckOption('nota-2-sn');
-
-
-        if (document.getElementById('nota-sim').checked) {
-
-            document.getElementById('nota').style.display = 'block';
-            document.getElementById('nota-1').setAttribute('required', 'required');
-
-            document.getElementById('nota-2-sn').style.display = 'block';
-
-        } else {
-
-            document.getElementById('nota').style.display = 'none';
-            document.getElementById('nota-1').removeAttribute('required', 'required')
-            document.getElementById('nota-2-sn').style.display = 'none';
-            document.getElementById('nota-outro').style.display = 'none';
-
-
-        }
-    });
-});
-
-// Segunda nota - sim ou não
-
-document.querySelectorAll('input[name="nota-2-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-
-        eraseAllChildTextOf('nota-outro');
-
-        if (document.getElementById('nota-2-sim').checked) {
-
-            document.getElementById('nota-outro').style.display = 'block';
-            document.getElementById('nota-2').setAttribute('required', 'required');
-
-        } else {
-
-            document.getElementById('nota-outro').style.display = 'none';
-            document.getElementById('nota-2').removeAttribute('required', 'required');
-        }
-    });
-});
 
 // PALAVRAS-CHAVE
 document.getElementById('tesauro').addEventListener('click', function () {
     window.open('https://www.biblioteca.unesp.br/tesauro/vocab/index.php', '_blank');
 });
-
-
 
 
 // OPCIONAIS DO PDF

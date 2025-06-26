@@ -16,12 +16,13 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F76T0FXE1D"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-F76T0FXE1D');
+    gtag('config', 'G-F76T0FXE1D');
 </script>
+
 <body>
     <!-- FORMULÁRIO -->
     <form id="card-form">
@@ -60,7 +61,8 @@
             <input type="text" class="form-control" id="subtitulo" name="subtitulo">
 
 
-            <legend>Use maiúsculas apenas no início do título e nas iniciais de nomes próprios <span id="subt">(o subtítulo começa com letra minúscula)</span>. Use caixa alta apenas para siglas.</legend>
+            <legend>Use maiúsculas apenas no início do título e nas iniciais de nomes próprios <span id="subt">(o
+                    subtítulo começa com letra minúscula)</span>. Use caixa alta apenas para siglas.</legend>
         </fieldset> <!-- fim do fielset titulo-section -->
 
 
@@ -80,72 +82,48 @@
 
             <!-- pessoa-sn -->
 
-                <div id="pessoa-sn">
-                    <!--<p>Existem mais pessoas com essa mesma função?</p>-->
-                    <input type="radio" id="sim" name="pessoa-sn" value="sim">
-                    <label for="sim">Sim</label><br>
+            <div id="pessoa-sn">
+                <!--<p>Existem mais pessoas com essa mesma função?</p>-->
+                <input type="radio" id="sim" name="pessoa-sn" value="sim">
+                <label for="sim">Sim</label><br>
 
-                    <input type="radio" id="nao" name="pessoa-sn" value="nao">
-                    <label for="nao">Não</label><br><br />
-                </div>
+                <input type="radio" id="nao" name="pessoa-sn" value="nao">
+                <label for="nao">Não</label><br><br />
+            </div>
 
             <!-- pessoa-qtd-->
 
-                <div id="pessoa-qtd">
-                    <p>Quantos são no total?</p>
-                    <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
-                    <label for="pessoa-qtd-2">2</label><br>
-                    <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
-                    <label for="pessoa-qtd-3">3</label><br>
-                    <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
-                    <label for="pessoa-qtd-4">4 ou mais</label>
+            <div id="pessoa-qtd">
+                <p>Quantos são no total?</p>
+                <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
+                <label for="pessoa-qtd-2">2</label><br>
+                <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
+                <label for="pessoa-qtd-3">3</label><br>
+                <input type="radio" id="pessoa-qtd-4" name="pessoa-qtd" value="4">
+                <label for="pessoa-qtd-4">4 ou mais</label>
+            </div>
+
+
+            <!-- pessoa-outro -->
+
+            <div id="pessoa-outro" class="form-group form-group-bordered">
+
+                <div id="pessoa-segundo">
+                    <label for="pessoa-2">Segundo autor</label><br>
+                    <input type="text" class="form-control" id="pessoa-2" name="pessoa-2">
+                </div>
+
+                <div id="pessoa-terceiro">
+                    <label for="pessoa-3">Terceiro autor</span></label><br>
+                    <input type="text" class="form-control" id="pessoa-3" name="pessoa-3">
+                </div>
+
+                <div id="pessoa-quarto">
+                    <p>Não é preciso informar os outros nomes. Prossiga.</p>
                 </div>
 
 
-                <!-- pessoa-outro -->
-
-                <div id="pessoa-outro" class="form-group form-group-bordered">
-
-                    <div id="pessoa-segundo">
-                        <label for="pessoa-2">Segundo autor</label><br>
-                        <input type="text" class="form-control" id="pessoa-2" name="pessoa-2">
-                    </div>
-
-                    <div id="pessoa-terceiro">
-                        <label for="pessoa-3">Terceiro autor</span></label><br>
-                        <input type="text" class="form-control" id="pessoa-3" name="pessoa-3">
-                    </div>
-
-                    <div id="pessoa-quarto">
-                        <p>Não é preciso informar os outros nomes. Prossiga.</p>
-                    </div>
-
-
         </fieldset> <!-- fim do fielset autor-section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <!-- ORIENTAÇÃO -->
@@ -212,23 +190,7 @@
         </fieldset> <!-- fim do fielsed coorientacao-section -->
 
 
-        <!-- ÁREA DE PUBLICAÇÃO -->
-
-        <fieldset id="publicacao-section" class="form-group form-group-bordered">
-
-            <label for="unidade-select">Unidade acadêmica *</label>
-            <select id="unidade-select" class="form-control" required>
-
-
-
-            </select>
-
-            <br>
-            <label for="ano">Ano *</label><br>
-            <input type="text" class="form-control" id="ano" name="ano" required><br>
-
-        </fieldset>
-
+    
         <fieldset id="extensao-section" class="form-group form-group-bordered">
 
             <div id="paginacao">
@@ -300,28 +262,25 @@
 
         <!-- Notas -->
 
+        <!-- ÁREA DE NOTA DE TRABALHO ACADÊMICO -->
+
+        <fieldset id="publicacao-section" class="form-group form-group-bordered">
+
+            <label for="unidade-select">Unidade acadêmica *</label>
+            <select id="unidade-select" class="form-control" required>
+                <option value="">Selecione a unidade</option>
+            </select>
+
+            <br>
+            <label for="ano">Ano *</label><br>
+            <input type="text" class="form-control" id="ano" name="ano" required><br>
+
+        </fieldset>
+
+
         <fieldset id="notas-section" class="form-group form-group-bordered">
 
-
-            <!--
-            <div id="trabalho-academico-sn">
-                <p>Existe um trabalho acadêmico vinculado ao objeto educacional?</p>
-
-                <input type="radio" id="trabalho-academico-sim" name="trabalho-academico-sn" value="sim">
-                <label for="trabalho-academico-sim">Sim</label>
-
-                <input type="radio" id="trabalho-academico-nao" name="trabalho-academico-sn" value="nao">
-                <label for="trabalho-academico-nao">Não</label><br><br />
-            </div>
-            -->
-
-            <div id="curso-nome">
-                <label for="curso">Nome do curso *</label><br>
-                <input type="text" class="form-control" id="curso" name="curso" required>
-                <legend></legend>
-            </div>
-
-            <div id="trabalho-tipo">
+                        <div id="trabalho-tipo">
 
                 <!-- RADIOS
             <p>Tipo do trabalho acadêmico vinculado *</p>
@@ -337,26 +296,54 @@
 
                 <label for="tipo">Tipo do trabalho acadêmico vinculado *</label><br>
                 <select id="tipo" name="tipo" class="form-control" required>
-                    <!--<option value="remove-tipo">Selecione um tipo de trabalho</option>-->
+                    <option value="">Selecione o tipo</option>
                     <option value="dissertacao-mp">Dissertação (mestrado profissional)</option>
                     <option value="dissertacao">Dissertação</option>
                     <option value="tese">Tese</option>
                     <option value="tcc">Trabalho de conclusão de curso (TCC)</option>
                 </select>
+            </div><br>
+
+            <!--
+            <div id="trabalho-academico-sn">
+                <p>Existe um trabalho acadêmico vinculado ao objeto educacional?</p>
+
+                <input type="radio" id="trabalho-academico-sim" name="trabalho-academico-sn" value="sim">
+                <label for="trabalho-academico-sim">Sim</label>
+
+                <input type="radio" id="trabalho-academico-nao" name="trabalho-academico-sn" value="nao">
+                <label for="trabalho-academico-nao">Não</label><br><br />
             </div>
+            -->
+
+            <div id="curso-nome">
+                <label for="curso-manual">Nome do curso *</label><br>
+                <input type="text" class="form-control" id="curso-manual" name="curso-manual">
+                <legend></legend>
+            </div>
+
+            <div id="curso-nome-mp">
+                <label for="curso-mp-select">Nome do Curso de MP *</label>
+                <select id="curso-mp-select" class="form-control">
+                    <option value="">Selecione o curso</option>
+                </select>
+            </div>
+
 
         </fieldset> <!-- fim de notas-section-->
 
-         <!-- ISBN -->
+        <!-- ISBN -->
         <fieldset id="isbn-section" class="form-group form-group-bordered">
-                <label for="isbn">ISBN (se houver)</label><br>
-                <input type="text" class="form-control" id="isbn" name="isbn">
+            <label for="isbn">ISBN (se houver)</label><br>
+            <input type="text" class="form-control" id="isbn" name="isbn">
         </fieldset>
 
         <!-- ASSUNTO -->
 
         <fieldset id="assuntos-section" class="form-group form-group-bordered">
-            <legend>Utilize palavras-chave do <button type=" button" id="tesauro">TESAURO UNESP</button>. Confira o <a href="https://www.biblioteca.unesp.br/ficha/tutorial_tesauro.pdf" target="_blank"><b><u>tutorial</u></b></a>.</legend>
+            <legend>Utilize palavras-chave do <button type=" button" id="tesauro">TESAURO UNESP</button>. Confira o <a
+                    href="https://www.biblioteca.unesp.br/ficha/tutorial_tesauro.pdf"
+                    target="_blank"><b><u>tutorial</u></b></a>.</legend>
 
             <p>Preencha até 5 palavras-chave</p>
 
