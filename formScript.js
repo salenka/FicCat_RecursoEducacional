@@ -12,31 +12,31 @@ document.getElementById("tipo").addEventListener("change", function () {
 
     removeRequiredFromAllChildTextOf('curso-nome');
     eraseAllChildTextOf('curso-nome');
-    removeRequiredFromAllChildTextOf('curso-nome-mp');
-    eraseAllChildTextOf('curso-nome-mp');
+    document.getElementById('curso-mp-select').value = "";
+    document.getElementById('curso-mp-select').removeAttribute('required');
 
     if (tipoTrabalho === 'dissertacao-mp') {
         document.getElementById('curso-nome-mp').style.display = 'block';
-        document.getElementById('curso-nome-mp').setAttribute('required', 'required');
+        document.getElementById('curso-mp-select').setAttribute('required', 'required');
         
         document.getElementById('curso-nome').style.display = 'none';
-        document.getElementById('curso-nome').removeAttribute('required');
+        document.getElementById('curso-manual').removeAttribute('required');
     } else if (
         tipoTrabalho === 'tese' ||
         tipoTrabalho === 'dissertacao' ||
         tipoTrabalho === 'tcc'
     ) {        
         document.getElementById('curso-nome-mp').style.display = 'none';
-        document.getElementById('curso-nome-mp').removeAttribute('required');
+        document.getElementById('curso-mp-select').removeAttribute('required');
 
         document.getElementById('curso-nome').style.display = 'block';
-        document.getElementById('curso-nome').setAttribute('required', 'required');    
+        document.getElementById('curso-manual').setAttribute('required', 'required');    
     } else {
         document.getElementById('curso-nome-mp').style.display = 'none';
-        document.getElementById('curso-nome-mp').removeAttribute('required');
+        document.getElementById('curso-mp-select').removeAttribute('required');
 
         document.getElementById('curso-nome').style.display = 'none';
-        document.getElementById('curso-nome').removeAttribute('required');
+        document.getElementById('curso-manual').removeAttribute('required');
     };
 
 });
@@ -490,7 +490,7 @@ function validarSubtitulo() {
     const subtitulo = document.getElementById('subtitulo').value.trim();
 
     if (inicialMaiuscula(subtitulo)) {
-        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio ou sigla. Por favor, verifique isso antes de prosseguir.');
+        alert('Atenção! Inicie o subtítulo com maiúscula apenas se a primeira palavra for um nome próprio. Por favor, verifique isso antes de prosseguir.');
     }
 }
 
