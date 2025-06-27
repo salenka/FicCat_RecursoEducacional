@@ -153,10 +153,10 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
 
 // AUTORIA
 
-//pessoa-sn
+//pessoa-sn     
 
-document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
+document.querySelectorAll('input[name="pessoa-sn"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function () {        
 
 
         document.getElementById('pessoa-qtd').style.display = 'none';
@@ -174,7 +174,7 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
             document.getElementById('pessoa-qtd').style.display = 'block';
             setRequiredRadioFor('pessoa-qtd')
 
-        } else if (document.getElementById('nao').checked) {
+        } /*else if (document.getElementById('nao').checked) {
 
             document.getElementById('pessoa-qtd').style.display = 'none';
             removeRequiredRadioFrom('pessoa-qtd');
@@ -186,7 +186,7 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(radio => {
             removeRequiredFromAllChildTextOf('pessoa-outro');
             eraseAllChildTextOf('pessoa-outro');
 
-        } else {
+        }*/ else {
             document.getElementById('pessoa-qtd').style.display = 'none';
             removeRequiredRadioFrom('pessoa-qtd');
             unckeckOption('pessoa-qtd');
@@ -237,7 +237,7 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
             document.getElementById('pessoa-quarto').style.display = 'block';
 
         } else {
-            document.getElementById('pessoa-outro'.style.display = 'none');
+            document.getElementById('pessoa-outro').style.display = 'none';
             document.getElementById('pessoa-segundo').style.display = 'none';
             document.getElementById('pessoa-terceiro').style.display = 'none';
             document.getElementById('pessoa-quarto').style.display = 'none';
@@ -249,14 +249,16 @@ document.querySelectorAll('input[name="pessoa-qtd"]').forEach(radio => {
 
 // coorientador-sn
 
-document.querySelectorAll('input[name="coorientador-sn"]').forEach(radio => {
-    radio.addEventListener('change', function () {
+document.querySelectorAll('input[name="coorientador-sim"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
 
         document.getElementById('coorientadores').style.display = 'none';
         document.getElementById('coorientador').style.display = 'none';
         document.getElementById('coorientador-segundo').style.display = 'none';
         document.getElementById('coorientador-terceiro').style.display = 'none';
         document.getElementById('coorientador-quarto').style.display = 'none';
+
+        //document.getElementById('coorientador-qtd').style.display = 'none';
         uncheckOption('coorientador-qtd');
         removeRequiredRadioFrom('coorientador-qtd');
         eraseAllChildTextOf('coorientadores');
@@ -265,15 +267,14 @@ document.querySelectorAll('input[name="coorientador-sn"]').forEach(radio => {
         if (document.getElementById('coorientador-sim').checked) {
             document.getElementById('coorientador-qtd').style.display = 'block';
             setRequiredRadioFor('coorientador-qtd')
-        } else if (document.getElementById('coorientador-nao').checked) {
+        } else {
             document.getElementById('coorientadores').style.display = 'none';
             document.getElementById('coorientador-qtd').style.display = 'none';
             uncheckOption('coorientador-qtd');
             removeRequiredRadioFrom('coorientador-qtd');
             eraseAllChildTextOf('coorientadores');
             removeRequiredFromAllChildTextOf('coorientadores');
-        } else {
-            document.getElementById('coorientador-qtd').style.display = 'none';
+
         }
     });
 });

@@ -77,24 +77,27 @@
                 <label for="sobrenome">Sobrenome do autor *</label><br>
                 <input type="text" class="form-control" id="sobrenome" name="sobrenome" required><br>
 
-                <p>Existe mais de um autor?</p>
+                <!--<p>Existe mais de um autor?</p>-->
             </div>
 
             <!-- pessoa-sn -->
 
             <div id="pessoa-sn">
-                <!--<p>Existem mais pessoas com essa mesma função?</p>-->
+                <!--<p>Existem mais pessoas com essa mesma função?</p>
                 <input type="radio" id="sim" name="pessoa-sn" value="sim">
                 <label for="sim">Sim</label><br>
 
                 <input type="radio" id="nao" name="pessoa-sn" value="nao">
-                <label for="nao">Não</label><br><br />
+                <label for="nao">Não</label><br><br />-->
+
+                <input type="checkbox" id="sim" name="pessoa-sn" value="sim">
+                <label for="sim">Existe mais de um autor</label><br>
             </div>
 
             <!-- pessoa-qtd-->
 
             <div id="pessoa-qtd">
-                <p>Quantos são no total?</p>
+                <p>Quantos são os autores no total?</p>
                 <input type="radio" id="pessoa-qtd-2" name="pessoa-qtd" value="2">
                 <label for="pessoa-qtd-2">2</label><br>
                 <input type="radio" id="pessoa-qtd-3" name="pessoa-qtd" value="3">
@@ -121,6 +124,7 @@
                 <div id="pessoa-quarto">
                     <p>Não é preciso informar os outros nomes. Prossiga.</p>
                 </div>
+            </div>
 
 
         </fieldset> <!-- fim do fielset autor-section>
@@ -139,13 +143,9 @@
 
             <div id="coorientador-sn">
                 <br>
-                <p>Existe um coorientador?</p>
+                <input type="checkbox" id="coorientador-sim" name="coorientador-sim" value="sim">
+                <label for="coorientador-sim">Houve também coorientação</label>
 
-                <input type="radio" id="coorientador-sim" name="coorientador-sn" value="sim">
-                <label for="coorientador-sim">Sim</label>
-
-                <input type="radio" id="coorientador-nao" name="coorientador-sn" value="nao">
-                <label for="coorientador-nao">Não</label><br><br />
             </div>
 
 

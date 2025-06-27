@@ -260,7 +260,7 @@ function getRespInt() {
     let orientador = document.getElementById("orientador-nome").value.trim();
     orientador = orientador ? ` Orientado por ${orientador}.` : "";
 
-    const coorientador = document.querySelector('input[name="coorientador-sn"]:checked')?.value;
+    const coorientador = document.querySelector('input[name="coorientador-sim"]:checked')?.value;
     const qtdCoorientador = document.querySelector('input[name="coorientador-qtd"]:checked')?.value;
 
     let coorientador1 = document.getElementById("coorientador-1").value.trim();
