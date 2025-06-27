@@ -18,19 +18,19 @@ document.getElementById("tipo").addEventListener("change", function () {
     if (tipoTrabalho === 'dissertacao-mp') {
         document.getElementById('curso-nome-mp').style.display = 'block';
         document.getElementById('curso-mp-select').setAttribute('required', 'required');
-        
+
         document.getElementById('curso-nome').style.display = 'none';
         document.getElementById('curso-manual').removeAttribute('required');
     } else if (
         tipoTrabalho === 'tese' ||
         tipoTrabalho === 'dissertacao' ||
         tipoTrabalho === 'tcc'
-    ) {        
+    ) {
         document.getElementById('curso-nome-mp').style.display = 'none';
         document.getElementById('curso-mp-select').removeAttribute('required');
 
         document.getElementById('curso-nome').style.display = 'block';
-        document.getElementById('curso-manual').setAttribute('required', 'required');    
+        document.getElementById('curso-manual').setAttribute('required', 'required');
     } else {
         document.getElementById('curso-nome-mp').style.display = 'none';
         document.getElementById('curso-mp-select').removeAttribute('required');
@@ -59,7 +59,7 @@ unidadeSelecionada.addEventListener("change", function () {
     const unidadeSigla = selectedItem.sigla;
 
     // Limpa as opções antigas da lista de cursos
-    
+
     cursoMpSelect.innerHTML = '<option value="">Selecione o curso</option>';
 
     // Filtra cursos pela sigla da unidade
@@ -156,7 +156,7 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
 //pessoa-sn     
 
 document.querySelectorAll('input[name="pessoa-sn"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function () {        
+    checkbox.addEventListener('change', function () {
 
 
         document.getElementById('pessoa-qtd').style.display = 'none';
@@ -412,7 +412,7 @@ document.getElementById("creditos").addEventListener("change", function () {
     }
 
 })
-
+/*
 // JavaScript para limitar a quantidade máxima de linhas em #creditos (acho que não funciona mais com Quilljs
 document.getElementById('creditos').addEventListener('input', function () {
     const maxLines = 20;
@@ -423,11 +423,11 @@ document.getElementById('creditos').addEventListener('input', function () {
         textarea.value = lines.slice(0, maxLines).join('\n');
     }
 });
+*/
 
-
-// SALVA EM LOCAL STORAGE 'input[type="text"]' de todos os campos do formulário
+//SALVA EM LOCAL STORAGE 'input[type="text"]' de todos os campos do formulário
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('input[type="text"]').forEach(campo => {
+document.querySelectorAll('input[type="text"]').forEach(campo => {
         campo.addEventListener("input", saveData);
     });
 })
@@ -528,12 +528,12 @@ document.getElementById("btn-card").addEventListener("click", function (event) {
     });
 
     // valida grupos de rádio
-    const radioGroups = document.querySelectorAll('input[type="radio"][required]');
-    let radiosPorGrupo = {};
+        const radioGroups = document.querySelectorAll('input[type="radio"][required]');
+        let radiosPorGrupo = {};
 
     // agrupa rádios pelo atributo "name"
     radioGroups.forEach(radio => {
-
+        
         if (!radiosPorGrupo[radio.name]) {
             radiosPorGrupo[radio.name] = []; 	//cria um grupo em radiosPorGrupo
         }
