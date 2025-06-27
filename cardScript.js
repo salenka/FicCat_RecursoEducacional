@@ -75,8 +75,8 @@ export const cursosMp = [
     { curso: 'Educação Sexual ', complemento: '', sigla: 'FCLAR' },
     { curso: 'Letras ', complemento: '', sigla: 'FCLAR' },
     { curso: 'Letras ', complemento: '', sigla: 'FCLAS' },
-    { curso: 'Educação Física ', complemento: '', sigla: 'FCT' },
-    { curso: 'Educação Inclusiva ', complemento: '', sigla: 'FCT' },
+    { curso: 'Educação Física ', complemento: 'PROEF', sigla: 'FCT' },
+    { curso: 'Educação Inclusiva ', complemento: 'PROFEI', sigla: 'FCT' },
     { curso: 'Ensino de Física ', complemento: '', sigla: 'FCT' },
     { curso: 'Geografia ', complemento: '', sigla: 'FCT' },
     { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FCT' },
@@ -91,6 +91,7 @@ export const cursosMp = [
     { curso: 'Pesquisa e Desenvolvimento (Biotecnologia Médica)', complemento: '', sigla: 'FMB' },
     { curso: 'Saúde da Família', complemento: '', sigla: 'FMB' },
     { curso: 'Artes ', complemento: '', sigla: 'IA' },
+    { curso: 'Educação Física', complemento: 'PROEF', sigla: 'IB'},
     { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'IBILCE' },
     { curso: 'Ciência e Tecnologia Aplicada à Odontologia ', complemento: '', sigla: 'ICT' },
     { curso: 'Matemática ', complemento: '', sigla: 'IGCE' },
@@ -499,7 +500,7 @@ function getDescricaoFisica() {
 
 }
 
-// ÁREA DE NOTAS
+// ÁREA DE NOTA DE TRABALHO ACADÊMICO
 
 // Notas descritivas
 function getNota() {
@@ -520,6 +521,7 @@ function getNota() {
     cursoManual = cursoManual? cursoManual : "";
 
     let cursoMp = document.getElementById("curso-mp-select").value.trim();
+    
     cursoMp = cursoMp? cursoMp : "";
 
     let tipo = ""

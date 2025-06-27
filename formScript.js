@@ -71,16 +71,14 @@ unidadeSelecionada.addEventListener("change", function () {
     // Adiciona os cursos filtrados ao select
     cursosFiltrados.forEach(item => {
         const option = document.createElement('option');
-        option.value = item.curso.trim();
-        option.textContent = item.complemento
+        option.value = item.complemento
             ? `${item.curso.trim()} (${item.complemento})`
             : item.curso.trim();
+        option.textContent = option.value;
         cursoMpSelect.appendChild(option);
     });
 
 });
-
-
 
 // arquivo
 
