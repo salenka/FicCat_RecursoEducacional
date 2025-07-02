@@ -80,7 +80,7 @@ export const cursosMp = [
     { curso: 'Ensino de Física ', complemento: '', sigla: 'FCT' },
     { curso: 'Geografia ', complemento: '', sigla: 'FCT' },
     { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FCT' },
-    { curso: 'Engenharia de Produção', complemento: '', sigla: 'FEB' },
+    /*{ curso: 'Engenharia de Produção', complemento: '', sigla: 'FEB' }, //removido em 02/07/2025 a pedido de Minervina*/
     { curso: 'Engenharia de Produção ', complemento: '', sigla: 'FEG' },
     { curso: 'Gestão e Regulação de Recursos Hídricos', complemento: '', sigla: 'FEIS' },
     { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FEIS' },
