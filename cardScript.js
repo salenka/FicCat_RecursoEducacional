@@ -66,7 +66,7 @@ export const unidades = [
 
 export const cursosMp = [
     { curso: 'Mídia e Tecnologia ', complemento: '', sigla: 'FAAC' },
-    { curso: 'Docência para Educação Básica ', complemento: 'PROFEI', sigla: 'FC' },
+    { curso: 'Docência para Educação Básica ', complemento: 'PROEB, sigla: 'FC' },
     { curso: 'Educação Física ', complemento: 'PROEF', sigla: 'FC' },
     { curso: 'Matemática em Rede Nacional ', complemento: '', sigla: 'FC' },
     { curso: 'Administração ', complemento: '', sigla: 'FCAV' },
