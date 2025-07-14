@@ -90,13 +90,8 @@ document.querySelectorAll('input[name="arquivo"]').forEach(radio => {
         removeRequiredFromAllChildTextOf('extensao-section');
 
         document.getElementById('imagem-section').style.display = 'none';
-
         uncheckOption('imagem-tipo');
-
-        removeRequiredRadioFrom('il-coloracao');
         uncheckOption('il-coloracao');
-
-        removeRequiredRadioFrom('fotos-coloracao');
         uncheckOption('fotos-coloracao');
 
 
@@ -174,19 +169,7 @@ document.querySelectorAll('input[name="pessoa-sn"]').forEach(checkbox => {
             document.getElementById('pessoa-qtd').style.display = 'block';
             setRequiredRadioFor('pessoa-qtd')
 
-        } /*else if (document.getElementById('nao').checked) {
-
-            document.getElementById('pessoa-qtd').style.display = 'none';
-            removeRequiredRadioFrom('pessoa-qtd');
-            unckeckOption('pessoa-qtd');
-            document.getElementById('pessoa-outro').style.display = 'none';
-            document.getElementById('pessoa-segundo').style.display = 'none';
-            document.getElementById('pessoa-terceiro').style.display = 'none';
-            document.getElementById('pessoa-quarto').style.display = 'none';
-            removeRequiredFromAllChildTextOf('pessoa-outro');
-            eraseAllChildTextOf('pessoa-outro');
-
-        }*/ else {
+        } else {
             document.getElementById('pessoa-qtd').style.display = 'none';
             removeRequiredRadioFrom('pessoa-qtd');
             unckeckOption('pessoa-qtd');
@@ -334,20 +317,6 @@ document.querySelectorAll('input[name="coorientador-qtd"]').forEach(radio => {
 
 //IMAGENS  
 
-document.querySelectorAll('input[name="imagem"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-        if (document.getElementById('imagem-sim').checked) {
-            document.getElementById('imagem-tipo').style.display = 'block';
-            document.getElementsByName('imagem-tipo').setAttribute('required', 'required')
-
-
-        } else {
-            document.getElementById('imagem-tipo').style.display = 'none';
-        }
-    });
-});
-
-
 //Checkbox ILUSTRAÇÕES
 document.getElementById('img-ilustracoes').addEventListener('change', function () {
 
@@ -356,12 +325,11 @@ document.getElementById('img-ilustracoes').addEventListener('change', function (
     if (document.getElementById('img-ilustracoes').checked) {
 
         document.getElementById('il-coloracao').style.display = 'block';
-        setRequiredRadioFor('il-coloracao');
-
+       
 
     } else {
         document.getElementById('il-coloracao').style.display = 'none';
-        removeRequiredRadioFrom('il-coloracao');
+        //removeRequiredRadioFrom('il-coloracao');
         uncheckOption('il-coloracao');
     }
 
@@ -373,11 +341,11 @@ document.getElementById('img-fotos').addEventListener('change', function () {
 
     if (document.getElementById('img-fotos').checked) {
         document.getElementById('fotos-coloracao').style.display = 'block';
-        setRequiredRadioFor('fotos-coloracao')
+        //setRequiredRadioFor('fotos-coloracao')
 
     } else {
         document.getElementById('fotos-coloracao').style.display = 'none';
-        removeRequiredRadioFrom('fotos-coloracao')
+        //removeRequiredRadioFrom('fotos-coloracao')
         uncheckOption('fotos-coloracao');
     }
 })
@@ -412,18 +380,6 @@ document.getElementById("creditos").addEventListener("change", function () {
     }
 
 })
-/*
-// JavaScript para limitar a quantidade máxima de linhas em #creditos (acho que não funciona mais com Quilljs
-document.getElementById('creditos').addEventListener('input', function () {
-    const maxLines = 20;
-    const textarea = this;
-    const lines = textarea.value.split('\n');
-
-    if (lines.length > maxLines) {
-        textarea.value = lines.slice(0, maxLines).join('\n');
-    }
-});
-*/
 
 //SALVA EM LOCAL STORAGE 'input[type="text"]' de todos os campos do formulário
 document.addEventListener("DOMContentLoaded", function () {
@@ -470,10 +426,7 @@ document.getElementById('subtitulo').addEventListener('input', validarMaiusculas
 
 // fim da validação de caixa alta
 
-
-
 // VALIDAÇÃO PARA ALERTAR SOBRE SUBTÍTULO INICIADO EM MAIÚSCULA
-
 
 function inicialMaiuscula(str) {
 

@@ -224,28 +224,22 @@
                 <label for="img-ilustracoes">Ilustrações</label><br>
 
                 <div id="il-coloracao" class="form-group form-group-bordered">
-                    <p>As ilustrações são, predominantemente *</p>
+                    <legend>Caso essa informação seja relevante, informe o padrão de cores que prevalece</legend>
                     <input type="radio" id="il-cores" name="il-coloracao" value="il-cores">
-                    <label for="foto-cores">Em cores</label><br>
+                    <label for="foto-cores">Colorido</label><br>
                     <input type="radio" id="il-pb" name="il-coloracao" value="il-pb">
                     <label for="il-pb">Preto-e-branco</label><br>
-                    <input type="radio" id="il" name="il-coloracao" value="il">
-                    <label for="il">Não existe uma coloração predominante ou essa informação não é
-                        relevante</label>
                 </div>
 
                 <input type="checkbox" id="img-fotos" name="imagem-tipo" value="fotos">
                 <label for="img-fotos">Fotos</label><br>
 
                 <div id="fotos-coloracao" class="form-group form-group-bordered">
-                    <p>As fotos são, predominantemente *</p>
+                    <legend>Caso essa informação seja relevante, informe o padrão de cores que prevalece</legend>
                     <input type="radio" id="foto-cores" name="fotos-coloracao" value="foto-cores">
-                    <label for="foto-cores">Em cores</label><br>
+                    <label for="foto-cores">Colorido</label><br>
                     <input type="radio" id="foto-pb" name="fotos-coloracao" value="foto-pb">
                     <label for="foto-pb">Preto-e-branco</label><br>
-                    <input type="radio" id="foto" name="fotos-coloracao" value="foto">
-                    <label for="foto">Não existe uma coloração predominante ou essa informação não é
-                        relevante</label>
                 </div>
 
                 <input type="checkbox" id="img-mapas" name="imagem-tipo" value="mapas">
@@ -280,20 +274,7 @@
 
         <fieldset id="notas-section" class="form-group form-group-bordered">
 
-                        <div id="trabalho-tipo">
-
-                <!-- RADIOS
-            <p>Tipo do trabalho acadêmico vinculado *</p>
-            <input type="radio" id="dissertacao-mp" name="dissertacao-mp" value="dissertacao-mp" required>
-            <label for="dissertacao-mp">Dissertação (mestrado profissional)</label>
-            <input type="radio" id="dissertacao" name="dissertacao" value="dissertacao" required>
-            <label for="dissertacao">Dissertação</label>
-            <input type="radio" id="tese" name="tese" value="tese" required>
-            <label for="video">Tese</label>
-            <input type="radio" id="tcc" name="tcc" value="tcc" required>
-            <label for="audio">Trabalho de conclusão de curso (TCC)</label>
-            -->
-
+            <div id="trabalho-tipo">
                 <label for="tipo">Tipo do trabalho acadêmico vinculado *</label><br>
                 <select id="tipo" name="tipo" class="form-control" required>
                     <option value="">Selecione o tipo</option>
@@ -303,18 +284,6 @@
                     <option value="tcc">Trabalho de conclusão de curso (TCC)</option>
                 </select>
             </div><br>
-
-            <!--
-            <div id="trabalho-academico-sn">
-                <p>Existe um trabalho acadêmico vinculado ao objeto educacional?</p>
-
-                <input type="radio" id="trabalho-academico-sim" name="trabalho-academico-sn" value="sim">
-                <label for="trabalho-academico-sim">Sim</label>
-
-                <input type="radio" id="trabalho-academico-nao" name="trabalho-academico-sn" value="nao">
-                <label for="trabalho-academico-nao">Não</label><br><br />
-            </div>
-            -->
 
             <div id="curso-nome">
                 <label for="curso-manual">Nome do curso *</label><br>

@@ -435,7 +435,9 @@ function getDescricaoFisica() {
 
     //Material gráfico (Imagens)
 
+    const ilChecked = document.getElementById('img-ilustracoes').checked;
     const coloracaoIl = document.querySelector('input[name="il-coloracao"]:checked')?.value;
+    const fotosChecked = document.getElementById('img-fotos').checked;
     const coloracaoFotos = document.querySelector('input[name="fotos-coloracao"]:checked')?.value;
     const mapasChecked = document.querySelector('#img-mapas:checked');
     const formulasChecked = document.querySelector('#img-formulas:checked');
@@ -445,24 +447,28 @@ function getDescricaoFisica() {
     let mapas = "";
     let formulas = "";
 
-    if (coloracaoIl === "il-cores") {
-        ilustracoes = "il. color."
-    } else if (coloracaoIl === "il-pb") {
-        ilustracoes = "il. p&b"
-    } else if (coloracaoIl === "il") {
+    if (ilChecked) {
         ilustracoes = "il."
+    }
+
+    if (coloracaoIl === "il-cores") {
+        ilustracoes = ilustracoes + " color."
+    } else if (coloracaoIl === "il-pb") {
+        ilustracoes = ilustracoes + " p&b"
     } else {
-        ilustracoes = "";
+        ilustracoes = ilustracoes;
+    }
+
+    if (fotosChecked) {
+        fotos = "fotos"
     }
 
     if (coloracaoFotos === "foto-cores") {
-        fotos = "fotos color."
+        fotos = fotos + " color."
     } else if (coloracaoFotos === "foto-pb") {
-        fotos = "fotos p&b"
-    } else if (coloracaoFotos === "foto") {
-        fotos = "fotos"
+        fotos = fotos + " p&b"
     } else {
-        fotos = "";
+        fotos = fotos;
     }
 
     if (mapasChecked) {
